@@ -1,0 +1,10 @@
+@use '../layout/' as *;
+
+header {
+    @include area-padding;
+
+    a > img {
+        max-width: 40vw;
+        margin-bottom: 1.5rem;
+    }
+}
