@@ -36,12 +36,16 @@ fieldset {
 
 nav {
   text-align: center;
-  margin-bottom: 1rem;
 }
 nav > ul {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+}
+@media all and (min-width: 1180px) {
+  nav {
+    margin-top: -1.75rem;
+  }
 }
 
 .filter-option {
@@ -94,11 +98,48 @@ nav > ul {
 header {
   padding: 1.5rem 1rem;
 }
+@media all and (min-width: 682px) {
+  header {
+    padding: 2rem 1.5rem;
+  }
+}
+@media all and (min-width: 1024px) {
+  header {
+    padding: 2.5rem 2rem;
+  }
+}
 header a > img {
   max-width: 40vw;
   margin-bottom: 1.5rem;
 }
+@media all and (min-width: 1024px) {
+  header a > img {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+}
+@media all and (min-width: 1180px) {
+  header {
+    max-width: 70vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
 
+main {
+  padding: 1.5rem 1rem;
+}
+@media all and (min-width: 682px) {
+  main {
+    padding: 2rem 1.5rem;
+  }
+}
+@media all and (min-width: 1024px) {
+  main {
+    padding: 2.5rem 2rem;
+  }
+}
 main > h1 {
   color: #901c1c;
   font-size: 1rem;
@@ -110,6 +151,15 @@ main > h1 {
 @media all and (min-width: 666px) {
   main > h1 {
     font-size: 1.5rem;
+    top: 2.5rem;
+    right: 1.5rem;
+  }
+}
+@media all and (min-width: 1024px) {
+  main > h1 {
+    font-size: 2rem;
+    top: 2.75rem;
+    right: 4rem;
   }
 }
 

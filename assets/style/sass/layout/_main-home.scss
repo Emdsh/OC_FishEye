@@ -1,6 +1,8 @@
 @use '../layout/' as *;
 
 main {
+    @include area-padding;
+
     > h1 {
         color: color(primary);
         font-size: 1rem;
@@ -11,6 +13,14 @@ main {
 
         @media all and (min-width: 666px) {
             font-size: 1.5rem;
+            top: 2.5rem;
+            right: 1.5rem;
+        }
+
+        @media all and (min-width: 1024px) {
+            font-size: 2rem;
+            top: 2.75rem;
+            right: 4rem;
         }
     }
 }
