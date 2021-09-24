@@ -1,8 +1,14 @@
+@use '../base/' as *;
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
     box-sizing: border-box;
+
+    &:focus {
+        outline: color(primary) solid 2px;
+    }
 }
 
 ul, ol {
@@ -11,7 +17,7 @@ ul, ol {
 
 a {
     text-decoration: none;
-    color: black;
+    color: color(dark);
     display: block;
 }
 

@@ -19,9 +19,10 @@ nav {
     font-size: .75rem;
 
     &:hover, &:focus {
+        outline: none;
         color: color(light);
         background: color(primary);
-        border-color: color(primary);
+        border: color(primary) solid 1px;
     }
 }
 
