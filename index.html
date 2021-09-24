@@ -94,23 +94,23 @@
         </header>
 
         <main id="main">
-            <h1 tabindex="0">Nos Photographes</h1>
+            <h1 tabindex="0">Nos photographes</h1>
 
-            <article id="photographe-1">
+            <article id="photographe-1" class="photograph">
                 <a href="" aria-label="Mimi Keel">
                     <figure>
-                        <img src="/assets/images/photographers/mimi/id/MimiKeel.jpg" alt="">
+                        <img src="/assets/images/photographers/mimi/id/MimiKeel.jpg" alt="" class="photograph__picture">
                         
                         <figcaption>
-                            <h2>Mimi Keel</h2>
+                            <h2 class="photograph__name">Mimi Keel</h2>
                         </figcaption>
                     </figure>
                 </a>
 
                 <div tabindex="0">
-                    <p>London, UK</p>
-                    <p>Voir le beau dans le quotidien</p>
-                    <p>400€/jour</p>
+                    <p class="photograph__location">London, UK</p>
+                    <p class="photograph__description">Voir le beau dans le quotidien</p>
+                    <p class="photograph__pricing">400€/jour</p>
                 </div>
 
                 <footer>
@@ -118,30 +118,42 @@
                         <a href="#photographe-2" class="skip-link">Passer ce menu</a>
 
                         <ul role="menubar">
-                            <li role="menuitem"><a href=""><span>portrait</span>#portrait</a></li>
-                            <li role="menuitem"><a href=""><span>évènements</span>#évènements</a></li>
-                            <li role="menuitem"><a href=""><span>voyage</span>#voyage</a></li>
-                            <li role="menuitem"><a href=""><span>animaux</span>#animaux</a></li>
+                            <li role="menuitem">
+                                <span class="screenreader-only">portrait</span>
+                                <a href="" class="filter-option" aria-hidden="true">#portrait</a>
+                            </li>
+                            <li role="menuitem">
+                                <span class="screenreader-only">évènements</span>
+                                <a href="" class="filter-option" aria-hidden="true">#évènements</a>
+                            </li>
+                            <li role="menuitem">
+                                <span class="screenreader-only">voyage</span>
+                                <a href="" class="filter-option" aria-hidden="true">#voyage</a>
+                            </li>
+                            <li role="menuitem">
+                                <span class="screenreader-only">animaux</span>
+                                <a href="" class="filter-option" aria-hidden="true">#animaux</a>
+                            </li>
                         </ul>
                     </nav>
                 </footer>
             </article>
 
-            <article id="photographe-2">
+            <article id="photographe-2" class="photograph">
                 <a href="" aria-label="Ellie-Rose Wilkens">
                     <figure>
-                        <img src="./assets/images/photographers/ellie_rose/id/EllieRoseWilkens.jpg" alt="">
+                        <img src="./assets/images/photographers/ellie_rose/id/EllieRoseWilkens.jpg" alt="" class="photograph__picture">
 
                         <figcaption>
-                            <h2>Ellie-Rose Wilkens</h2>
+                            <h2 class="photograph__name">Ellie-Rose Wilkens</h2>
                         </figcaption>
                     </figure>
                 </a>
 
                 <div>
-                    <p>Paris, France</p>
-                    <p>Travaille sur des compositions complexes</p>
-                    <p>250€/jour</p>
+                    <p class="photograph__location">Paris, France</p>
+                    <p class="photograph__description">Travaille sur des compositions complexes</p>
+                    <p class="photograph__pricing">250€/jour</p>
                 </div>
 
                 <footer>
@@ -149,28 +161,34 @@
                         <a href="#photographe-3" class="skip-link">Passer ce menu</a>
 
                         <ul>
-                            <li><a href=""><span>sports</span>#sports</a></li>
-                            <li><a href=""><span>architecture</span>#architecture</a></li>
+                            <li>
+                                <span class="screenreader-only">sports</span>
+                                <a href="" class="filter-option" aria-hidden="true">#sports</a>
+                            </li>
+                            <li>
+                                <span class="screenreader-only">architecture</span>
+                                <a href="" class="filter-option" aria-hidden="true">#architecture</a>
+                            </li>
                         </ul>
                     </nav>
                 </footer>
             </article>
 
-            <article id="photographe-3">
+            <article id="photographe-3" class="photograph">
                 <a href="" aria-label="Tracy Galindo">
                     <figure>
-                        <img src="./assets/images/photographers/tracy/id/TracyGalindo.jpg" alt="">
+                        <img src="./assets/images/photographers/tracy/id/TracyGalindo.jpg" alt="" class="photograph__picture">
 
                         <figcaption>
-                            <h2>Tracy Galindo</h2>
+                            <h2 class="photograph__name">Tracy Galindo</h2>
                         </figcaption>
                     </figure>
                 </a>
 
                 <div>
-                    <p>Montreal, Canada</p>
-                    <p>Photographe freelance</p>
-                    <p>500€/jour</p>
+                    <p class="photograph__location">Montreal, Canada</p>
+                    <p class="photograph__description">Photographe freelance</p>
+                    <p class="photograph__pricing">500€/jour</p>
                 </div>
 
                 <footer>
@@ -178,29 +196,38 @@
                         <a href="#photographe-4" class="skip-link">Passer ce menu</a>
 
                         <ul>
-                            <li><a href=""><span>art</span>#art</a></li>
-                            <li><a href=""><span>fashion</span>#fashion</a></li>
-                            <li><a href=""><span>évènements</span>#évènements</a></li>
+                            <li>
+                                <span class="screenreader-only">art</span>
+                                <a href="" class="filter-option" aria-hidden="true">#art</a>
+                            </li>
+                            <li>
+                                <span class="screenreader-only">fashion</span>
+                                <a href="" class="filter-option" aria-hidden="true">#fashion</a>
+                            </li>
+                            <li>
+                                <span class="screenreader-only">évènements</span>
+                                <a href="" class="filter-option" aria-hidden="true">#évènements</a>
+                            </li>
                         </ul>
                     </nav>
                 </footer>
             </article>
 
-            <article id="photographe-4">
+            <article id="photographe-4" class="photograph">
                 <a href="" aria-label="Nabeel Bradford">
                     <figure>
-                        <img src="./assets/images/photographers/nabeel/id/NabeelBradford.jpg" alt="">
+                        <img src="./assets/images/photographers/nabeel/id/NabeelBradford.jpg" alt="" class="photograph__picture">
 
                         <figcaption>
-                            <h2>Nabeel Bradford</h2>
+                            <h2 class="photograph__name">Nabeel Bradford</h2>
                         </figcaption>
                     </figure>
                 </a>
 
                 <div>
-                    <p>Mexico City, Mexico</p>
-                    <p>Je vais toujours de l'avant</p>
-                    <p>350€/jour</p>
+                    <p class="photograph__location">Mexico City, Mexico</p>
+                    <p class="photograph__description">Je vais toujours de l'avant</p>
+                    <p class="photograph__pricing">350€/jour</p>
                 </div>
 
                 <footer>
@@ -208,28 +235,34 @@
                         <a href="#photographe-5" class="skip-link">Passer ce menu</a>
 
                         <ul>
-                            <li><a href=""><span>voyage</span>#voyage</a></li>
-                            <li><a href=""><span>portrait</span>#portrait</a></li>
+                            <li>
+                                <span class="screenreader-only">voyage</span>
+                                <a href="" class="filter-option" aria-hidden="true">#voyage</a>
+                            </li>
+                            <li>
+                                <span class="screenreader-only">portrait</span>
+                                <a href="" class="filter-option" aria-hidden="true">#portrait</a>
+                            </li>
                         </ul>
                     </nav>
                 </footer>
             </article>
 
-            <article id="photographe-5">
+            <article id="photographe-5" class="photograph">
                 <a href="" aria-label="Rhode Dubois">
                     <figure>
-                        <img src="./assets/images/photographers/rhode/id/RhodeDubois.jpg" alt="">
+                        <img src="./assets/images/photographers/rhode/id/RhodeDubois.jpg" alt="" class="photograph__picture">
 
                         <figcaption>
-                            <h2>Rhode Dubois</h2>
+                            <h2 class="photograph__name">Rhode Dubois</h2>
                         </figcaption>
                     </figure>
                 </a>
 
                 <div>
-                    <p>Barcelona, Spain</p>
-                    <p>Créatrice de souvenir</p>
-                    <p>375€/jour</p>
+                    <p class="photograph__location">Barcelona, Spain</p>
+                    <p class="photograph__description">Créatrice de souvenir</p>
+                    <p class="photograph__pricing">375€/jour</p>
                 </div>
 
                 <footer>
@@ -237,30 +270,42 @@
                         <a href="#photographe-6" class="skip-link">Passer ce menu</a>
 
                         <ul>
-                            <li><a href=""><span>sport</span>#sport</a></li>
-                            <li><a href=""><span>fashion</span>#fashion</a></li>
-                            <li><a href=""><span>évènements</span>#évènements</a></li>
-                            <li><a href=""><span>animaux</span>#animaux</a></li>
+                            <li>
+                                <span class="screenreader-only">sport</span>
+                                <a href="" class="filter-option" aria-hidden="true">#sport</a>
+                            </li>
+                            <li>
+                                <span class="screenreader-only">fashion</span>
+                                <a href="" class="filter-option" aria-hidden="true">#fashion</a>
+                            </li>
+                            <li>
+                                <span class="screenreader-only">évènements</span>
+                                <a href="" class="filter-option" aria-hidden="true">#évènements</a>
+                            </li>
+                            <li>
+                                <span class="screenreader-only">animaux</span>
+                                <a href="" class="filter-option" aria-hidden="true">#animaux</a>
+                            </li>
                         </ul>
                     </nav>
                 </footer>
             </article>
 
-            <article id="photographe-6">
+            <article id="photographe-6" class="photograph">
                 <a href="" aria-label="Marcel Nikolic">
                     <figure>
-                        <img src="./assets/images/photographers/marcel/id/MarcelNikolic.jpg" alt="">
+                        <img src="./assets/images/photographers/marcel/id/MarcelNikolic.jpg" alt="" class="photograph__picture">
 
                         <figcaption>
-                            <h2>Marcel Nikolic</h2>
+                            <h2 class="photograph__name">Marcel Nikolic</h2>
                         </figcaption>
                     </figure>
                 </a>
 
                 <div>
-                    <p>Berlin, Germany</p>
-                    <p>Toujours à la recherche de LA photo</p>
-                    <p>300€/jour</p>
+                    <p class="photograph__location">Berlin, Germany</p>
+                    <p class="photograph__description">Toujours à la recherche de LA photo</p>
+                    <p class="photograph__pricing">300€/jour</p>
                 </div>
 
                 <footer>
@@ -268,8 +313,14 @@
                         <a href="" class="skip-link">Passer ce menu</a>
 
                         <ul>
-                            <li><a href=""><span>voyage</span>#voyage</a></li>
-                            <li><a href=""><span>architecture</span>#architecture</a></li>
+                            <li>
+                                <span class="screenreader-only">voyage</span>
+                                <a href="" class="filter-option" aria-hidden="true">#voyage</a>
+                            </li>
+                            <li>
+                                <span class="screenreader-only">architecture</span>
+                                <a href="" class="filter-option" aria-hidden="true">#architecture</a>
+                            </li>
                         </ul>
                     </nav>
                 </footer>

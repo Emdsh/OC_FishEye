@@ -1,0 +1,48 @@
+@use '../layout/' as *;
+
+main {
+    > h1 {
+    color: color(primary);
+    font-size: 1rem;
+    font-weight: 100;
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+    }
+}
+
+.photograph {
+    margin-top: 1.5rem;
+    text-align: center;
+
+    &__picture {
+        width: 60vw;
+        height: 60vw;
+        object-position: center;
+        object-fit: cover;
+        display: block;
+        overflow: hidden;
+        border-radius: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__name {
+        color: color(secondary);
+        font-weight: 100;
+        font-size: 2rem;
+    }
+
+    &__location {
+        color: color(primary);
+    }
+
+    &__description {
+        font-size: .75rem;
+    }
+
+    &__pricing {
+        font-size: .75rem;
+        color: lighten(color(dark), 46);
+    }
+}
