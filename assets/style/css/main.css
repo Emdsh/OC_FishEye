@@ -4,6 +4,9 @@
   border: 0;
   box-sizing: border-box;
 }
+*:focus {
+  outline: #901c1c solid 2px;
+}
 
 ul, ol {
   list-style: none;
@@ -11,7 +14,7 @@ ul, ol {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #000;
   display: block;
 }
 
@@ -52,9 +55,10 @@ nav > ul {
   font-size: 0.75rem;
 }
 .filter-option:hover, .filter-option:focus {
+  outline: none;
   color: #fff;
   background: #901c1c;
-  border-color: #901c1c;
+  border: #901c1c solid 1px;
 }
 
 @media all and (min-width: 1180px) {
@@ -62,6 +66,10 @@ nav > ul {
     margin-top: -1.75rem;
   }
 }
+nav {
+  position: relative;
+}
+
 .skip-link {
   border: 0;
   padding: 0;
@@ -74,7 +82,9 @@ nav > ul {
   position: absolute;
 }
 .skip-link:focus {
-  position: static;
+  top: 0.35rem;
+  left: 0;
+  right: 0;
   height: auto;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -82,15 +92,16 @@ nav > ul {
   padding: 0.1rem 0.5rem;
   margin: auto;
   overflow: auto;
-  clip: auto;
+  -webkit-clip-path: auto;
+          clip-path: auto;
   border-radius: 0.25rem;
   background: #d3573c;
   color: #000;
+  outline: none;
 }
 .skip-link--main:focus {
   position: fixed;
-  margin-top: 0.5rem;
-  top: 0;
+  top: 0.5rem;
   left: 0;
   right: 0;
 }
@@ -108,12 +119,15 @@ header {
     padding: 2.5rem 2rem;
   }
 }
-header a > img {
-  max-width: 40vw;
+header .logo {
   margin-bottom: 1.5rem;
 }
+header .logo > img {
+  max-width: 40vw;
+  margin: 0 1px;
+}
 @media all and (min-width: 1024px) {
-  header a > img {
+  header .logo {
     margin-right: 2rem;
     margin-left: 2rem;
   }

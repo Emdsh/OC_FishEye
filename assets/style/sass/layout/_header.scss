@@ -3,10 +3,14 @@
 header {
     @include area-padding;
 
-    a > img {
-        max-width: 40vw;
+    .logo {
         margin-bottom: 1.5rem;
-        
+
+        > img {
+            max-width: 40vw;
+            margin: 0 1px;
+        }
+
         @media all and (min-width: 1024px) {
             margin-right: 2rem;
             margin-left: 2rem;

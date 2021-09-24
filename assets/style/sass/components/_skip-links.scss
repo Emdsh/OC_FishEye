@@ -1,5 +1,9 @@
 @use '../components/'as *;
 
+nav {
+    position: relative;
+}
+
 .skip-link {
     border: 0;
     padding: 0;
@@ -11,22 +15,25 @@
     position: absolute;
 
     &:focus {
-        position: static;
+        // top: -1.5rem;
+        top: .35rem;
+        left: 0;
+        right: 0;
         height: auto;
         width: fit-content;
         padding: .1rem .5rem;
         margin: auto;
         overflow: auto;
-        clip: auto;
+        clip-path: auto;
         border-radius: .25rem;
         background: color(secondary);
         color: color(dark);
+        outline: none;
     }
 
     &--main:focus {
         position: fixed;
-        margin-top: .5rem;
-        top: 0;
+        top: .5rem;
         left: 0;
         right: 0;
     }
