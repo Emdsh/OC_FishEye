@@ -8,10 +8,6 @@ nav {
         flex-flow: row wrap;
         justify-content: center;
     }
-
-    @media all and (min-width: 1180px) {
-        margin-top: -1.75rem;
-    }
 }
 
 .filter-option {
@@ -26,5 +22,11 @@ nav {
         color: color(light);
         background: color(primary);
         border-color: color(primary);
+    }
+}
+
+@media all and (min-width: 1180px) {
+    .top-nav {
+        margin-top: -1.75rem;
     }
 }

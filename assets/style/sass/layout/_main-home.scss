@@ -23,6 +23,13 @@ main {
             right: 4rem;
         }
     }
+
+    @media all and (min-width: 800px) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: 1rem;
+    }
 }
 
 .photograph {
@@ -39,6 +46,11 @@ main {
         border-radius: 50%;
         margin-left: auto;
         margin-right: auto;
+
+        @media all and (min-width: 800px) {
+            width: 20vw;
+            height: 20vw;
+        }
     }
 
     &__name {
@@ -59,5 +71,10 @@ main {
     &__pricing {
         font-size: .75rem;
         color: lighten(color(dark), 46);
+    }
+
+    @media all and (min-width: 800px) {
+        width: 30vw;
+
     }
 }

@@ -42,11 +42,6 @@ nav > ul {
   flex-flow: row wrap;
   justify-content: center;
 }
-@media all and (min-width: 1180px) {
-  nav {
-    margin-top: -1.75rem;
-  }
-}
 
 .filter-option {
   color: #901c1c;
@@ -62,6 +57,11 @@ nav > ul {
   border-color: #901c1c;
 }
 
+@media all and (min-width: 1180px) {
+  .top-nav {
+    margin-top: -1.75rem;
+  }
+}
 .skip-link {
   border: 0;
   padding: 0;
@@ -162,6 +162,14 @@ main > h1 {
     right: 4rem;
   }
 }
+@media all and (min-width: 800px) {
+  main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
 
 .photograph {
   margin-bottom: 2rem;
@@ -180,6 +188,12 @@ main > h1 {
   margin-left: auto;
   margin-right: auto;
 }
+@media all and (min-width: 800px) {
+  .photograph__picture {
+    width: 20vw;
+    height: 20vw;
+  }
+}
 .photograph__name {
   color: #d3573c;
   margin-top: 2rem;
@@ -195,4 +209,9 @@ main > h1 {
 .photograph__pricing {
   font-size: 0.75rem;
   color: #757575;
+}
+@media all and (min-width: 800px) {
+  .photograph {
+    width: 30vw;
+  }
 }
