@@ -6,6 +6,11 @@
 }
 *:focus {
   outline: #901c1c solid 2px;
+  border-radius: 0.25rem;
+}
+
+nav {
+  position: relative;
 }
 
 ul, ol {
@@ -37,16 +42,15 @@ fieldset {
   font-family: "DM Sans", sans-serif;
 }
 
-nav {
+.filter {
   text-align: center;
 }
-nav > ul {
+.filter__list {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
-
-.filter-option {
+.filter__option {
   color: #901c1c;
   margin: 0.25rem;
   padding: 0.25rem 0.5rem;
@@ -54,7 +58,7 @@ nav > ul {
   border-radius: 1rem;
   font-size: 0.75rem;
 }
-.filter-option:hover, .filter-option:focus {
+.filter__option:hover, .filter__option:focus {
   outline: none;
   color: #fff;
   background: #901c1c;
@@ -66,10 +70,6 @@ nav > ul {
     margin-top: -1.75rem;
   }
 }
-nav {
-  position: relative;
-}
-
 .skip-link {
   border: 0;
   padding: 0;
@@ -154,7 +154,7 @@ main {
     padding: 2.5rem 2rem;
   }
 }
-main > h1 {
+main .home-title {
   color: #901c1c;
   font-size: 1rem;
   font-weight: 100;
@@ -163,33 +163,24 @@ main > h1 {
   top: 2rem;
 }
 @media all and (min-width: 666px) {
-  main > h1 {
+  main .home-title {
     font-size: 1.5rem;
     top: 2.5rem;
     right: 1.5rem;
   }
 }
 @media all and (min-width: 1024px) {
-  main > h1 {
+  main .home-title {
     font-size: 2rem;
     top: 2.75rem;
     right: 4rem;
   }
 }
-@media all and (min-width: 800px) {
-  main {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-}
-
-.photograph {
+main .home-photograph {
   margin-bottom: 2rem;
   text-align: center;
 }
-.photograph__picture {
+main .home-photograph__picture {
   width: 60vw;
   height: 60vw;
   -o-object-position: center;
@@ -203,29 +194,43 @@ main > h1 {
   margin-right: auto;
 }
 @media all and (min-width: 800px) {
-  .photograph__picture {
+  main .home-photograph__picture {
     width: 20vw;
     height: 20vw;
   }
 }
-.photograph__name {
+main .home-photograph__name {
   color: #d3573c;
   margin-top: 2rem;
   font-weight: 100;
   font-size: 2rem;
 }
-.photograph__location {
+main .home-photograph__location {
   color: #901c1c;
 }
-.photograph__description {
+main .home-photograph__description {
   font-size: 0.75rem;
 }
-.photograph__pricing {
+main .home-photograph__pricing {
   font-size: 0.75rem;
   color: #757575;
 }
 @media all and (min-width: 800px) {
-  .photograph {
+  main .home-photograph {
     width: 30vw;
   }
+}
+@media all and (min-width: 800px) {
+  main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+
+main > section > h1 {
+  color: #d3573c;
+  font-weight: 100;
+  font-size: 2rem;
 }
