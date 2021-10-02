@@ -8,7 +8,12 @@
 
     &:focus {
         outline: color(primary) solid 2px;
+        border-radius: .25rem;
     }
+}
+
+nav {
+    position: relative;
 }
 
 ul, ol {
