@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -229,8 +230,101 @@ main .home-photograph__pricing {
   }
 }
 
-main > section > h1 {
+.photograph-tile {
+  position: relative;
+  top: -3rem;
+  padding: 1.5rem 1rem;
+}
+@media all and (min-width: 682px) {
+  .photograph-tile {
+    padding: 2rem 1.5rem;
+  }
+}
+@media all and (min-width: 1024px) {
+  .photograph-tile {
+    padding: 2.5rem 2rem;
+  }
+}
+.photograph-tile__title {
   color: #d3573c;
   font-weight: 100;
   font-size: 2rem;
+}
+.photograph-tile__location {
+  color: #901c1c;
+}
+.photograph-tile__description {
+  font-size: 0.75rem;
+}
+.photograph-tile__contact-button {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.25rem;
+  color: #fff;
+  background-color: #901c1c;
+  font-weight: 800;
+  position: fixed;
+  bottom: 1.5rem;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+}
+.photograph-tile__contact-button:hover {
+  color: #000;
+  background-color: #d3573c;
+}
+.photograph-tile__picture {
+  width: 25vw;
+  height: 25vw;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 0;
+  right: 1rem;
+}
+.photograph-tile__inserts {
+  display: none;
+}
+
+.filter__list--photographer-tile {
+  justify-content: flex-start;
+  margin-left: -0.25rem;
+  width: 75vw;
+}
+
+.sort-menu {
+  display: none;
+}
+
+.portfolio__element {
+  position: relative;
+  top: -3rem;
+  padding-bottom: 1rem;
+}
+.portfolio__element-media {
+  width: calc(100vw - 2rem);
+  height: 12.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 0.5rem;
+}
+.portfolio__element-metadata {
+  display: flex;
+  justify-content: space-between;
+  color: #901c1c;
+  padding-top: 0.25rem;
+}
+.portfolio__element-likes::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  content: " ";
 }

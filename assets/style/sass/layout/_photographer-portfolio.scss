@@ -1,0 +1,32 @@
+@use '../layout' as *;
+
+.portfolio {
+    &__element {
+        position: relative;
+        top: -3rem;
+        padding-bottom: 1rem;
+
+        &-media {
+            width: calc(100vw - 2rem);
+            height: 12.5rem;
+            object-fit: cover;
+            object-position: center;
+            border-radius: .5rem;
+        }
+
+        &-metadata {
+            display: flex;
+            justify-content: space-between;
+            color: color(primary);
+            padding-top: .25rem;
+        }
+
+        // &-title {}
+
+        &-likes::after {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 700;
+            content: " \f004";
+        }
+    }
+}
