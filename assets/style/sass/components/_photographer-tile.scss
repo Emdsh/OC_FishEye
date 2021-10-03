@@ -5,10 +5,16 @@
     top: -3rem;
     @include area-padding;
 
+    @media all and (min-width: 1024px) {
+        background-color: color(light, darker);
+        @include area-margin;
+        border-radius: .5rem;
+    }
+
     &__title {
         color: color(secondary);
-    font-weight: 100;
-    font-size: 2rem;
+        font-weight: 100;
+        font-size: 2rem;
     }
 
     &__location {
@@ -32,9 +38,18 @@
         left: 0;
         z-index: 9999;
 
+        @media all and (min-width: 1024px) {
+            position: absolute;
+            z-index: unset;
+            top: 2.5rem;
+            bottom: auto;
+            padding: .75rem .5rem;
+        }
+
         &:hover {
             color: color(dark);
             background-color: color(secondary);
+            cursor: pointer;
         }
     }
 
@@ -51,6 +66,17 @@
         position: absolute;
         top: 0;
         right: 1rem;
+
+        @media all and (min-width: 682px) {
+            right: 1.5rem;
+        }
+
+        @media all and (min-width: 1024px) {
+            right: 2rem;
+            top: 2rem;
+            width: 13vw;
+            height: 13vw;
+        }
     }
 
     &__inserts {

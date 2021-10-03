@@ -89,14 +89,15 @@
             </div>
         </section>
 
-        <nav class="sort-menu">
-            <p>Trier par</p>
-            <ul>
-                <li>Popularité</li>
-                <li>Date</li>
-                <li>Titre</li>
-            </ul>
-        </nav>
+        <div class="sort-menu">
+            <label for="sorting-menu" class="sort-menu__text">Trier par</label>
+            
+            <select name="sorting-menu" id="sorting-menu" class="sort-menu__dropdown">
+                <option value="popularity"class="sort-menu__item">Popularité</option>
+                <option value="date"class="sort-menu__item">Date</option>
+                <option value="title"class="sort-menu__item">Titre</option>
+            </select>
+        </div>
 
         <main class="portfolio">
             <figure class="portfolio__element">

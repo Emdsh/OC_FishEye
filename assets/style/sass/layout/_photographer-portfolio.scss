@@ -1,6 +1,12 @@
 @use '../layout' as *;
 
 .portfolio {
+    @media all and (min-width: 800px) {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 2rem;
+    }
+
     &__element {
         position: relative;
         top: -3rem;
@@ -12,6 +18,15 @@
             object-fit: cover;
             object-position: center;
             border-radius: .5rem;
+
+            @media all and (min-width: 682px) {
+                width: calc(100vw - 3rem);
+            }
+
+            @media all and (min-width: 800px) {
+                width: 28.5vw;
+                height: 28.5vw;
+            }
         }
 
         &-metadata {
