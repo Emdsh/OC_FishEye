@@ -269,7 +269,6 @@ main .home-photograph__pricing {
   color: #d3573c;
   font-weight: 100;
   font-size: 2rem;
-  display: inline-block;
 }
 .photograph-tile__location {
   color: #901c1c;
@@ -301,7 +300,7 @@ main .home-photograph__pricing {
     transform: translate(0, 0);
   }
 }
-.photograph-tile__contact-button:hover {
+.photograph-tile__contact-button:hover, .photograph-tile__contact-button:focus {
   color: #000;
   background-color: #d3573c;
   cursor: pointer;
@@ -354,6 +353,11 @@ main .home-photograph__pricing {
     justify-content: space-between;
   }
 }
+.photograph-tile__inserts:focus {
+  outline: none;
+  background-color: #901c1c;
+  color: #fff;
+}
 .photograph-tile__likes::after {
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
@@ -399,6 +403,10 @@ main .home-photograph__pricing {
     padding: 0.5rem;
     border-radius: 0.5rem;
     font-size: 1rem;
+  }
+  .sort-menu__dropdown:focus {
+    background-color: #d3573c;
+    color: #000;
   }
 }
 

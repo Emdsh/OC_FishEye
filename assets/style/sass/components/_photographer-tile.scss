@@ -18,7 +18,6 @@
         color: color(secondary);
         font-weight: 100;
         font-size: 2rem;
-        display: inline-block;
     }
 
     &__location {
@@ -52,7 +51,7 @@
             transform: translate(0, 0);
         }
 
-        &:hover {
+        &:hover, &:focus {
             color: color(dark);
             background-color: color(secondary);
             cursor: pointer;
@@ -101,6 +100,12 @@
             padding: 1rem 1.5rem;
             width: 15rem;
             justify-content: space-between;
+        }
+
+        &:focus {
+            outline: none;
+            background-color: color(primary);
+            color: color(light);
         }
     }
 
