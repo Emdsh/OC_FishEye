@@ -49,41 +49,47 @@
         </header>
 
         <section class="photograph-tile">
-            <h1 tabindex="0" class="photograph-tile__title">Mimi Keel</h1>
+            <div id="photograph-tile__info">
+                <h1 tabindex="0" class="photograph-tile__title">Mimi Keel</h1>
 
-            <div tabindex="0">
-                <p class="photograph-tile__location">London, UK</p>
-                <p class="photograph-tile__description">Voir le beau dans le quotidien</p>
+                <div tabindex="0">
+                    <p class="photograph-tile__location">London, UK</p>
+                    <p class="photograph-tile__description">Voir le beau dans le quotidien</p>
+                </div>
+
+                <nav class="filter">
+                    <a href="" class="skip-link">Passer ce menu</a>
+
+                    <ul class="filter__list filter__list--photographer-tile">
+                        <li>
+                            <span class="screenreader-only">portrait</span>
+                            <a href="" class="filter__option" aria-hidden="true">#portrait</a>
+                        </li>
+                        <li>
+                            <span class="screenreader-only">évènements</span>
+                            <a href="" class="filter__option" aria-hidden="true">#évènements</a>
+                        </li>
+                        <li>
+                            <span class="screenreader-only">voyage</span>
+                            <a href="" class="filter__option" aria-hidden="true">#voyage</a>
+                        </li>
+                        <li>
+                            <span class="screenreader-only">animaux</span>
+                            <a href="" class="filter__option" aria-hidden="true">#animaux</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
 
-            <nav class="filter">
-                <a href="" class="skip-link">Passer ce menu</a>
+            <div id="photograph-tile__contact">
+                <button class="photograph-tile__contact-button">Contactez-moi</button>
+            </div>
 
-                <ul class="filter__list filter__list--photographer-tile">
-                    <li>
-                        <span class="screenreader-only">portrait</span>
-                        <a href="" class="filter__option" aria-hidden="true">#portrait</a>
-                    </li>
-                    <li>
-                        <span class="screenreader-only">évènements</span>
-                        <a href="" class="filter__option" aria-hidden="true">#évènements</a>
-                    </li>
-                    <li>
-                        <span class="screenreader-only">voyage</span>
-                        <a href="" class="filter__option" aria-hidden="true">#voyage</a>
-                    </li>
-                    <li>
-                        <span class="screenreader-only">animaux</span>
-                        <a href="" class="filter__option" aria-hidden="true">#animaux</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <button class="photograph-tile__contact-button">Contactez-moi</button>
-
-            <img src="../assets/images/photographers/mimi/id/MimiKeel.jpg" alt="" class="photograph-tile__picture">
-
-            <div  class="photograph-tile__inserts">
+            <div id="photograph-tile__picture-container">
+                <img src="../assets/images/photographers/mimi/id/MimiKeel.jpg" alt="" class="photograph-tile__picture">
+            </div>
+            
+            <div class="photograph-tile__inserts">
                 <p class="photograph-tile__likes">297081</p>
                 <p class="photograph-tile__price">300€/jour</p>
             </div>
@@ -91,11 +97,11 @@
 
         <div class="sort-menu">
             <label for="sorting-menu" class="sort-menu__text">Trier par</label>
-            
+
             <select name="sorting-menu" id="sorting-menu" class="sort-menu__dropdown">
-                <option value="popularity"class="sort-menu__item">Popularité</option>
-                <option value="date"class="sort-menu__item">Date</option>
-                <option value="title"class="sort-menu__item">Titre</option>
+                <option value="popularity" class="sort-menu__item">Popularité</option>
+                <option value="date" class="sort-menu__item">Date</option>
+                <option value="title" class="sort-menu__item">Titre</option>
             </select>
         </div>
 
@@ -130,26 +136,26 @@
             <figure class="portfolio__element">
                 <img src="../assets/images/photographers/mimi/portfolio/Event_SeasideWedding.jpg" alt="" class="portfolio__element-media">
 
-                <figcapption class="portfolio__element-metadata">
+                <figcaption class="portfolio__element-metadata">
                     <p class="portfolio__element-title">Titre</p>
                     <p class="portfolio__element-likes">12</p>
-                </figcapption>
+                </figcaption>
             </figure>
 
             <figure class="portfolio__element">
                 <img src="../assets/images/photographers/mimi/portfolio/Portrait_Background.jpg" alt="" class="portfolio__element-media">
-                <figcapption class="portfolio__element-metadata">
+                <figcaption class="portfolio__element-metadata">
                     <p class="portfolio__element-title">Titre</p>
                     <p class="portfolio__element-likes">12</p>
-                </figcapption>
+                </figcaption>
             </figure>
 
             <figure class="portfolio__element">
                 <img src="../assets/images/photographers/mimi/portfolio/Portrait_Nora.jpg" alt="" class="portfolio__element-media">
-                <figcapption class="portfolio__element-metadata">
+                <figcaption class="portfolio__element-metadata">
                     <p class="portfolio__element-title">Titre</p>
                     <p class="portfolio__element-likes">12</p>
-                </figcapption>
+                </figcaption>
             </figure>
         </main>
     </body>

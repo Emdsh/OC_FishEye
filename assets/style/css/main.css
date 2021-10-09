@@ -250,6 +250,9 @@ main .home-photograph__pricing {
     background-color: #fafafa;
     margin: 1.5rem 1rem;
     border-radius: 0.5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 2rem;
   }
 }
 @media all and (min-width: 1024px) and (min-width: 682px) {
@@ -266,6 +269,7 @@ main .home-photograph__pricing {
   color: #d3573c;
   font-weight: 100;
   font-size: 2rem;
+  display: inline-block;
 }
 .photograph-tile__location {
   color: #901c1c;
@@ -281,18 +285,20 @@ main .home-photograph__pricing {
   font-weight: 800;
   position: fixed;
   bottom: 1.5rem;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0);
   margin: 0 auto;
-  right: 0;
-  left: 0;
   z-index: 9999;
 }
 @media all and (min-width: 1024px) {
   .photograph-tile__contact-button {
-    position: absolute;
+    position: unset;
     z-index: unset;
     top: 2.5rem;
     bottom: auto;
     padding: 0.75rem 0.5rem;
+    transform: translate(0, 0);
   }
 }
 .photograph-tile__contact-button:hover {
@@ -310,8 +316,7 @@ main .home-photograph__pricing {
   display: block;
   overflow: hidden;
   border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   position: absolute;
   top: 0;
   right: 1rem;
@@ -319,24 +324,46 @@ main .home-photograph__pricing {
 @media all and (min-width: 682px) {
   .photograph-tile__picture {
     right: 1.5rem;
+    width: 17.5vw;
+    height: 17.5vw;
   }
 }
 @media all and (min-width: 1024px) {
   .photograph-tile__picture {
+    position: absolute;
     right: 2rem;
     top: 2rem;
-    width: 13vw;
-    height: 13vw;
+    width: 134px;
+    height: 134px;
   }
 }
 .photograph-tile__inserts {
   display: none;
 }
+@media all and (min-width: 1024px) {
+  .photograph-tile__inserts {
+    display: flex;
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    right: 1rem;
+    background-color: #d3573c;
+    border-radius: 0.25rem 0.25rem 0 0;
+    padding: 1rem 1.5rem;
+    width: 15rem;
+    justify-content: space-between;
+  }
+}
+.photograph-tile__likes::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  content: " ";
+}
 
 .filter__list--photographer-tile {
   justify-content: flex-start;
   margin-left: -0.25rem;
-  width: 75vw;
+  max-width: 74vw;
 }
 
 .sort-menu {

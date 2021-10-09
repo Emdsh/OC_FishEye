@@ -9,12 +9,16 @@
         background-color: color(light, darker);
         @include area-margin;
         border-radius: .5rem;
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 2rem;
     }
 
     &__title {
         color: color(secondary);
         font-weight: 100;
         font-size: 2rem;
+        display: inline-block;
     }
 
     &__location {
@@ -33,17 +37,19 @@
         font-weight: 800;
         position: fixed;
         bottom: 1.5rem;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, 0);
         margin: 0 auto;
-        right: 0;
-        left: 0;
         z-index: 9999;
 
         @media all and (min-width: 1024px) {
-            position: absolute;
+            position: unset;
             z-index: unset;
             top: 2.5rem;
             bottom: auto;
             padding: .75rem .5rem;
+            transform: translate(0, 0);
         }
 
         &:hover {
@@ -61,31 +67,52 @@
         display: block;
         overflow: hidden;
         border-radius: 50%;
-        margin-left: auto;
-        margin-right: auto;
+        margin:  auto;
         position: absolute;
         top: 0;
         right: 1rem;
 
         @media all and (min-width: 682px) {
             right: 1.5rem;
+            width: 17.5vw;
+            height: 17.5vw;
         }
 
         @media all and (min-width: 1024px) {
+            position: absolute;
             right: 2rem;
             top: 2rem;
-            width: 13vw;
-            height: 13vw;
+            width: 134px;
+            height: 134px;
         }
     }
 
     &__inserts {
         display: none;
+
+        @media all and (min-width: 1024px) {
+            display: flex;
+            position: fixed;
+            z-index: 9999;
+            bottom: 0;
+            right: 1rem;
+            background-color: color(secondary);
+            border-radius: .25rem .25rem 0 0;
+            padding: 1rem 1.5rem;
+            width: 15rem;
+            justify-content: space-between;
+        }
+    }
+
+    &__likes::after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 700;
+        content: " \f004";
     }
 }
 
 .filter__list--photographer-tile {
     justify-content: flex-start;
     margin-left: -.25rem;
-    width: 75vw;
+    max-width: 74vw;
 }
