@@ -256,16 +256,15 @@ main .home-photograph__pricing {
   top: 1rem;
   width: 2rem;
   height: 2rem;
-  opacity: 1;
   cursor: pointer;
   transform: scale(0.75);
 }
 .contact-form__close::before, .contact-form__close::after {
   position: absolute;
   display: block;
-  left: 15px;
+  left: 1rem;
   content: " ";
-  height: 33px;
+  height: 2rem;
   width: 3px;
   background-color: #fff;
 }
@@ -305,6 +304,100 @@ main .home-photograph__pricing {
 #contact-form__message {
   height: 5rem;
   max-width: 100%;
+}
+
+.lightbox__background {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: #fff;
+}
+.lightbox__body {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0);
+  width: 90vh;
+}
+.lightbox__close {
+  position: absolute;
+  right: -4rem;
+  top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  transform: scale(1.5);
+}
+.lightbox__close::before, .lightbox__close::after {
+  position: absolute;
+  display: block;
+  left: 1rem;
+  content: "";
+  height: 2rem;
+  width: 3px;
+  background-color: #901c1c;
+}
+.lightbox__close::before {
+  transform: rotate(45deg);
+}
+.lightbox__close::after {
+  transform: rotate(-45deg);
+}
+.lightbox__forward, .lightbox__backward {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+.lightbox__forward::before, .lightbox__forward::after, .lightbox__backward::before, .lightbox__backward::after {
+  position: absolute;
+  display: block;
+  content: "";
+  left: 1rem;
+  height: 2rem;
+  width: 0.25rem;
+  background-color: #901c1c;
+}
+.lightbox__forward::before, .lightbox__backward::before {
+  transform: rotate(45deg);
+}
+.lightbox__forward::after, .lightbox__backward::after {
+  transform: rotate(-45deg);
+  top: 1.25rem;
+}
+.lightbox__forward {
+  transform: rotate(180deg) scale(1.5);
+  right: -4rem;
+  bottom: -45vh;
+}
+.lightbox__backward {
+  transform: scale(1.5);
+  left: -4rem;
+  bottom: -45vh;
+}
+.lightbox__content {
+  position: fixed;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0);
+}
+.lightbox__image {
+  width: 90vh;
+  height: 90vh;
+  border-radius: 0.25rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.lightbox__image-title {
+  color: #901c1c;
+  font-size: 1.25rem;
+  margin-top: 0.25rem;
 }
 
 .photograph-tile {

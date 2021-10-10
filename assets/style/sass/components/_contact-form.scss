@@ -30,16 +30,15 @@
         top: 1rem;
         width: 2rem;
         height: 2rem;
-        opacity: 1;
         cursor: pointer;
         transform: scale(.75);
 
         &::before, &::after {
             position: absolute;
             display: block;
-            left: 15px;
+            left: 1rem;
             content: " ";
-            height: 33px;
+            height: 2rem;
             width: 3px;
             background-color: color(light);
         }
