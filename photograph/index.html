@@ -95,6 +95,42 @@
             </div>
         </section>
 
+        <div class="contact-form__background">
+            <section class="contact-form__body">
+
+                <span class="contact-form__close"></span>
+
+                <div class="contact-form__content">
+                    <h1>Contactez-moi<br>Mimi Keel</h1>
+
+                    <form name="contact" action="index.html" id="contactForm">
+
+                        <div class="contact-form__input">
+                            <label for="contact-form__first-name" class="contact-form__text-label">Prénom</label>
+                            <input type="text" id="contact-form__first-name" name="firstName" minlength="2" required class="contact-form__text-input">
+                        </div>
+
+                        <div class="contact-form__input">
+                            <label for="contact-form__last-name" class="contact-form__text-label">Nom</label>
+                            <input type="text" id="contact-form__last-name" name="lastName" minlength="2" required class="contact-form__text-input">
+                        </div>
+
+                        <div class="contact-form__input">
+                            <label for="contact-form__email" class="contact-form__text-label">Email</label>
+                            <input type="email" id="contact-form__email" name="email" required class="contact-form__text-input">
+                        </div>
+
+                        <div class="contact-form__input">
+                            <label for="contact-form__message" class="contact-form__text-label">Votre message</label>
+                            <textarea type="text" id="contact-form__message" name="message" required class="contact-form__text-input"></textarea>
+                        </div>
+
+                        <button class="contact-form__submit-button" form="contact" type="button" value="Envoyer">Envoyer</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
         <div class="sort-menu">
             <label for="sorting-menu" class="sort-menu__text" tabindex="0">Trier par</label>
 

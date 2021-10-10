@@ -230,6 +230,83 @@ main .home-photograph__pricing {
   }
 }
 
+.contact-form__background {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.contact-form__body {
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0);
+  width: 20vw;
+  background-color: #d3573c;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+.contact-form__close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.75);
+}
+.contact-form__close::before, .contact-form__close::after {
+  position: absolute;
+  display: block;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+.contact-form__close::before {
+  transform: rotate(45deg);
+}
+.contact-form__close::after {
+  transform: rotate(-45deg);
+}
+.contact-form__content h1 {
+  margin-bottom: 1rem;
+}
+.contact-form__input {
+  margin-top: 0.25rem;
+}
+.contact-form__text-label, .contact-form__text-input {
+  display: block;
+}
+.contact-form__text-label {
+  color: #525252;
+}
+.contact-form__text-input {
+  width: 100%;
+  border-radius: 0.25rem;
+  height: 2rem;
+  padding: 0.25rem;
+}
+.contact-form__submit-button {
+  background-color: #901c1c;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+#contact-form__message {
+  height: 5rem;
+  max-width: 100%;
+}
+
 .photograph-tile {
   position: relative;
   top: -3rem;
@@ -403,6 +480,7 @@ main .home-photograph__pricing {
     padding: 0.5rem;
     border-radius: 0.5rem;
     font-size: 1rem;
+    width: 7.25rem;
   }
   .sort-menu__dropdown:focus {
     background-color: #d3573c;

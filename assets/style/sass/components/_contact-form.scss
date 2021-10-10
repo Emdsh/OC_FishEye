@@ -1,0 +1,96 @@
+@use '../components/' as *;
+
+.contact-form {
+
+    &__background {
+        display: none;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        background-color: rgba(color(light), .5);
+    }
+
+    &__body {
+        position: fixed;
+        top: 5rem;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, 0);
+        width: 20vw;
+        background-color: color(secondary);
+        padding: 1rem;
+        border-radius: .25rem;
+    }
+
+    &__close {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        width: 2rem;
+        height: 2rem;
+        opacity: 1;
+        cursor: pointer;
+        transform: scale(.75);
+
+        &::before, &::after {
+            position: absolute;
+            display: block;
+            left: 15px;
+            content: " ";
+            height: 33px;
+            width: 3px;
+            background-color: color(light);
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    &__content {
+        h1 {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__input {
+        margin-top: .25rem;
+    }
+
+    &__text {
+        &-label, &-input {
+            display: block;
+        }
+
+        &-label {
+            color: color(dark, lighter);
+        }
+
+        &-input {
+            width: 100%;
+            border-radius: .25rem;
+            height: 2rem;
+            padding: .25rem;
+        }
+    }
+
+    &__submit-button {
+        background-color: color(primary);
+        color: color(light);
+        padding: .5rem 1rem;
+        border-radius: .25rem;
+        margin-top: 1rem;
+        cursor: pointer;
+    }
+}
+
+#contact-form__message {
+    height: 5rem;
+    max-width: 100%;
+}
