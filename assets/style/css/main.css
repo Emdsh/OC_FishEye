@@ -566,8 +566,7 @@ main .home-photograph__pricing {
     width: 7.25rem;
   }
   .sort-menu__dropdown:focus {
-    background-color: #d3573c;
-    color: #000;
+    outline-color: #d3573c;
   }
 }
 
