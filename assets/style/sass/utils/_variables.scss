@@ -1,5 +1,5 @@
 $color-primary: #901c1c;
-$color-secondary: #d3573c; //db8876
+$color-secondary: #d3573c; // db8876 d3573c
 $color-light: #fff;
 $color-dark: #000;
 
@@ -11,7 +11,7 @@ $colors: (
     ),
     secondary: (
         base: $color-secondary,
-        lighter: lighten($color-secondary, 32),
+        lighter: desaturate(lighten($color-secondary, 13), 5),
         darker: darken($color-secondary, 2),
     ),
     light: (

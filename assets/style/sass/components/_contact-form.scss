@@ -9,29 +9,41 @@
         width: 100vw;
         height: 100vh;
         z-index: 9999;
-        background-color: rgba(color(light), .5);
+        background-color: rgba(color(light, darker), .7);
     }
 
     &__body {
         position: fixed;
-        top: 5rem;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, 0);
-        width: 20vw;
-        background-color: color(secondary);
+        min-width: 100vw;
+        min-height: 100vh;
+        background-color: color(secondary, lighter);
         padding: 1rem;
         border-radius: .25rem;
+
+        @media all and (min-width: 1024px) {
+            left: 50%;
+            margin-right: -50%;
+            top: 50%;
+            margin-bottom: -50%;
+            transform: translate(-50%, -50%);
+            min-width: 33vw;
+            min-height: auto;
+            padding: 1.5rem;
+        }
     }
 
     &__close {
         position: absolute;
         right: 1rem;
-        top: 1rem;
+        top: 1.25rem;
         width: 2rem;
         height: 2rem;
         cursor: pointer;
-        transform: scale(.75);
+
+        @media all and (min-width: 1024px) {
+            right: 1.5rem;
+            top: 1.75rem;
+        }
 
         &::before, &::after {
             position: absolute;
@@ -55,6 +67,7 @@
     &__content {
         h1 {
             margin-bottom: 1rem;
+            font-size: 2rem;
         }
     }
 
@@ -63,6 +76,7 @@
     }
 
     &__text {
+
         &-label, &-input {
             display: block;
         }
@@ -74,8 +88,9 @@
         &-input {
             width: 100%;
             border-radius: .25rem;
-            height: 2rem;
+            height: 2.25rem;
             padding: .25rem;
+            font-size: 1rem;
         }
     }
 
@@ -90,6 +105,10 @@
 }
 
 #contact-form__message {
-    height: 5rem;
     max-width: 100%;
+    height: 11.25rem;
+
+    @media all and (min-width: 1024px) {
+        height: 6.75rem;
+    }
 }
