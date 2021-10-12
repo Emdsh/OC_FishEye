@@ -96,7 +96,7 @@ fieldset {
   -webkit-clip-path: auto;
           clip-path: auto;
   border-radius: 0.25rem;
-  background: #d3573c;
+  background: #db8876;
   color: #000;
   outline: none;
 }
@@ -292,7 +292,7 @@ main .home-photograph__pricing {
 }
 .photograph-tile__contact-button:hover, .photograph-tile__contact-button:focus {
   color: #000;
-  background-color: #d3573c;
+  background-color: #db8876;
   cursor: pointer;
 }
 .photograph-tile__picture {
@@ -336,7 +336,7 @@ main .home-photograph__pricing {
     z-index: 9999;
     bottom: 0;
     right: 1rem;
-    background-color: #d3573c;
+    background-color: #db8876;
     border-radius: 0.25rem 0.25rem 0 0;
     padding: 1rem 1.5rem;
     width: 15rem;
@@ -587,7 +587,8 @@ main .home-photograph__pricing {
     width: 7.25rem;
   }
   .sort-menu__dropdown:focus {
-    outline-color: #d3573c;
+    background-color: #db8876;
+    color: #000;
   }
 }
 

@@ -53,7 +53,7 @@
 
         &:hover, &:focus {
             color: color(dark);
-            background-color: color(secondary);
+            background-color: color(secondary, lighter);
             cursor: pointer;
         }
     }
@@ -95,7 +95,7 @@
             z-index: 9999;
             bottom: 0;
             right: 1rem;
-            background-color: color(secondary);
+            background-color: color(secondary, lighter);
             border-radius: .25rem .25rem 0 0;
             padding: 1rem 1.5rem;
             width: 15rem;

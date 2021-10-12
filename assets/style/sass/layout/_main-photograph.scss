@@ -25,7 +25,8 @@
             width: 7.25rem;
 
             &:focus {
-                outline-color: color(secondary);
+                background-color: color(secondary, lighter);
+                color: color(dark);
             }
         }
     }
