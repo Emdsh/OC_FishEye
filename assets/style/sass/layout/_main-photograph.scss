@@ -1,5 +1,7 @@
 @use '../layout/' as *;
 @use '../components/photographer-tile';
+@use '../components/contact-form';
+@use '../components/lightbox';
 
 .sort-menu {
     display: none;
