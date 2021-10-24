@@ -1,4 +1,4 @@
-async function fetchAPI() {
+async function getPhotographers() {
     try {
         const response = await fetch('assets/api/api.json', {
             headers: {
@@ -8,11 +8,9 @@ async function fetchAPI() {
         });
 
         return await response.json();
-    }
-
-    catch (error) {
-        console.log(error);
+    } catch (error) {
+        console.error(error);
     }
 }
 
-export default fetchAPI;
+export default getPhotographers;

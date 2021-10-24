@@ -1,3 +1,6 @@
-import generateHomepage from "./modules/api/generateHomePage.js";
+import generateHomepage from './modules/pages/generateHomePage.js';
+import buildPhotographer from './utils/buildPhotographer.js';
 
-generateHomepage();
+const photographers = await buildPhotographer();
+
+generateHomepage(photographers);
