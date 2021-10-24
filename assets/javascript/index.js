@@ -1,7 +1,17 @@
+import buildPhotographer from './utils/buildPhotographer.js';
+
+import generateHomepage from './modules/pages/generateHomePage.js';
+
 import closeModal from './modules/modals/closeModals.js';
 import openModal from './modules/modals/openModal.js';
 
 import focusOutInputCheck from './modules/modals/contact/focusOutInputCheck.js';
+
+// fetch data from the API
+const photographers = await buildPhotographer();
+
+// generate pages
+generateHomepage(photographers);
 
 // modals
 const contactModalButton = document.getElementById('contact-button');
