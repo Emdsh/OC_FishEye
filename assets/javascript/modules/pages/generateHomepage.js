@@ -4,7 +4,7 @@ async function generateHomepage(photographers) {
     for (let i = 0; i < photographers.length; i += 1) {
         let photographerFilters = ``;
 
-        let photographerMain = `<a href="" aria-label="${photographers[i].name}">
+        let photographerMain = `<a href="photograph/index.html?p=${photographers[i].name}" aria-label="${photographers[i].name}">
                                     <figure>
                                         <img src="${photographers[i].portrait}" alt="" class="home-photograph__picture">
             
