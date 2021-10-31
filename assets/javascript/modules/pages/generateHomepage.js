@@ -6,18 +6,18 @@ async function generateHomepage(photographers) {
 
         let photographerMain = `<a href="photographer/index.html?p=${encodeURIComponent(photographers[i].name.replace(/\s|\-/g, ''))}" aria-label="${photographers[i].name}">
                                     <figure>
-                                        <img src="${photographers[i].portrait}" alt="" class="home-photograph__picture">
+                                        <img src="${photographers[i].portrait}" alt="" class="home-photographer__picture">
             
                                         <figcaption>
-                                            <h2 class="home-photograph__name">${photographers[i].name}</h2>
+                                            <h2 class="home-photographer__name">${photographers[i].name}</h2>
                                         </figcaption>
                                     </figure>
                                 </a>
 
                                 <div tabindex="0">
-                                    <p class="home-photograph__location">${photographers[i].location}</p>
-                                    <p class="home-photograph__description">${photographers[i].tagline}</p>
-                                    <p class="home-photograph__pricing">${photographers[i].price}</p>
+                                    <p class="home-photographer__location">${photographers[i].location}</p>
+                                    <p class="home-photographer__description">${photographers[i].tagline}</p>
+                                    <p class="home-photographer__pricing">${photographers[i].price}</p>
                                 </div>`;
 
         for (let j = 0; j < photographers[i].tags.length; j += 1) {
@@ -31,7 +31,7 @@ async function generateHomepage(photographers) {
 
         let photographerFooter =    `<footer>
                                         <nav class="filter">
-                                            <a href="#photographe-${i+1}" class="skip-link">Passer ce menu</a>
+                                            <a href="#photographer-${i+1}" class="skip-link">Passer ce menu</a>
 
                                             <ul class="filter__list">
                                                 ${photographerFilters}
@@ -39,7 +39,7 @@ async function generateHomepage(photographers) {
                                         </nav>
                                     </footer>`;
 
-        let photographerFull =  `<article id="photographe-${i}" class="home-photograph">
+        let photographerFull =  `<article id="photographer-${i}" class="home-photographer">
                                     ${photographerMain}
                                     
                                     ${photographerFooter}

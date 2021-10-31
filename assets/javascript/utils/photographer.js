@@ -2,16 +2,16 @@ import linkMedia from "./linkMedia.js";
 import sumLikes from "./sumLikes.js";
 
 export class Photographer {
-    constructor(photograph, media) {
-        this._portrait = photograph.portrait;
-        this._name = photograph.name;
-        this._city = photograph.city;
-        this._country = photograph.country;
-        this._tagline = photograph.tagline;
-        this._price = photograph.price;
-        this._tags = photograph.tags;
-        this._media = linkMedia(media, photograph.id);
-        this._likes = sumLikes(media, photograph.id);
+    constructor(photographer, media) {
+        this._portrait = photographer.portrait;
+        this._name = photographer.name;
+        this._city = photographer.city;
+        this._country = photographer.country;
+        this._tagline = photographer.tagline;
+        this._price = photographer.price;
+        this._tags = photographer.tags;
+        this._media = linkMedia(media, photographer.id);
+        this._likes = sumLikes(media, photographer.id);
     }
 
     set addLikes(value) {

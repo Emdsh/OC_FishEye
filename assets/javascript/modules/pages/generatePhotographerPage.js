@@ -7,6 +7,7 @@ async function generatePhotographerPage(photographers) {
             photographerIndex = i;
         }
     }
+    if (photographerIndex === undefined) { return; }
 
     const pageTitle = document.getElementById('js-page-title');
     const photographerName = document.getElementById('js-photographer-name');
@@ -55,7 +56,7 @@ async function generatePhotographerPage(photographers) {
     photographerLocation.innerText = photographers[photographerIndex].location;
     photographerTagline.innerText = photographers[photographerIndex].tagline;
     photographerTags.innerHTML = photographerFilters;
-    photographerPortrait.innerHTML = `<img src="${photographers[photographerIndex].portrait}" alt="" class="photograph-tile__picture" tabindex="0">`
+    photographerPortrait.innerHTML = `<img src="${photographers[photographerIndex].portrait}" alt="" class="photographer-tile__picture" tabindex="0">`
     photographerLikes.innerText = photographers[photographerIndex].likes;
     photographerPricing.innerText = photographers[photographerIndex].price;
     contactTitle.innerText = `Contactez-moi\n${photographers[photographerIndex].name}`;
