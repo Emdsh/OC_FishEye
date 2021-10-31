@@ -2,9 +2,9 @@ async function generateHomepage(photographers) {
     let injectHTML = '<h1 tabindex="0" class="home-title">Nos photographes</h1>';
 
     for (let i = 0; i < photographers.length; i += 1) {
-        let photographerFilters = ``;
+        let photographerFilters = '';
 
-        let photographerMain = `<a href="photograph/index.html?p=${photographers[i].name}" aria-label="${photographers[i].name}">
+        let photographerMain = `<a href="photographer/index.html?p=${encodeURIComponent(photographers[i].name.replace(/\s|\-/g, ''))}" aria-label="${photographers[i].name}">
                                     <figure>
                                         <img src="${photographers[i].portrait}" alt="" class="home-photograph__picture">
             
@@ -21,7 +21,7 @@ async function generateHomepage(photographers) {
                                 </div>`;
 
         for (let j = 0; j < photographers[i].tags.length; j += 1) {
-            let photographerTag = `<li>
+            let photographerTag =   `<li>
                                         <span class="screenreader-only">${photographers[i].tags[j]}</span>
                                         <a href="" class="filter__option" aria-hidden="true">#${photographers[i].tags[j]}</a>
                                     </li>`;
@@ -29,7 +29,7 @@ async function generateHomepage(photographers) {
             photographerFilters += photographerTag;                        
         }
 
-        let photographerFooter = `<footer>
+        let photographerFooter =    `<footer>
                                         <nav class="filter">
                                             <a href="#photographe-${i+1}" class="skip-link">Passer ce menu</a>
 
@@ -39,7 +39,7 @@ async function generateHomepage(photographers) {
                                         </nav>
                                     </footer>`;
 
-        let photographerFull = `<article id="photographe-${i}" class="home-photograph">
+        let photographerFull =  `<article id="photographe-${i}" class="home-photograph">
                                     ${photographerMain}
                                     
                                     ${photographerFooter}

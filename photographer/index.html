@@ -3,7 +3,7 @@
     <head>
         <!-- Charset & Title -->
         <meta charset="UTF-8">
-        <title>FishEye —  Mimi Keel</title>
+        <title id="js-page-title">FishEye — Name</title>
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,10 +14,10 @@
         <script src="https://kit.fontawesome.com/28350a576b.js" crossorigin="anonymous" defer></script>
 
         <!-- Style & Icons -->
-        <link rel="stylesheet" href="../assets/style/css/dist/main.min.css"/>
+        <link rel="stylesheet" href="/assets/style/css/dist/main.min.css"/>
 
         <!-- Javascript -->
-        <script type="module" src="../assets/javascript/index.js"></script>
+        <script type="module" src="/assets/javascript/index.js"></script>
 
         <!-- SEO -->
         <link rel="canonical" href="#"/>
@@ -33,7 +33,7 @@
         <meta property="og:site_name" content="FishEye"/>
         <meta property="og:url" content="#"/>
         <meta property="og:description" content="FishEye est le quatrième projet de la formation Développeur Front-End de OpenClassrooms: créez un site accessible pour une plateforme de photographes."/>
-        <meta property="og:image" content="../assets/images/logo/FishEye.png"/>
+        <meta property="og:image" content="/assets/images/logo/FishEye.png"/>
 
         <!-- Twitter MetaTags -->
         <meta name="twitter:card" content="summary"/>
@@ -44,54 +44,38 @@
     <body>
         <header>
             <a href="../index.html" aria-label="FishEye Homepage" class="logo">
-                <img src="../assets/images/logo/FishEye.svg" alt="FishEye's Logo"/>
+                <img src="/assets/images/logo/FishEye.svg" alt="FishEye's Logo"/>
             </a>
         </header>
 
         <section class="photograph-tile">
             <div id="photograph-tile__info">
-                <h1 tabindex="0" class="photograph-tile__title">Mimi Keel</h1>
+                <h1 tabindex="0" class="photograph-tile__title" id="js-photographer-name">Name</h1>
 
                 <div class="photograph-tile__text" tabindex="0">
-                    <p class="photograph-tile__location">London, UK</p>
-                    <p class="photograph-tile__description">Voir le beau dans le quotidien</p>
+                    <p class="photograph-tile__location" id="js-photographer-location">Location</p>
+                    <p class="photograph-tile__description" id="js-photographer-tagline">Tagline</p>
                 </div>
 
                 <nav class="filter">
                     <a href="" class="skip-link">Passer ce menu</a>
 
-                    <ul class="filter__list filter__list--photographer-tile">
-                        <li>
-                            <span class="screenreader-only">portrait</span>
-                            <a href="" class="filter__option" aria-hidden="true">#portrait</a>
-                        </li>
-                        <li>
-                            <span class="screenreader-only">évènements</span>
-                            <a href="" class="filter__option" aria-hidden="true">#évènements</a>
-                        </li>
-                        <li>
-                            <span class="screenreader-only">voyage</span>
-                            <a href="" class="filter__option" aria-hidden="true">#voyage</a>
-                        </li>
-                        <li>
-                            <span class="screenreader-only">animaux</span>
-                            <a href="" class="filter__option" aria-hidden="true">#animaux</a>
-                        </li>
+                    <ul class="filter__list filter__list--photographer-tile" id="js-photographer-tags">
                     </ul>
                 </nav>
             </div>
 
-            <div id="photograph-tile__contact">
+            <div class="photograph-tile__contact">
                 <button class="photograph-tile__contact-button" id="contact-button">Contactez-moi</button>
             </div>
 
-            <div id="photograph-tile__picture-container">
-                <img src="../assets/images/photographers/mimi/id/MimiKeel.jpg" alt="" class="photograph-tile__picture" tabindex="0">
+            <div class="photograph-tile__picture-container" id="js-photographer-portrait">
+                <img src="" alt="" class="photograph-tile__picture" tabindex="0">
             </div>
             
             <div class="photograph-tile__inserts" tabindex="0">
-                <p class="photograph-tile__likes">297081</p>
-                <p class="photograph-tile__price">300€/jour</p>
+                <p class="photograph-tile__likes" id="js-photographer-likes">Likes</p>
+                <p class="photograph-tile__price" id="js-photographer-pricing">Price</p>
             </div>
         </section>
 
@@ -101,7 +85,7 @@
                 <span class="contact-form__close close-button"></span>
 
                 <div class="contact-form__content">
-                    <h1>Contactez-moi<br>Mimi Keel</h1>
+                    <h1 id="js-contact-title">Contactez-moi</h1>
 
                     <form name="contact" action="index.html" id="contactForm">
 
@@ -153,66 +137,14 @@
                     </div>
 
                     <figure class="lightbox__content">
-                        <img src="../assets/images/photographers/mimi/portfolio/Animals_Rainbow.jpg" alt="" class="lightbox__image">
+                        <img src="" alt="" class="lightbox__image">
 
                         <figcaption>
-                            <h1 class="lightbox__image-title">Arc-en-ciel</h1>
+                            <h1 class="lightbox__image-title">Title</h1>
                         </figcaption>
                     </figure>
                 </section>
             </div>
-
-            <figure class="portfolio__element">
-                <img src="../assets/images/photographers/mimi/portfolio/Animals_Rainbow.jpg" alt="" class="portfolio__element-media" tabindex="0">
-
-                <figcaption class="portfolio__element-metadata">
-                    <p class="portfolio__element-title" tabindex="0">Arc-en-ciel</p>
-                    <p class="portfolio__element-likes" aria-label="likes" tabindex="0">12</p>
-                </figcaption>
-            </figure>
-
-            <figure class="portfolio__element">
-                <img src="../assets/images/photographers/mimi/portfolio/Event_BenevidesWedding.jpg" alt="" class="portfolio__element-media" tabindex="0">
-
-                <figcaption class="portfolio__element-metadata">
-                    <p class="portfolio__element-title" tabindex="0">Solitude</p>
-                    <p class="portfolio__element-likes" aria-label="likes" tabindex="0">12</p>
-                </figcaption>
-            </figure>
-
-            <figure class="portfolio__element">
-                <img src="../assets/images/photographers/mimi/portfolio/Event_PintoWedding.jpg" alt="" class="portfolio__element-media" tabindex="0">
-
-                <figcaption class="portfolio__element-metadata">
-                    <p class="portfolio__element-title" tabindex="0">Marriage à la mer</p>
-                    <p class="portfolio__element-likes" aria-label="likes" tabindex="0">12</p>
-                </figcaption>
-            </figure>
-
-            <figure class="portfolio__element">
-                <img src="../assets/images/photographers/mimi/portfolio/Event_SeasideWedding.jpg" alt="" class="portfolio__element-media" tabindex="0">
-
-                <figcaption class="portfolio__element-metadata">
-                    <p class="portfolio__element-title" tabindex="0">Titre</p>
-                    <p class="portfolio__element-likes" aria-label="likes" tabindex="0">12</p>
-                </figcaption>
-            </figure>
-
-            <figure class="portfolio__element">
-                <img src="../assets/images/photographers/mimi/portfolio/Portrait_Background.jpg" alt="" class="portfolio__element-media" tabindex="0">
-                <figcaption class="portfolio__element-metadata">
-                    <p class="portfolio__element-title" tabindex="0">Titre</p>
-                    <p class="portfolio__element-likes" aria-label="likes" tabindex="0">12</p>
-                </figcaption>
-            </figure>
-
-            <figure class="portfolio__element">
-                <img src="../assets/images/photographers/mimi/portfolio/Portrait_Nora.jpg" alt="" class="portfolio__element-media" tabindex="0">
-                <figcaption class="portfolio__element-metadata">
-                    <p class="portfolio__element-title" tabindex="0">Titre</p>
-                    <p class="portfolio__element-likes" aria-label="likes" tabindex="0">12</p>
-                </figcaption>
-            </figure>
         </main>
     </body>
 </html>

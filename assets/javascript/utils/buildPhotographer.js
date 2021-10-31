@@ -6,7 +6,7 @@ async function buildPhotographer() {
 
     const photographers = [];
 
-    api.photographers.forEach(p => photographers.push(new Photographer(p.name, p.id, p.city, p.country, p.tags, p.tagline, p.price, p.portrait, api.media)));
+    api.photographers.forEach(photographer => photographers.push(new Photographer(photographer, api.media)));
     return photographers;
 }
 

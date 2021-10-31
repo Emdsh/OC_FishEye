@@ -14,10 +14,10 @@
         <script src="https://kit.fontawesome.com/28350a576b.js" crossorigin="anonymous" defer></script>
 
         <!-- Style & Icons -->
-        <link rel="stylesheet" href="assets/style/css/dist/main.min.css"/>
+        <link rel="stylesheet" href="/assets/style/css/dist/main.min.css"/>
 
         <!-- Javascript -->
-        <script type="module" src="assets/javascript/index.js"></script>
+        <script type="module" src="/assets/javascript/index.js"></script>
 
         <!-- SEO -->
         <link rel="canonical" href="#"/>
@@ -33,7 +33,7 @@
         <meta property="og:site_name" content="FishEye"/>
         <meta property="og:url" content="#"/>
         <meta property="og:description" content="FishEye est le quatrième projet de la formation Développeur Front-End de OpenClassrooms: créez un site accessible pour une plateforme de photographes."/>
-        <meta property="og:image" content="assets/images/logo/FishEye.png"/>
+        <meta property="og:image" content="/assets/images/logo/FishEye.png"/>
 
         <!-- Twitter MetaTags -->
         <meta name="twitter:card" content="summary"/>
@@ -46,7 +46,7 @@
             <a href="#main" class="skip-link skip-link--main">Se rendre au contenu principal</a>
 
             <a href="index.html" aria-label="FishEye Homepage" class="logo">
-                <img src="assets/images/logo/FishEye.svg" alt="FishEye's Logo"/>
+                <img src="/assets/images/logo/FishEye.svg" alt="FishEye's Logo"/>
             </a>
 
             <nav aria-label="photographer categories" class="top-nav filter">
@@ -90,237 +90,8 @@
         </header>
 
         <main id="main">
-            <!-- <h1 tabindex="0" class="home-title">Nos photographes</h1>
+            <h1 tabindex="0" class="home-title">Nos photographes</h1>
 
-            <article id="photographe-1" class="home-photograph">
-                <a href="photograph/index.html" aria-label="Mimi Keel">
-                    <figure>
-                        <img src="assets/images/photographers/mimi/id/MimiKeel.jpg" alt="" class="home-photograph__picture">
-                        
-                        <figcaption>
-                            <h2 class="home-photograph__name">Mimi Keel</h2>
-                        </figcaption>
-                    </figure>
-                </a>
-
-                <div tabindex="0">
-                    <p class="home-photograph__location">London, UK</p>
-                    <p class="home-photograph__description">Voir le beau dans le quotidien</p>
-                    <p class="home-photograph__pricing">400€/jour</p>
-                </div>
-
-                <footer>
-                    <nav class="filter">
-                        <a href="#photographe-2" class="skip-link">Passer ce menu</a>
-
-                        <ul class="filter__list">
-                            <li>
-                                <span class="screenreader-only">portrait</span>
-                                <a href="" class="filter__option" aria-hidden="true">#portrait</a>
-                            </li>
-                            <li>
-                                <span class="screenreader-only">évènements</span>
-                                <a href="" class="filter__option" aria-hidden="true">#évènements</a>
-                            </li>
-                            <li>
-                                <span class="screenreader-only">voyage</span>
-                                <a href="" class="filter__option" aria-hidden="true">#voyage</a>
-                            </li>
-                            <li>
-                                <span class="screenreader-only">animaux</span>
-                                <a href="" class="filter__option" aria-hidden="true">#animaux</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </footer>
-            </article>
-
-            <article id="photographe-2" class="home-photograph">
-                <a href="" aria-label="Ellie-Rose Wilkens">
-                    <figure>
-                        <img src="assets/images/photographers/ellie_rose/id/EllieRoseWilkens.jpg" alt="" class="home-photograph__picture">
-
-                        <figcaption>
-                            <h2 class="home-photograph__name">Ellie-Rose Wilkens</h2>
-                        </figcaption>
-                    </figure>
-                </a>
-
-                <div tabindex="0">
-                    <p class="home-photograph__location">Paris, France</p>
-                    <p class="home-photograph__description">Travaille sur des compositions complexes</p>
-                    <p class="home-photograph__pricing">250€/jour</p>
-                </div>
-
-                <footer>
-                    <nav class="filter">
-                        <a href="#photographe-3" class="skip-link">Passer ce menu</a>
-
-                        <ul class="filter__list">
-                            <li>
-                                <span class="screenreader-only">sports</span>
-                                <a href="" class="filter__option" aria-hidden="true">#sports</a>
-                            </li>
-                            <li>
-                                <span class="screenreader-only">architecture</span>
-                                <a href="" class="filter__option" aria-hidden="true">#architecture</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </footer>
-            </article>
-
-            <article id="photographe-3" class="home-photograph">
-                <a href="" aria-label="Tracy Galindo">
-                    <figure>
-                        <img src="assets/images/photographers/tracy/id/TracyGalindo.jpg" alt="" class="home-photograph__picture">
-
-                        <figcaption>
-                            <h2 class="home-photograph__name">Tracy Galindo</h2>
-                        </figcaption>
-                    </figure>
-                </a>
-
-                <div tabindex="0">
-                    <p class="home-photograph__location">Montreal, Canada</p>
-                    <p class="home-photograph__description">Photographe freelance</p>
-                    <p class="home-photograph__pricing">500€/jour</p>
-                </div>
-
-                <footer>
-                    <nav class="filter">
-                        <a href="#photographe-4" class="skip-link">Passer ce menu</a>
-
-                        <ul class="filter__list">
-                            <li>
-                                <span class="screenreader-only">art</span>
-                                <a href="" class="filter__option" aria-hidden="true">#art</a>
-                            </li>
-                            <li>
-                                <span class="screenreader-only">fashion</span>
-                                <a href="" class="filter__option" aria-hidden="true">#fashion</a>
-                            </li>
-                            <li>
-                                <span class="screenreader-only">évènements</span>
-                                <a href="" class="filter__option" aria-hidden="true">#évènements</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </footer>
-            </article>
-
-            <article id="photographe-4" class="home-photograph">
-                <a href="" aria-label="Nabeel Bradford">
-                    <figure>
-                        <img src="assets/images/photographers/nabeel/id/NabeelBradford.jpg" alt="" class="home-photograph__picture">
-
-                        <figcaption>
-                            <h2 class="home-photograph__name">Nabeel Bradford</h2>
-                        </figcaption>
-                    </figure>
-                </a>
-
-                <div tabindex="0">
-                    <p class="home-photograph__location">Mexico City, Mexico</p>
-                    <p class="home-photograph__description">Je vais toujours de l'avant</p>
-                    <p class="home-photograph__pricing">350€/jour</p>
-                </div>
-
-                <footer>
-                    <nav class="filter">
-                        <a href="#photographe-5" class="skip-link">Passer ce menu</a>
-
-                        <ul class="filter__list">
-                            <li>
-                                <span class="screenreader-only">voyage</span>
-                                <a href="" class="filter__option" aria-hidden="true">#voyage</a>
-                            </li>
-                            <li>
-                                <span class="screenreader-only">portrait</span>
-                                <a href="" class="filter__option" aria-hidden="true">#portrait</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </footer>
-            </article>
-
-            <article id="photographe-5" class="home-photograph">
-                <a href="" aria-label="Rhode Dubois">
-                    <figure>
-                        <img src="assets/images/photographers/rhode/id/RhodeDubois.jpg" alt="" class="home-photograph__picture">
-
-                        <figcaption>
-                            <h2 class="home-photograph__name">Rhode Dubois</h2>
-                        </figcaption>
-                    </figure>
-                </a>
-
-                <div tabindex="0">
-                    <p class="home-photograph__location">Barcelona, Spain</p>
-                    <p class="home-photograph__description">Créatrice de souvenir</p>
-                    <p class="home-photograph__pricing">375€/jour</p>
-                </div>
-
-                <footer>
-                    <nav class="filter">
-                        <a href="#photographe-6" class="skip-link">Passer ce menu</a>
-
-                        <ul class="filter__list">
-                            <li>
-                                <span class="screenreader-only">sport</span>
-                                <a href="" class="filter__option" aria-hidden="true">#sport</a>
-                            </li>
-                            <li>
-                                <span class="screenreader-only">fashion</span>
-                                <a href="" class="filter__option" aria-hidden="true">#fashion</a>
-                            </li>
-                            <li>
-                                <span class="screenreader-only">évènements</span>
-                                <a href="" class="filter__option" aria-hidden="true">#évènements</a>
-                            </li>
-                            <li>
-                                <span class="screenreader-only">animaux</span>
-                                <a href="" class="filter__option" aria-hidden="true">#animaux</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </footer>
-            </article>
-
-            <article id="photographe-6" class="home-photograph">
-                <a href="" aria-label="Marcel Nikolic">
-                    <figure>
-                        <img src="assets/images/photographers/marcel/id/MarcelNikolic.jpg" alt="" class="home-photograph__picture">
-
-                        <figcaption>
-                            <h2 class="home-photograph__name">Marcel Nikolic</h2>
-                        </figcaption>
-                    </figure>
-                </a>
-
-                <div tabindex="0">
-                    <p class="home-photograph__location">Berlin, Germany</p>
-                    <p class="home-photograph__description">Toujours à la recherche de LA photo</p>
-                    <p class="home-photograph__pricing">300€/jour</p>
-                </div>
-
-                <footer>
-                    <nav class="filter">
-                        <a href="" class="skip-link">Passer ce menu</a>
-
-                        <ul class="filter__list">
-                            <li>
-                                <span class="screenreader-only">voyage</span>
-                                <a href="" class="filter__option" aria-hidden="true">#voyage</a>
-                            </li>
-                            <li>
-                                <span class="screenreader-only">architecture</span>
-                                <a href="" class="filter__option" aria-hidden="true">#architecture</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </footer>
-            </article> -->
         </main>
     </body>
 </html>
