@@ -1,5 +1,5 @@
-import linkMedia from "./linkMedia.js";
-import sumLikes from "./sumLikes.js";
+import linkMedia from "../modules/api/linkMedia.js";
+import sumLikes from "../modules/api/sumLikes.js";
 
 export class Photographer {
     constructor(photographer, media) {

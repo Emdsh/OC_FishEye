@@ -1,4 +1,4 @@
-import buildPhotographer from './utils/buildPhotographer.js';
+import buildPhotographer from './modules/api/buildPhotographer.js';
 
 import generateHomepage from './modules/pages/generateHomePage.js';
 import generatePhotographerPage from './modules/pages/generatePhotographerPage.js';

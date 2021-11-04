@@ -1,5 +1,5 @@
-import { Image } from './image.js';
-import { Video } from './video.js';
+import { Image } from '../../utils/image.js';
+import { Video } from '../../utils/video.js';
 
 function linkMedia(media, photographerId) {
     const photographerMedia = [];
