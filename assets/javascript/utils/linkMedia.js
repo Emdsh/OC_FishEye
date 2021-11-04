@@ -1,4 +1,5 @@
-import { Image, Video } from './media.js';
+import { Image } from './image.js';
+import { Video } from './video.js';
 
 function linkMedia(media, photographerId) {
     const photographerMedia = [];

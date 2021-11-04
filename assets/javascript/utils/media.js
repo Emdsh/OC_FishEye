@@ -1,4 +1,4 @@
-class Media {
+export class Media {
     constructor(media, title, tags, likes) {
         this._path = media;
         this._title = title;
@@ -26,17 +26,5 @@ class Media {
 
     get tags() {
         return this._tags;
-    }
-}
-
-export class Image extends Media {
-    constructor(media, title, tags, likes) {
-        super(media, title, tags, likes);
-    }
-}
-
-export class Video extends Media {
-    constructor(media, title, tags, likes) {
-        super(media, title, tags, likes);
     }
 }

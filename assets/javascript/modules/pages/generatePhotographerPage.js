@@ -1,3 +1,5 @@
+import { Video } from '../../utils/video.js';
+
 async function generatePhotographerPage(photographers) {
     let photographer = new URLSearchParams(window.location.search).get('p');
 
@@ -35,7 +37,7 @@ async function generatePhotographerPage(photographers) {
         
         let mediaElement = `<img src="${photographers[photographerIndex].media[i].path}" alt="" class="portfolio__element-media" tabindex="0">`;
 
-        if (photographers[photographerIndex].media[i].constructor.name === 'Video') {
+        if (photographers[photographerIndex].media[i] instanceof Video) {
             mediaElement = `<video src="${photographers[photographerIndex].media[i].path}" alt="" class="portfolio__element-media" tabindex="0"></video>`;
         }
 
