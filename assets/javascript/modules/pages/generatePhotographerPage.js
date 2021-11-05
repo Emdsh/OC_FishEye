@@ -20,6 +20,7 @@ async function generatePhotographerPage(photographers) {
     const photographerLikes = document.getElementById('js-photographer-likes');
     const photographerPricing = document.getElementById('js-photographer-pricing');
     const contactTitle = document.getElementById('js-contact-title');
+    const contactPhotographer = document.getElementById('js-contact-photographer');
     const mainPortfolio = document.querySelector('main.portfolio');
 
     let photographerFilters = '';
@@ -62,6 +63,7 @@ async function generatePhotographerPage(photographers) {
     photographerLikes.innerText = photographers[photographerIndex].likes;
     photographerPricing.innerText = photographers[photographerIndex].price;
     contactTitle.innerText = `Contactez-moi\n${photographers[photographerIndex].name}`;
+    contactPhotographer.setAttribute('value', photographer);
     mainPortfolio.insertAdjacentHTML('beforeend', photographerPortfolio);
 }
 

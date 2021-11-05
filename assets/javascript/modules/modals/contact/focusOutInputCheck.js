@@ -1,20 +1,21 @@
 import { regexConst } from '../../../utils/regexConst.js';
+import errorMessage from './errorMessage.js';
 
 function focusOutInputCheck(input) {
     if (input.name === 'firstName') {
-        errorMessage({firstName: regexConst.nameRegex.test(input.value)})
+        errorMessage(input, regexConst.nameRegex.test(input.value));
     }
 
     if (input.name === 'lastName') {
-        errorMessage({lastName: regexConst.nameRegex.test(input.value)})
+        errorMessage(input, regexConst.nameRegex.test(input.value));
     }
 
     if (input.name === 'email') {
-        errorMessage({email: regexConst.emailRegex.test(input.value)})
+        errorMessage(input, regexConst.emailRegex.test(input.value));
     }
 
     if (input.name === 'message') {
-        errorMessage({message: regexConst.messageRegex.test(input.value)})
+        errorMessage(input, regexConst.messageRegex.test(input.value));
     }
 }
 

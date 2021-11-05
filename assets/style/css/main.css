@@ -424,6 +424,7 @@ main .home-photographer__pricing {
 }
 .contact-form__input {
   margin-top: 0.25rem;
+  position: relative;
 }
 .contact-form__text-label, .contact-form__text-input {
   display: block;
@@ -438,6 +439,12 @@ main .home-photographer__pricing {
   padding: 0.25rem;
   font-size: 1rem;
 }
+.contact-form__character-counter {
+  position: absolute;
+  top: 0rem;
+  right: 0;
+  color: #525252;
+}
 .contact-form__submit-button {
   background-color: #901c1c;
   color: #fff;
@@ -445,6 +452,13 @@ main .home-photographer__pricing {
   border-radius: 0.25rem;
   margin-top: 1rem;
   cursor: pointer;
+}
+.contact-form__error-message {
+  color: #901c1c;
+}
+.contact-form__error-input {
+  outline: #901c1c solid 2px;
+  border-radius: 0.25rem;
 }
 
 #contact-form__message {

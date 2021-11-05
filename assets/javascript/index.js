@@ -7,6 +7,8 @@ import closeModal from './modules/modals/closeModals.js';
 import openModal from './modules/modals/openModal.js';
 
 import focusOutInputCheck from './modules/modals/contact/focusOutInputCheck.js';
+import textCounter from './modules/modals/contact/textCounter.js';
+import submitForm from './modules/modals/contact/submitForm.js';
 
 // identify which page the user is on
 const path = location.pathname.replace('.html','');
@@ -37,7 +39,14 @@ if (path.includes('photographer')) {
     closeModalsButtons.forEach((btn) => btn.addEventListener('click', () => { closeModal(contactModalBackground, lightboxModalBackground); }));
 
     // contact modal validation
+    const contactForm = document.forms.contact;
     const contactFormInputs = document.querySelectorAll('input.contact-form__text-input, textarea.contact-form__text-input');
+    const contactFormMessage = document.getElementById('contact-form__message');
+    const contactModalSubmit = document.getElementById('contact-form__submit-button');
 
     contactFormInputs.forEach((input) => input.addEventListener('focusout', () => { focusOutInputCheck(input); }));
+
+    ['keyup', 'keydown'].forEach(event => contactFormMessage.addEventListener(event, () => { textCounter(contactFormMessage); }))
+
+    contactModalSubmit.addEventListener('click', () => { submitForm(contactFormInputs, contactForm) });
 }

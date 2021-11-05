@@ -73,6 +73,7 @@
 
     &__input {
         margin-top: .25rem;
+        position: relative;
     }
 
     &__text {
@@ -94,6 +95,13 @@
         }
     }
 
+    &__character-counter {
+        position: absolute;
+        top: 0rem;
+        right: 0; 
+        color: color(dark, lighter);
+    }
+
     &__submit-button {
         background-color: color(primary);
         color: color(light);
@@ -101,6 +109,17 @@
         border-radius: .25rem;
         margin-top: 1rem;
         cursor: pointer;
+    }
+
+    &__error {
+        &-message {
+            color: color(primary);
+        }
+
+        &-input {
+            outline: color(primary) solid 2px;
+            border-radius: .25rem;
+        }
     }
 }
 

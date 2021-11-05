@@ -89,6 +89,8 @@
 
                     <form name="contact" action="index.html" id="contactForm">
 
+                        <input id="js-contact-photographer" class="screenreader-only" name="p" aria-hidden="true">
+
                         <div class="contact-form__input">
                             <label for="contact-form__first-name" class="contact-form__text-label">Prénom</label>
                             <input type="text" id="contact-form__first-name" name="firstName" minlength="2" required class="contact-form__text-input">
@@ -109,7 +111,7 @@
                             <textarea id="contact-form__message" name="message" required class="contact-form__text-input"></textarea>
                         </div>
 
-                        <button class="contact-form__submit-button" form="contactForm" type="button" value="Envoyer">Envoyer</button>
+                        <button class="contact-form__submit-button" id="contact-form__submit-button" form="contactForm" type="button" value="Envoyer">Envoyer</button>
                     </form>
                 </div>
             </section>
