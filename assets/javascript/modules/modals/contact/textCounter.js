@@ -6,7 +6,7 @@ function textCounter(contactFormMessage) {
         characterCounter.remove();
     }
 
-    contactFormMessage.insertAdjacentHTML('beforebegin', `<p id="character-counter" class="contact-form__character-counter">${characterAmout}/20</p>`);
+    contactFormMessage.insertAdjacentHTML('beforebegin', `<p id="character-counter" class="contact-form__character-counter">${characterAmout}/20+</p>`);
 }
 
 export default textCounter;
