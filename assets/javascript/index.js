@@ -1,5 +1,8 @@
 import buildPhotographer from './modules/api/buildPhotographer.js';
 
+import focusSkipLink from './modules/aria/focusSkipLink.js';
+import focusSkipLinkTarget from './modules/aria/focusSkipLinkTarget.js';
+
 import generateHomepage from './modules/pages/generateHomePage.js';
 import generatePhotographerPage from './modules/pages/generatePhotographerPage.js';
 
@@ -32,11 +35,21 @@ if (path.includes('photographer')) {
     const lightboxModalBackground = document.getElementById('lightbox__background');
     const closeModalsButtons = document.querySelectorAll('.close-button');
 
-    contactModalButton.addEventListener('click', () => { openModal(contactModalBackground); });
+    contactModalButton.addEventListener('click', () => { 
+        openModal(contactModalBackground); 
+    });
 
-    lightboxModalButtons.forEach((btn) => btn.addEventListener('click', () => { openModal(lightboxModalBackground); }));
+    lightboxModalButtons.forEach((btn) => {
+        btn.addEventListener('click', () => { 
+            openModal(lightboxModalBackground); 
+        });
+    });
 
-    closeModalsButtons.forEach((btn) => btn.addEventListener('click', () => { closeModal(contactModalBackground, lightboxModalBackground); }));
+    closeModalsButtons.forEach((btn) => { 
+        btn.addEventListener('click', () => { 
+            closeModal(contactModalBackground, lightboxModalBackground); 
+        });
+    });
 
     // contact modal validation
     const contactForm = document.forms.contact;
@@ -44,9 +57,38 @@ if (path.includes('photographer')) {
     const contactFormMessage = document.getElementById('contact-form__message');
     const contactModalSubmit = document.getElementById('contact-form__submit-button');
 
-    contactFormInputs.forEach((input) => input.addEventListener('focusout', () => { focusOutInputCheck(input); }));
+    contactFormInputs.forEach((input) => {
+        input.addEventListener('focusout', () => { 
+            focusOutInputCheck(input); 
+        });
+    });
 
-    ['keyup', 'keydown'].forEach(event => contactFormMessage.addEventListener(event, () => { textCounter(contactFormMessage); }))
+    ['keyup', 'keydown'].forEach(event => {
+        contactFormMessage.addEventListener(event, () => { 
+            textCounter(contactFormMessage); 
+        });
+    });
 
-    contactModalSubmit.addEventListener('click', () => { submitForm(contactFormInputs, contactForm) });
+    contactModalSubmit.addEventListener('click', () => { 
+        submitForm(contactFormInputs, contactForm); 
+    });
 }
+
+// general ARIA
+const filters = document.querySelectorAll('.filter__option');
+filters.forEach(filter => {
+    filter.addEventListener('keyup', event => {
+        if (event.shiftKey && event.key === 'Tab') {
+            focusSkipLink(filter, event);
+        }
+    });
+});
+
+const skipLinks = document.querySelectorAll('.skip-link');
+skipLinks.forEach(link => {
+    link.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+            focusSkipLinkTarget(link, event);
+        }
+    });
+});
