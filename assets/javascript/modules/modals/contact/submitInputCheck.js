@@ -15,7 +15,7 @@ function submitInputCheck(contactFormInputs) {
             element: contactFormInputs[2],
         },
         message: {
-            valid: regexConst.messageRegex.test(contactFormInputs[3].value),
+            valid: contactFormInputs[3].value.length >= 20,
             element: contactFormInputs[3],
         },
     };

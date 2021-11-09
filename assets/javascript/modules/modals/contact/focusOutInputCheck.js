@@ -15,7 +15,7 @@ function focusOutInputCheck(input) {
     }
 
     if (input.name === 'message') {
-        errorMessage(input, regexConst.messageRegex.test(input.value));
+        errorMessage(input, input.value.length >= 20);
     }
 }
 
