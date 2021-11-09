@@ -12,6 +12,7 @@ import openModal from './modules/modals/openModal.js';
 import focusOutInputCheck from './modules/modals/contact/focusOutInputCheck.js';
 import textCounter from './modules/modals/contact/textCounter.js';
 import submitForm from './modules/modals/contact/submitForm.js';
+import confirmFormSubmit from './modules/modals/contact/confirmFormSubmit.js';
 
 // identify which page the user is on
 const path = location.pathname.replace('.html','');
@@ -28,12 +29,11 @@ if (path.includes('photographer')) {
 
     generatePhotographerPage(photographers);
 
-    // modals
+    // modals (pt.1) open
     const contactModalButton = document.getElementById('contact-button');
     const contactModalBackground = document.getElementById('contact-form__background');
     const lightboxModalButtons = document.querySelectorAll('.portfolio__element-media');
     const lightboxModalBackground = document.getElementById('lightbox__background');
-    const closeModalsButtons = document.querySelectorAll('.close-button');
 
     contactModalButton.addEventListener('click', () => { 
         openModal(contactModalBackground); 
@@ -45,6 +45,18 @@ if (path.includes('photographer')) {
         });
     });
 
+    // contact modal submitted check
+    const formStatus = sessionStorage.getItem('formStatus');
+
+    if (formStatus === 'submitted') {
+        openModal(contactModalBackground);
+        confirmFormSubmit();
+        sessionStorage.clear();
+    }
+
+    // modals (pt.2) close
+    const closeModalsButtons = document.querySelectorAll('.close-button');
+    
     closeModalsButtons.forEach((btn) => { 
         btn.addEventListener('click', () => { 
             closeModal(contactModalBackground, lightboxModalBackground); 
@@ -57,21 +69,23 @@ if (path.includes('photographer')) {
     const contactFormMessage = document.getElementById('contact-form__message');
     const contactModalSubmit = document.getElementById('contact-form__submit-button');
 
-    contactFormInputs.forEach((input) => {
-        input.addEventListener('focusout', () => { 
-            focusOutInputCheck(input); 
+    if (contactForm) {
+        contactFormInputs.forEach((input) => {
+            input.addEventListener('focusout', () => { 
+                focusOutInputCheck(input); 
+            });
         });
-    });
-
-    ['keyup', 'keydown'].forEach(event => {
-        contactFormMessage.addEventListener(event, () => { 
-            textCounter(contactFormMessage); 
+    
+        ['keyup', 'keydown'].forEach(event => {
+            contactFormMessage.addEventListener(event, () => { 
+                textCounter(contactFormMessage); 
+            });
         });
-    });
-
-    contactModalSubmit.addEventListener('click', () => { 
-        submitForm(contactFormInputs, contactForm); 
-    });
+    
+        contactModalSubmit.addEventListener('click', () => { 
+            submitForm(contactFormInputs, contactForm); 
+        });
+    }
 }
 
 // general ARIA
