@@ -6,6 +6,8 @@ import focusSkipLinkTarget from './modules/aria/focusSkipLinkTarget.js';
 import generateHomepage from './modules/pages/generateHomePage.js';
 import generatePhotographerPage from './modules/pages/generatePhotographerPage.js';
 
+import filterResults from './modules/filters/filterResults.js';
+
 import closeModal from './modules/modals/closeModals.js';
 import openModal from './modules/modals/openModal.js';
 
@@ -104,5 +106,12 @@ skipLinks.forEach(link => {
         if (event.key === 'Enter') {
             focusSkipLinkTarget(link, event);
         }
+    });
+});
+
+// filter tags
+filters.forEach(filter => {
+    filter.addEventListener('click', event => {
+        filterResults(filter.getAttribute('href'), photographers, path, event);
     });
 });

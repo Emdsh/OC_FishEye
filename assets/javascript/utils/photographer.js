@@ -20,6 +20,12 @@ export class Photographer {
         }
     }
 
+    set media(array) {
+        if(Array.isArray(array)) {
+            this._media = array;
+        }
+    }
+
     get portrait() {
         return `/assets/images/photographers/portrait/${this._portrait}`;
     }

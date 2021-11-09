@@ -11,6 +11,8 @@ async function generatePhotographerPage(photographers) {
     }
     if (photographerIndex === undefined) { return; }
 
+    console.log(photographers[photographerIndex]);
+
     const pageTitle = document.getElementById('js-page-title');
     const photographerName = document.getElementById('js-photographer-name');
     const photographerLocation = document.getElementById('js-photographer-location');
@@ -27,7 +29,7 @@ async function generatePhotographerPage(photographers) {
     for (let i = 0; i < photographers[photographerIndex].tags.length; i += 1){
         let photographerTag =   `<li>
                                     <span class="screenreader-only">${photographers[photographerIndex].tags[i]}</span>
-                                    <a href="" class="filter__option" aria-hidden="true">#${photographers[photographerIndex].tags[i]}</a>
+                                    <a href="${photographers[photographerIndex].tags[i]}" class="filter__option" aria-hidden="true">#${photographers[photographerIndex].tags[i]}</a>
                                 </li>`;
             
         photographerFilters += photographerTag;  
@@ -52,6 +54,13 @@ async function generatePhotographerPage(photographers) {
                                 </figure>`;
 
         photographerPortfolio += photographerMedia;
+    }
+
+    const portfolioElements = document.querySelectorAll('.portfolio__element');
+    if (portfolioElements) {
+        portfolioElements.forEach(element => {
+            element.remove();
+        });
     }
 
     pageTitle.innerText = `FishEye — ${photographers[photographerIndex].name}`;

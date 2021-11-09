@@ -23,7 +23,7 @@ async function generateHomepage(photographers) {
         for (let j = 0; j < photographers[i].tags.length; j += 1) {
             let photographerTag =   `<li>
                                         <span class="screenreader-only">${photographers[i].tags[j]}</span>
-                                        <a href="" class="filter__option" aria-hidden="true">#${photographers[i].tags[j]}</a>
+                                        <a href="${photographers[i].tags[j]}" class="filter__option" aria-hidden="true">#${photographers[i].tags[j]}</a>
                                     </li>`;
             
             photographerFilters += photographerTag;                        
