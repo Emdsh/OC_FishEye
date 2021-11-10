@@ -1,10 +1,11 @@
+import {PATH, MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS} from './utils/constants.js'
 import buildPhotographer from './modules/api/buildPhotographer.js';
-
-import focusSkipLink from './modules/aria/focusSkipLink.js';
-import focusSkipLinkTarget from './modules/aria/focusSkipLinkTarget.js';
 
 import generateHomepage from './modules/pages/generateHomePage.js';
 import generatePhotographerPage from './modules/pages/generatePhotographerPage.js';
+
+import focusSkipLink from './modules/aria/focusSkipLink.js';
+import focusSkipLinkTarget from './modules/aria/focusSkipLinkTarget.js';
 
 import filterResults from './modules/filters/filterResults.js';
 
@@ -16,83 +17,65 @@ import textCounter from './modules/modals/contact/textCounter.js';
 import submitForm from './modules/modals/contact/submitForm.js';
 import confirmFormSubmit from './modules/modals/contact/confirmFormSubmit.js';
 
-// identify which page the user is on
-const path = location.pathname.replace('.html','');
-
 // fetch data from the API
-const photographers = await buildPhotographer();
+const PHOTOGRAPHERS = await buildPhotographer();
 
 // generate pages
-if (path === '/' || path === '/index') {
-    generateHomepage(photographers);
+if (PATH === '/' || PATH === '/index') {
+    generateHomepage(PHOTOGRAPHERS);
 }
 
-if (path.includes('photographer')) {
+if (PATH.includes('photographer')) {
 
-    generatePhotographerPage(photographers);
+    generatePhotographerPage(PHOTOGRAPHERS);
 
     // modals (pt.1) open
-    const contactModalButton = document.getElementById('contact-button');
-    const contactModalBackground = document.getElementById('contact-form__background');
-    const lightboxModalButtons = document.querySelectorAll('.portfolio__element-media');
-    const lightboxModalBackground = document.getElementById('lightbox__background');
-
-    contactModalButton.addEventListener('click', () => { 
-        openModal(contactModalBackground); 
+    MODAL_BASICS.contact.openButton.addEventListener('click', () => { 
+        openModal(MODAL_BASICS.contact.background); 
     });
 
-    lightboxModalButtons.forEach((btn) => {
+    MODAL_BASICS.lightbox.openButtons.forEach((btn) => {
         btn.addEventListener('click', () => { 
-            openModal(lightboxModalBackground); 
+            openModal(MODAL_BASICS.lightbox.background); 
         });
     });
 
     // contact modal submitted check
-    const formStatus = sessionStorage.getItem('formStatus');
-
-    if (formStatus === 'submitted') {
-        openModal(contactModalBackground);
+    if (CONTACT_MODAL.submit.status === 'submitted') {
+        openModal(MODAL_BASICS.contact.background);
         confirmFormSubmit();
         sessionStorage.clear();
     }
 
     // modals (pt.2) close
-    const closeModalsButtons = document.querySelectorAll('.close-button');
-    
-    closeModalsButtons.forEach((btn) => { 
+    MODAL_BASICS.general.closeButtons.forEach((btn) => { 
         btn.addEventListener('click', () => { 
-            closeModal(contactModalBackground, lightboxModalBackground); 
+            closeModal(MODAL_BASICS.contact.background, MODAL_BASICS.lightbox.background); 
         });
     });
 
     // contact modal validation
-    const contactForm = document.forms.contact;
-    const contactFormInputs = document.querySelectorAll('input.contact-form__text-input, textarea.contact-form__text-input');
-    const contactFormMessage = document.getElementById('contact-form__message');
-    const contactModalSubmit = document.getElementById('contact-form__submit-button');
-
-    if (contactForm) {
-        contactFormInputs.forEach((input) => {
+    if (CONTACT_MODAL.form) {
+        CONTACT_MODAL.inputs.all.forEach((input) => {
             input.addEventListener('focusout', () => { 
                 focusOutInputCheck(input); 
             });
         });
     
         ['keyup', 'keydown'].forEach(event => {
-            contactFormMessage.addEventListener(event, () => { 
-                textCounter(contactFormMessage); 
+            CONTACT_MODAL.inputs.message.addEventListener(event, () => { 
+                textCounter(CONTACT_MODAL.inputs.message); 
             });
         });
     
-        contactModalSubmit.addEventListener('click', () => { 
-            submitForm(contactFormInputs, contactForm); 
+        CONTACT_MODAL.submit.button.addEventListener('click', () => { 
+            submitForm(CONTACT_MODAL.inputs.all, CONTACT_MODAL.form); 
         });
     }
 }
 
 // general ARIA
-const filters = document.querySelectorAll('.filter__option');
-filters.forEach(filter => {
+ARIA.filters.forEach(filter => {
     filter.addEventListener('keyup', event => {
         if (event.shiftKey && event.key === 'Tab') {
             focusSkipLink(filter, event);
@@ -100,8 +83,7 @@ filters.forEach(filter => {
     });
 });
 
-const skipLinks = document.querySelectorAll('.skip-link');
-skipLinks.forEach(link => {
+ARIA.skipLinks.forEach(link => {
     link.addEventListener('keydown', event => {
         if (event.key === 'Enter') {
             focusSkipLinkTarget(link, event);
@@ -110,8 +92,8 @@ skipLinks.forEach(link => {
 });
 
 // filter tags
-filters.forEach(filter => {
+FILTERS.forEach(filter => {
     filter.addEventListener('click', event => {
-        filterResults(filter.getAttribute('href'), photographers, path, event);
+        filterResults(filter.getAttribute('href'), PHOTOGRAPHERS, PATH, event);
     });
 });
