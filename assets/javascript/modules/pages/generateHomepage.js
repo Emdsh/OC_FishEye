@@ -1,4 +1,6 @@
-async function generateHomepage(photographers) {
+import loadConstants from "../../utils/loadConstants.js";
+
+function generateHomepage(photographers) {
     let injectHTML = '<h1 tabindex="0" class="home-title">Nos photographes</h1>';
 
     for (let i = 0; i < photographers.length; i += 1) {
@@ -23,7 +25,7 @@ async function generateHomepage(photographers) {
         for (let j = 0; j < photographers[i].tags.length; j += 1) {
             let photographerTag =   `<li>
                                         <span class="screenreader-only">${photographers[i].tags[j]}</span>
-                                        <a href="${photographers[i].tags[j]}" class="filter__option" aria-hidden="true">#${photographers[i].tags[j]}</a>
+                                        <button name="${photographers[i].tags[j]}" class="filter__option" aria-hidden="true">#${photographers[i].tags[j]}</button>
                                     </li>`;
             
             photographerFilters += photographerTag;                        
@@ -50,6 +52,9 @@ async function generateHomepage(photographers) {
 
     const main = document.getElementById('main');
     main.innerHTML = injectHTML;
+
+    const { MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS } = loadConstants();
+    return { MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS };
 }
 
 export default generateHomepage;

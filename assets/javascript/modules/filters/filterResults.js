@@ -1,35 +1,16 @@
-import generateHomepage from '../pages/generateHomePage.js';
-import generatePhotographerPage from '../pages/generatePhotographerPage.js';
+import toggleChecked from './toggleChecked.js';
+import filterResultsHomepage from './filterResultsHomepage.js';
+import filterResultsPhotographerPage from './filterResultsPhotographerPage.js';
 
-function filterResults(filter, unfilteredPhotographers, path, event) {
-    event.preventDefault();
+function filterResults(filter, PATH, FILTERS) {
+    const reset = toggleChecked(filter, FILTERS);
 
-    const filteredPhotographers = []
-
-    unfilteredPhotographers.forEach(photographer => {
-        if (photographer.tags.includes(filter)) {
-            filteredPhotographers.push(photographer);
-        }
-    });
-
-    filteredPhotographers.forEach(photographer => {
-        const filteredMedia = [];
-
-        photographer.media.forEach(media => {
-            if (media.tags.includes(filter)) {
-                filteredMedia.push(media);
-            }
-        });
-
-        photographer.media = filteredMedia;
-    });
-
-    if (path === '/' || path === '/index') {
-        generateHomepage(filteredPhotographers);
+    if (PATH === '/') {
+        filterResultsHomepage(filter, reset);
     }
 
-    if (path.includes('photographer')) {
-        generatePhotographerPage(filteredPhotographers);
+    if (PATH === '/photographer/') {
+        filterResultsPhotographerPage(filter, reset);
     }
 }
 

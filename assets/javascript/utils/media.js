@@ -1,9 +1,10 @@
 export class Media {
-    constructor(media, title, tags, likes) {
+    constructor(media, title, tags, likes, date) {
         this._path = media;
         this._title = title;
         this._likes = likes;
         this._tags = tags;
+        this._date = date;
     }
 
     set addLikes(value) {
@@ -26,5 +27,9 @@ export class Media {
 
     get tags() {
         return this._tags;
+    }
+
+    get date() {
+        return this._date;
     }
 }

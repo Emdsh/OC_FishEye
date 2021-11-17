@@ -1,6 +1,7 @@
+import loadConstants from "../../utils/loadConstants.js";
 import { Video } from '../../utils/video.js';
 
-async function generatePhotographerPage(photographers) {
+function generatePhotographerPage(photographers) {
     let photographer = new URLSearchParams(window.location.search).get('p');
 
     let photographerIndex = undefined;
@@ -10,8 +11,6 @@ async function generatePhotographerPage(photographers) {
         }
     }
     if (photographerIndex === undefined) { return; }
-
-    console.log(photographers[photographerIndex]);
 
     const pageTitle = document.getElementById('js-page-title');
     const photographerName = document.getElementById('js-photographer-name');
@@ -29,7 +28,7 @@ async function generatePhotographerPage(photographers) {
     for (let i = 0; i < photographers[photographerIndex].tags.length; i += 1){
         let photographerTag =   `<li>
                                     <span class="screenreader-only">${photographers[photographerIndex].tags[i]}</span>
-                                    <a href="${photographers[photographerIndex].tags[i]}" class="filter__option" aria-hidden="true">#${photographers[photographerIndex].tags[i]}</a>
+                                    <button name="${photographers[photographerIndex].tags[i]}" class="filter__option" aria-hidden="true">#${photographers[photographerIndex].tags[i]}</button>
                                 </li>`;
             
         photographerFilters += photographerTag;  
@@ -50,6 +49,7 @@ async function generatePhotographerPage(photographers) {
                                     <figcaption class="portfolio__element-metadata">
                                         <p class="portfolio__element-title" tabindex="0">${photographers[photographerIndex].media[i].title}</p>
                                         <p class="portfolio__element-likes" aria-label="likes" tabindex="0">${photographers[photographerIndex].media[i].likes}</p>
+                                        <p class="portfolio__element-tags screenreader-only" aria-hidden="true">${photographers[photographerIndex].media[i].tags}</p>
                                     </figcaption>
                                 </figure>`;
 
@@ -74,6 +74,9 @@ async function generatePhotographerPage(photographers) {
     contactTitle.innerText = `Contactez-moi\n${photographers[photographerIndex].name}`;
     contactPhotographer.setAttribute('value', photographer);
     mainPortfolio.insertAdjacentHTML('beforeend', photographerPortfolio);
+
+    const { MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS } = loadConstants();
+    return { MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS };
 }
 
 export default generatePhotographerPage;

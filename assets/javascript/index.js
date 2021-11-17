@@ -1,4 +1,4 @@
-import {PATH, MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS} from './utils/constants.js'
+import loadConstants from './utils/loadConstants.js';
 import buildPhotographer from './modules/api/buildPhotographer.js';
 
 import generateHomepage from './modules/pages/generateHomePage.js';
@@ -17,19 +17,50 @@ import textCounter from './modules/modals/contact/textCounter.js';
 import submitForm from './modules/modals/contact/submitForm.js';
 import confirmFormSubmit from './modules/modals/contact/confirmFormSubmit.js';
 
+// import constants
+let { MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS } = loadConstants();
+
+// indentify the page
+const PATH = location.pathname.replace('index.html','');
+
 // fetch data from the API
 const PHOTOGRAPHERS = await buildPhotographer();
 
 // generate pages
-if (PATH === '/' || PATH === '/index') {
-    generateHomepage(PHOTOGRAPHERS);
+if (PATH === '/') {
+    ({MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS } = generateHomepage(PHOTOGRAPHERS));
 }
 
-if (PATH.includes('photographer')) {
+if (PATH === '/photographer/') {
+    ({MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS } = generatePhotographerPage(PHOTOGRAPHERS));
+}
 
-    generatePhotographerPage(PHOTOGRAPHERS);
+// filter tags
+FILTERS.forEach(filter => {
+    filter.addEventListener('click', () => {
+        filterResults(filter.getAttribute('name'), PATH, FILTERS);
+    });
+});
 
-    // modals (pt.1) open
+// general ARIA
+ARIA.filters.forEach(filter => {
+    filter.addEventListener('keyup', event => {
+        if (event.shiftKey && event.key === 'Tab') {
+            focusSkipLink(filter, event);
+        }
+    });
+});
+
+ARIA.skipLinks.forEach(link => {
+    link.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+            focusSkipLinkTarget(link, event);
+        }
+    });
+});
+
+if (PATH === '/photographer/') {
+    // modals open
     MODAL_BASICS.contact.openButton.addEventListener('click', () => { 
         openModal(MODAL_BASICS.contact.background); 
     });
@@ -40,19 +71,20 @@ if (PATH.includes('photographer')) {
         });
     });
 
-    // contact modal submitted check
-    if (CONTACT_MODAL.submit.status === 'submitted') {
-        openModal(MODAL_BASICS.contact.background);
-        confirmFormSubmit();
-        sessionStorage.clear();
-    }
-
-    // modals (pt.2) close
+    // modals close
     MODAL_BASICS.general.closeButtons.forEach((btn) => { 
         btn.addEventListener('click', () => { 
             closeModal(MODAL_BASICS.contact.background, MODAL_BASICS.lightbox.background); 
         });
     });
+
+    // contact modal submitted check
+    if (CONTACT_MODAL.submit.status === 'submitted') {
+        openModal(MODAL_BASICS.contact.background);
+        confirmFormSubmit();
+        sessionStorage.clear();
+        update();
+    }
 
     // contact modal validation
     if (CONTACT_MODAL.form) {
@@ -73,27 +105,3 @@ if (PATH.includes('photographer')) {
         });
     }
 }
-
-// general ARIA
-ARIA.filters.forEach(filter => {
-    filter.addEventListener('keyup', event => {
-        if (event.shiftKey && event.key === 'Tab') {
-            focusSkipLink(filter, event);
-        }
-    });
-});
-
-ARIA.skipLinks.forEach(link => {
-    link.addEventListener('keydown', event => {
-        if (event.key === 'Enter') {
-            focusSkipLinkTarget(link, event);
-        }
-    });
-});
-
-// filter tags
-FILTERS.forEach(filter => {
-    filter.addEventListener('click', event => {
-        filterResults(filter.getAttribute('href'), PHOTOGRAPHERS, PATH, event);
-    });
-});
