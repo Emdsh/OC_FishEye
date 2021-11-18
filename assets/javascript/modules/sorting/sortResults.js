@@ -1,4 +1,5 @@
 import popularitySort from './popularitySort.js';
+import dateSort from './dateSort.js';
 
 function sortResults(sortBy) {
     const PORTFOLIO_TILES = document.querySelectorAll('.portfolio__element');
@@ -15,6 +16,10 @@ function sortResults(sortBy) {
 
     if (sortBy === 'popularity') {
         popularitySort(PORTFOLIO_TILES, LIKES);
+    }
+
+    if (sortBy === 'date') {
+        dateSort(PORTFOLIO_TILES, DATES);
     }
 }
 
