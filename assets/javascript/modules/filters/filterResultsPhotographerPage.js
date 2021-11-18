@@ -6,20 +6,9 @@ function filterResultsPhotographerPage(filter, reset) {
 
         if (reset === true) { return; }
 
-        const TAGS = tile.querySelectorAll('.portfolio__element-tag');
-        const MATCH = [];
+        const TAG = tile.querySelector('.portfolio__element-tag');
 
-        TAGS.forEach(tag => {
-            if(tag.textContent === filter) {
-                MATCH.push(true);
-            }
-            if(tag.textContent !== filter) {
-                MATCH.push(false);
-            }
-        });
-
-        const CHECKSUM = MATCH.reduce((a, b) => a || b);
-        if(CHECKSUM === false) {
+        if(TAG.textContent !== filter) {
             tile.style.display = 'none';
         }
     });
