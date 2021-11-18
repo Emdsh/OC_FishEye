@@ -1,4 +1,4 @@
-import loadSharedConstants from "../../utils/loadSharedConstants.js";
+import loadConstants from "../../utils/loadConstants.js";
 import { Video } from '../../utils/video.js';
 
 function generatePhotographerPage(photographers) {
@@ -76,8 +76,8 @@ function generatePhotographerPage(photographers) {
     contactPhotographer.setAttribute('value', photographer);
     mainPortfolio.insertAdjacentHTML('beforeend', photographerPortfolio);
 
-    const { ARIA, FILTERS } = loadSharedConstants();
-    return { ARIA, FILTERS };
+    const { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = loadConstants();
+    return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER };
 }
 
 export default generatePhotographerPage;

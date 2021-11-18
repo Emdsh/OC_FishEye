@@ -1,3 +1,4 @@
+import loadConstants from '../../utils/loadConstants.js';
 import popularitySort from './popularitySort.js';
 import dateSort from './dateSort.js';
 import titleSort from './titleSort.js';
@@ -28,6 +29,9 @@ function sortResults(sortBy) {
     if (sortBy === 'title') {
         titleSort(PORTFOLIO_TILES, TITLES, mainPortfolio);
     }
+
+    const { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = loadConstants();
+    return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER };
 }
 
 export default sortResults;

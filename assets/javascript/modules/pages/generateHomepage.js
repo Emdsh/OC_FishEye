@@ -1,4 +1,4 @@
-import loadSharedConstants from "../../utils/loadSharedConstants.js";
+import loadConstants from "../../utils/loadConstants.js";
 
 function generateHomepage(photographers) {
     let injectHTML = '<h1 tabindex="0" class="home-title">Nos photographes</h1>';
@@ -53,8 +53,8 @@ function generateHomepage(photographers) {
     const main = document.getElementById('main');
     main.innerHTML = injectHTML;
 
-    const { ARIA, FILTERS } = loadSharedConstants();
-    return { ARIA, FILTERS };
+    const { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = loadConstants();
+    return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER };
 }
 
 export default generateHomepage;

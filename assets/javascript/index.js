@@ -1,5 +1,4 @@
-import loadSharedConstants from './utils/loadSharedConstants.js';
-import { MODAL_BASICS, CONTACT_MODAL, SORTER } from './utils/otherConstants.js';
+import loadConstants from './utils/loadConstants.js';
 import buildPhotographer from './modules/api/buildPhotographer.js';
 
 import generateHomepage from './modules/pages/generateHomePage.js';
@@ -20,7 +19,7 @@ import submitForm from './modules/modals/contact/submitForm.js';
 import confirmFormSubmit from './modules/modals/contact/confirmFormSubmit.js';
 
 // import constants
-let { ARIA, FILTERS } = loadSharedConstants();
+let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = loadConstants();
 
 // indentify the page
 const PATH = location.pathname.replace('index.html','');
@@ -30,11 +29,11 @@ const PHOTOGRAPHERS = await buildPhotographer();
 
 // generate pages
 if (PATH === '/') {
-    ({ ARIA, FILTERS } = generateHomepage(PHOTOGRAPHERS));
+    ({ ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = generateHomepage(PHOTOGRAPHERS));
 }
 
 if (PATH === '/photographer/') {
-    ({ ARIA, FILTERS } = generatePhotographerPage(PHOTOGRAPHERS));
+    ({ ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = generatePhotographerPage(PHOTOGRAPHERS));
 }
 
 // filter tags
@@ -62,22 +61,28 @@ ARIA.skipLinks.forEach(link => {
 });
 
 if (PATH === '/photographer/') {
-    // sort by menu
-    sortResults(SORTER.value);
-    
-    SORTER.addEventListener('input', () => {
-        sortResults(SORTER.value);
-    })
+    function updatePortfolio() {
+        // sort by menu
+        ({ ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = sortResults(SORTER.value));
 
-    // modals open
-    MODAL_BASICS.contact.openButton.addEventListener('click', () => { 
-        openModal(MODAL_BASICS.contact.background); 
+        //lightbox modal open
+        MODAL_BASICS.lightbox.openButtons.forEach((btn) => {
+            btn.addEventListener('click', () => { 
+                openModal(MODAL_BASICS.lightbox.background); 
+            });
+        });
+    }
+    
+    updatePortfolio();
+
+    // sort by menu
+    SORTER.addEventListener('input', () => {
+        updatePortfolio();
     });
 
-    MODAL_BASICS.lightbox.openButtons.forEach((btn) => {
-        btn.addEventListener('click', () => { 
-            openModal(MODAL_BASICS.lightbox.background); 
-        });
+    // contact modal open
+    MODAL_BASICS.contact.openButton.addEventListener('click', () => { 
+        openModal(MODAL_BASICS.contact.background); 
     });
 
     // modals close
@@ -92,7 +97,6 @@ if (PATH === '/photographer/') {
         openModal(MODAL_BASICS.contact.background);
         confirmFormSubmit();
         sessionStorage.clear();
-        update();
     }
 
     // contact modal validation
