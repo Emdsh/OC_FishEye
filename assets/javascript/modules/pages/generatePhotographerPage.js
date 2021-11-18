@@ -50,6 +50,7 @@ function generatePhotographerPage(photographers) {
                                         <p class="portfolio__element-title" tabindex="0">${photographers[photographerIndex].media[i].title}</p>
                                         <p class="portfolio__element-likes" aria-label="likes" tabindex="0">${photographers[photographerIndex].media[i].likes}</p>
                                         <p class="portfolio__element-tag screenreader-only" aria-hidden="true">${photographers[photographerIndex].media[i].tag}</p>
+                                        <p class="portfolio__element-date screenreader-only" aria-hidden="true">${photographers[photographerIndex].media[i].date}</p>
                                     </figcaption>
                                 </figure>`;
 

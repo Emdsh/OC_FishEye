@@ -62,6 +62,13 @@ ARIA.skipLinks.forEach(link => {
 });
 
 if (PATH === '/photographer/') {
+    // sort by menu
+    sortResults(SORTER.value);
+    
+    SORTER.addEventListener('input', () => {
+        sortResults(SORTER.value);
+    })
+
     // modals open
     MODAL_BASICS.contact.openButton.addEventListener('click', () => { 
         openModal(MODAL_BASICS.contact.background); 
