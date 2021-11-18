@@ -1,9 +1,10 @@
 function dateSort(TILES, DATES) {
-    const NUMBERS_FROM_DATES = DATES.map(item => item.replace(/\-/g,''));
+    DATES = DATES.map(date => new Date(date));
+    const UNRANKED_DATES = DATES.slice();
+    const RANKED_DATES = DATES.sort((a, b) => b - a);
     
     for (let i = 0; i < TILES.length; i += 1) {
-        const index = NUMBERS_FROM_DATES.findIndex(max => max == Math.max(...NUMBERS_FROM_DATES));
-        NUMBERS_FROM_DATES.splice(index, 1, "-1");
+        const index = UNRANKED_DATES.findIndex(date => date === RANKED_DATES[i]);
 
         TILES[index].style.order = i;
     }
