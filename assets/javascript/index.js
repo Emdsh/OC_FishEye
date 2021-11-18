@@ -1,4 +1,5 @@
-import loadConstants from './utils/loadConstants.js';
+import loadSharedConstants from './utils/loadSharedConstants.js';
+import { MODAL_BASICS, CONTACT_MODAL, SORTER } from './utils/otherConstants.js';
 import buildPhotographer from './modules/api/buildPhotographer.js';
 
 import generateHomepage from './modules/pages/generateHomePage.js';
@@ -8,6 +9,7 @@ import focusSkipLink from './modules/aria/focusSkipLink.js';
 import focusSkipLinkTarget from './modules/aria/focusSkipLinkTarget.js';
 
 import filterResults from './modules/filters/filterResults.js';
+import sortResults from './modules/sorting/sortResults.js';
 
 import closeModal from './modules/modals/closeModals.js';
 import openModal from './modules/modals/openModal.js';
@@ -18,7 +20,7 @@ import submitForm from './modules/modals/contact/submitForm.js';
 import confirmFormSubmit from './modules/modals/contact/confirmFormSubmit.js';
 
 // import constants
-let { MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS } = loadConstants();
+let { ARIA, FILTERS } = loadSharedConstants();
 
 // indentify the page
 const PATH = location.pathname.replace('index.html','');
@@ -28,11 +30,11 @@ const PHOTOGRAPHERS = await buildPhotographer();
 
 // generate pages
 if (PATH === '/') {
-    ({MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS } = generateHomepage(PHOTOGRAPHERS));
+    ({ ARIA, FILTERS } = generateHomepage(PHOTOGRAPHERS));
 }
 
 if (PATH === '/photographer/') {
-    ({MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS } = generatePhotographerPage(PHOTOGRAPHERS));
+    ({ ARIA, FILTERS } = generatePhotographerPage(PHOTOGRAPHERS));
 }
 
 // filter tags
