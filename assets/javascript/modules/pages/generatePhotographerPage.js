@@ -1,4 +1,4 @@
-import loadConstants from "../../utils/loadConstants.js";
+import loadSharedConstants from "../../utils/loadSharedConstants.js";
 import { Video } from '../../utils/video.js';
 
 function generatePhotographerPage(photographers) {
@@ -49,7 +49,7 @@ function generatePhotographerPage(photographers) {
                                     <figcaption class="portfolio__element-metadata">
                                         <p class="portfolio__element-title" tabindex="0">${photographers[photographerIndex].media[i].title}</p>
                                         <p class="portfolio__element-likes" aria-label="likes" tabindex="0">${photographers[photographerIndex].media[i].likes}</p>
-                                        <p class="portfolio__element-tags screenreader-only" aria-hidden="true">${photographers[photographerIndex].media[i].tags}</p>
+                                        <p class="portfolio__element-tag screenreader-only" aria-hidden="true">${photographers[photographerIndex].media[i].tag}</p>
                                     </figcaption>
                                 </figure>`;
 
@@ -75,8 +75,8 @@ function generatePhotographerPage(photographers) {
     contactPhotographer.setAttribute('value', photographer);
     mainPortfolio.insertAdjacentHTML('beforeend', photographerPortfolio);
 
-    const { MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS } = loadConstants();
-    return { MODAL_BASICS, CONTACT_MODAL, ARIA, FILTERS };
+    const { ARIA, FILTERS } = loadSharedConstants();
+    return { ARIA, FILTERS };
 }
 
 export default generatePhotographerPage;

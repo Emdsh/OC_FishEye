@@ -3,7 +3,7 @@ export class Media {
         this._path = media;
         this._title = title;
         this._likes = likes;
-        this._tags = tags;
+        this._tag = tags;
         this._date = date;
     }
 
@@ -25,8 +25,8 @@ export class Media {
         return this._likes;
     }
 
-    get tags() {
-        return this._tags;
+    get tag() {
+        return this._tag;
     }
 
     get date() {
