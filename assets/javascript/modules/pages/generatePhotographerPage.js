@@ -77,8 +77,8 @@ function generatePhotographerPage(photographers) {
     contactPhotographer.setAttribute('value', photographer);
     mainPortfolio.insertAdjacentHTML('beforeend', photographerPortfolio);
 
-    const { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = loadConstants('all');
-    return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER };
+    const { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = loadConstants('all');
+    return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS };
 }
 
 export default generatePhotographerPage;

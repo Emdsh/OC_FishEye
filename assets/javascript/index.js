@@ -11,7 +11,7 @@ import focusSkipLinkTarget from './modules/aria/focusSkipLinkTarget.js';
 import filterResults from './modules/filters/filterResults.js';
 
 // import constants
-let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = loadConstants('all');
+let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = loadConstants('all');
 
 // indentify the page
 const PATH = location.pathname.replace('index.html','');
@@ -25,8 +25,8 @@ if (PATH === '/') {
 }
 
 if (PATH === '/photographer/') {
-    ({ ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = generatePhotographerPage(PHOTOGRAPHERS));
-    photographerPage(MODAL_BASICS, CONTACT_MODAL, SORTER);
+    ({ ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = generatePhotographerPage(PHOTOGRAPHERS));
+    photographerPage(MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS);
 }
 
 // filter tags

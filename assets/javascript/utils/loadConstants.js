@@ -38,24 +38,26 @@ function photographerConstants() {
     
     const SORTER = document.getElementById('sorting-menu');
 
-    return { MODAL_BASICS, CONTACT_MODAL, SORTER };
+    const LIKES_BUTTONS = document.querySelectorAll('.portfolio__element-likes');
+
+    return { MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS };
 }
 
 function loadConstants(request) {
-    let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = {};
+    let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = {};
 
     if (request === 'all') {
         ({ ARIA, FILTERS } = sharedConstants());
-        ({ MODAL_BASICS, CONTACT_MODAL, SORTER } = photographerConstants());
-        return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER };
+        ({ MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = photographerConstants());
+        return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS };
     }
     if (request === 'shared') {
         ({ ARIA, FILTERS } = sharedConstants());
         return { ARIA, FILTERS };
     }
     if (request === 'photographer') {
-        ({ MODAL_BASICS, CONTACT_MODAL, SORTER } = photographerConstants());
-        return { MODAL_BASICS, CONTACT_MODAL, SORTER };
+        ({ MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = photographerConstants());
+        return { MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS };
     }
 }
 

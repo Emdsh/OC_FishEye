@@ -1,5 +1,7 @@
 import sortResults from '../sorting/sortResults.js';
 
+import addLike from '../likes/addLike.js';
+
 import closeModal from '../modals/closeModals.js';
 import openModal from '../modals/openModal.js';
 
@@ -7,9 +9,9 @@ import focusOutInputCheck from '../modals/contact/focusOutInputCheck.js';
 import textCounter from '../modals/contact/textCounter.js';
 import submitForm from '../modals/contact/submitForm.js';
 
-function updatePortfolio(MODAL_BASICS, SORTER) {
+function updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS) {
     // sort by menu
-    ({ MODAL_BASICS, SORTER } = sortResults(SORTER.value));
+    ({ MODAL_BASICS, SORTER, LIKES_BUTTONS } = sortResults(SORTER.value));
 
     //lightbox modal open
     MODAL_BASICS.lightbox.openButtons.forEach((btn) => {
@@ -18,7 +20,15 @@ function updatePortfolio(MODAL_BASICS, SORTER) {
         });
     });
 
-    return { MODAL_BASICS, SORTER };
+    // likes 
+    LIKES_BUTTONS.forEach(btn =>{
+        btn.addEventListener('click', () => {
+            // console.log(btn.previousElementSibling.textContent);
+            addLike(btn);
+        });
+    });
+
+    return { MODAL_BASICS, SORTER, LIKES_BUTTONS };
 }
 
 function updateModalsClose(MODAL_BASICS) {
@@ -30,12 +40,12 @@ function updateModalsClose(MODAL_BASICS) {
     });
 }
 
-function photographerPage(MODAL_BASICS, CONTACT_MODAL, SORTER) {
-    ({ MODAL_BASICS, SORTER } = updatePortfolio(MODAL_BASICS, SORTER));
+function photographerPage(MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS) {
+    ({ MODAL_BASICS, SORTER, LIKES_BUTTONS } = updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS));
 
     // sort by menu
     SORTER.addEventListener('input', () => {
-        ({ MODAL_BASICS, SORTER } = updatePortfolio(MODAL_BASICS, SORTER));
+        ({ MODAL_BASICS, SORTER, LIKES_BUTTONS } = updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS));
     });
     
     updateModalsClose(MODAL_BASICS);

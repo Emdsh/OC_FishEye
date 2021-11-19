@@ -30,8 +30,8 @@ function sortResults(sortBy) {
         titleSort(PORTFOLIO_TILES, TITLES, mainPortfolio);
     }
 
-    const { MODAL_BASICS, ignored, SORTER } = loadConstants('photographer');
-    return { MODAL_BASICS, SORTER };
+    const { MODAL_BASICS, ignored, SORTER, LIKES_BUTTONS } = loadConstants('photographer');
+    return { MODAL_BASICS, SORTER, LIKES_BUTTONS };
 }
 
 export default sortResults;
