@@ -6,7 +6,7 @@ function addLike(button, likes, photographerLikes, totalLikes) {
    
     setTimeout(() => {
         button.classList.remove('liked');
-    }, 30000);
+    }, 10000);
 }
 
 export default addLike;

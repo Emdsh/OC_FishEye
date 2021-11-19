@@ -23,7 +23,6 @@ function updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS) {
     // likes 
     LIKES_BUTTONS.forEach(btn =>{
         btn.addEventListener('click', () => {
-            // console.log(btn.previousElementSibling.textContent);
             toggleLike(btn);
         });
     });
