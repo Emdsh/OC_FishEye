@@ -12,7 +12,7 @@ function sharedConstants() {
 function photographerConstants() {
     const MODAL_BASICS = {
         general: {
-            closeButtons: document.querySelectorAll('.close-button, #contact-form__background, #lightbox__background'),
+            closeButtons: document.querySelectorAll('.close-button'),
         },
         contact: {
             openButton: document.getElementById('contact-button'),

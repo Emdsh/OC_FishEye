@@ -1,13 +1,19 @@
 import submitInputCheck from './submitInputCheck.js';
 import errorMessage from './errorMessage.js';
+import confirmFormSubmit from './confirmFormSubmit.js';
 
-function submitForm(contactFormInputs, form) {
+function submitForm(contactFormInputs, form, formSubmit) {
     const isFormValid = submitInputCheck(contactFormInputs);
 
     if (isFormValid.checksum) {
-        sessionStorage.setItem('formStatus', 'submitted');
+        if (!formSubmit.classList.contains('close-button')) {
+            contactFormInputs.forEach(input => {
+                console.log(`${input.name}: ${input.value}`);
+            });
+        }
 
-        return form.submit(contactFormInputs);
+        const MODAL_BASICS = confirmFormSubmit(form, formSubmit);
+        return MODAL_BASICS;
     }
 
     Object.keys(isFormValid).forEach(key => {

@@ -6,7 +6,6 @@ import openModal from '../modals/openModal.js';
 import focusOutInputCheck from '../modals/contact/focusOutInputCheck.js';
 import textCounter from '../modals/contact/textCounter.js';
 import submitForm from '../modals/contact/submitForm.js';
-import confirmFormSubmit from '../modals/contact/confirmFormSubmit.js';
 
 function updatePortfolio(MODAL_BASICS, SORTER) {
     // sort by menu
@@ -22,6 +21,15 @@ function updatePortfolio(MODAL_BASICS, SORTER) {
     return { MODAL_BASICS, SORTER };
 }
 
+function updateModalsClose(MODAL_BASICS) {
+    // modals close
+    MODAL_BASICS.general.closeButtons.forEach((btn) => { 
+        btn.addEventListener('click', () => { 
+            closeModal(MODAL_BASICS.contact.background, MODAL_BASICS.lightbox.background); 
+        });
+    });
+}
+
 function photographerPage(MODAL_BASICS, CONTACT_MODAL, SORTER) {
     ({ MODAL_BASICS, SORTER } = updatePortfolio(MODAL_BASICS, SORTER));
 
@@ -30,24 +38,12 @@ function photographerPage(MODAL_BASICS, CONTACT_MODAL, SORTER) {
         ({ MODAL_BASICS, SORTER } = updatePortfolio(MODAL_BASICS, SORTER));
     });
     
+    updateModalsClose(MODAL_BASICS);
+
     // contact modal open
     MODAL_BASICS.contact.openButton.addEventListener('click', () => { 
         openModal(MODAL_BASICS.contact.background); 
     });
-    
-    // modals close
-    MODAL_BASICS.general.closeButtons.forEach((btn) => { 
-        btn.addEventListener('click', () => { 
-            closeModal(MODAL_BASICS.contact.background, MODAL_BASICS.lightbox.background); 
-        });
-    });
-    
-    // contact modal submitted check
-    if (CONTACT_MODAL.submit.status === 'submitted') {
-        openModal(MODAL_BASICS.contact.background);
-        confirmFormSubmit();
-        sessionStorage.clear();
-    }
     
     // contact modal validation
     if (CONTACT_MODAL.form) {
@@ -64,7 +60,8 @@ function photographerPage(MODAL_BASICS, CONTACT_MODAL, SORTER) {
         });
     
         CONTACT_MODAL.submit.button.addEventListener('click', () => { 
-            submitForm(CONTACT_MODAL.inputs.all, CONTACT_MODAL.form); 
+            MODAL_BASICS = submitForm(CONTACT_MODAL.inputs.all, CONTACT_MODAL.form, CONTACT_MODAL.submit.button);
+            updateModalsClose(MODAL_BASICS);
         });
     }
 }
