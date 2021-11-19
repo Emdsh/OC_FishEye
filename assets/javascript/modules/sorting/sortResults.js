@@ -10,6 +10,7 @@ function sortResults(sortBy) {
     const LIKES = [];
     const DATES = [];
     const TITLES = [];
+    let RANKED_TILES = [];
 
     PORTFOLIO_TILES.forEach(tile => {
         LIKES.push(tile.querySelector('.portfolio__element-likes').textContent);
@@ -19,16 +20,20 @@ function sortResults(sortBy) {
     });
 
     if (sortBy === 'popularity') {
-        popularitySort(PORTFOLIO_TILES, LIKES, mainPortfolio);
+        RANKED_TILES = popularitySort(PORTFOLIO_TILES, LIKES, mainPortfolio);
     }
 
     if (sortBy === 'date') {
-        dateSort(PORTFOLIO_TILES, DATES, mainPortfolio);
+        RANKED_TILES = dateSort(PORTFOLIO_TILES, DATES, mainPortfolio);
     }
 
     if (sortBy === 'title') {
-        titleSort(PORTFOLIO_TILES, TITLES, mainPortfolio);
+        RANKED_TILES = titleSort(PORTFOLIO_TILES, TITLES, mainPortfolio);
     }
+
+    RANKED_TILES.forEach(tile => {
+        mainPortfolio.insertAdjacentHTML('beforeend', tile.outerHTML);
+    });
 
     const { MODAL_BASICS, ignored, SORTER, LIKES_BUTTONS } = loadConstants('photographer');
     return { MODAL_BASICS, SORTER, LIKES_BUTTONS };

@@ -11,9 +11,7 @@ function dateSort(TILES, DATES, mainPortfolio) {
         RANKED_TILES.push(TILES[index]);
     }
 
-    RANKED_TILES.forEach(tile => {
-        mainPortfolio.insertAdjacentHTML('beforeend', tile.outerHTML);
-    });
+    return RANKED_TILES;
 }
 
 export default dateSort;
