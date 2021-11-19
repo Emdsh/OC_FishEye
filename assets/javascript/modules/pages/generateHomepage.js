@@ -53,8 +53,8 @@ function generateHomepage(photographers) {
     const main = document.getElementById('main');
     main.innerHTML = injectHTML;
 
-    const { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = loadConstants();
-    return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER };
+    const { ARIA, FILTERS } = loadConstants('shared');
+    return { ARIA, FILTERS };
 }
 
 export default generateHomepage;

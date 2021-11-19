@@ -1,4 +1,4 @@
-function loadConstants() {
+function sharedConstants() {
     const ARIA = {
         filters: document.querySelectorAll('.filter__option'),
         skipLinks: document.querySelectorAll('.skip-link'),
@@ -6,9 +6,13 @@ function loadConstants() {
 
     const FILTERS = document.querySelectorAll('.filter__option');
 
+    return { ARIA, FILTERS };
+}
+
+function photographerConstants() {
     const MODAL_BASICS = {
         general: {
-            closeButtons: document.querySelectorAll('.close-button'),
+            closeButtons: document.querySelectorAll('.close-button, #contact-form__background, #lightbox__background'),
         },
         contact: {
             openButton: document.getElementById('contact-button'),
@@ -34,7 +38,25 @@ function loadConstants() {
     
     const SORTER = document.getElementById('sorting-menu');
 
-    return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER };
+    return { MODAL_BASICS, CONTACT_MODAL, SORTER };
+}
+
+function loadConstants(request) {
+    let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = {};
+
+    if (request === 'all') {
+        ({ ARIA, FILTERS } = sharedConstants());
+        ({ MODAL_BASICS, CONTACT_MODAL, SORTER } = photographerConstants());
+        return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER };
+    }
+    if (request === 'shared') {
+        ({ ARIA, FILTERS } = sharedConstants());
+        return { ARIA, FILTERS };
+    }
+    if (request === 'photographer') {
+        ({ MODAL_BASICS, CONTACT_MODAL, SORTER } = photographerConstants());
+        return { MODAL_BASICS, CONTACT_MODAL, SORTER };
+    }
 }
 
 export default loadConstants;

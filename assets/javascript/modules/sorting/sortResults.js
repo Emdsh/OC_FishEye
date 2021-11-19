@@ -30,8 +30,8 @@ function sortResults(sortBy) {
         titleSort(PORTFOLIO_TILES, TITLES, mainPortfolio);
     }
 
-    const { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = loadConstants();
-    return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER };
+    const { MODAL_BASICS, ignored, SORTER } = loadConstants('photographer');
+    return { MODAL_BASICS, SORTER };
 }
 
 export default sortResults;

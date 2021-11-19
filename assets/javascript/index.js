@@ -3,23 +3,24 @@ import buildPhotographer from './modules/api/buildPhotographer.js';
 
 import generateHomepage from './modules/pages/generateHomePage.js';
 import generatePhotographerPage from './modules/pages/generatePhotographerPage.js';
+import photographerPage from './modules/pages/photographerPage.js';
 
 import focusSkipLink from './modules/aria/focusSkipLink.js';
 import focusSkipLinkTarget from './modules/aria/focusSkipLinkTarget.js';
 
 import filterResults from './modules/filters/filterResults.js';
-import sortResults from './modules/sorting/sortResults.js';
+// import sortResults from './modules/sorting/sortResults.js';
 
-import closeModal from './modules/modals/closeModals.js';
-import openModal from './modules/modals/openModal.js';
+// import closeModal from './modules/modals/closeModals.js';
+// import openModal from './modules/modals/openModal.js';
 
-import focusOutInputCheck from './modules/modals/contact/focusOutInputCheck.js';
-import textCounter from './modules/modals/contact/textCounter.js';
-import submitForm from './modules/modals/contact/submitForm.js';
-import confirmFormSubmit from './modules/modals/contact/confirmFormSubmit.js';
+// import focusOutInputCheck from './modules/modals/contact/focusOutInputCheck.js';
+// import textCounter from './modules/modals/contact/textCounter.js';
+// import submitForm from './modules/modals/contact/submitForm.js';
+// import confirmFormSubmit from './modules/modals/contact/confirmFormSubmit.js';
 
 // import constants
-let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = loadConstants();
+let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = loadConstants('all');
 
 // indentify the page
 const PATH = location.pathname.replace('index.html','');
@@ -29,11 +30,12 @@ const PHOTOGRAPHERS = await buildPhotographer();
 
 // generate pages
 if (PATH === '/') {
-    ({ ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = generateHomepage(PHOTOGRAPHERS));
+    ({ ARIA, FILTERS } = generateHomepage(PHOTOGRAPHERS));
 }
 
 if (PATH === '/photographer/') {
     ({ ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = generatePhotographerPage(PHOTOGRAPHERS));
+    photographerPage(MODAL_BASICS, CONTACT_MODAL, SORTER);
 }
 
 // filter tags
@@ -59,62 +61,3 @@ ARIA.skipLinks.forEach(link => {
         }
     });
 });
-
-if (PATH === '/photographer/') {
-    function updatePortfolio() {
-        // sort by menu
-        ({ ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = sortResults(SORTER.value));
-
-        //lightbox modal open
-        MODAL_BASICS.lightbox.openButtons.forEach((btn) => {
-            btn.addEventListener('click', () => { 
-                openModal(MODAL_BASICS.lightbox.background); 
-            });
-        });
-    }
-    
-    updatePortfolio();
-
-    // sort by menu
-    SORTER.addEventListener('input', () => {
-        updatePortfolio();
-    });
-
-    // contact modal open
-    MODAL_BASICS.contact.openButton.addEventListener('click', () => { 
-        openModal(MODAL_BASICS.contact.background); 
-    });
-
-    // modals close
-    MODAL_BASICS.general.closeButtons.forEach((btn) => { 
-        btn.addEventListener('click', () => { 
-            closeModal(MODAL_BASICS.contact.background, MODAL_BASICS.lightbox.background); 
-        });
-    });
-
-    // contact modal submitted check
-    if (CONTACT_MODAL.submit.status === 'submitted') {
-        openModal(MODAL_BASICS.contact.background);
-        confirmFormSubmit();
-        sessionStorage.clear();
-    }
-
-    // contact modal validation
-    if (CONTACT_MODAL.form) {
-        CONTACT_MODAL.inputs.all.forEach((input) => {
-            input.addEventListener('focusout', () => { 
-                focusOutInputCheck(input); 
-            });
-        });
-    
-        ['keyup', 'keydown'].forEach(event => {
-            CONTACT_MODAL.inputs.message.addEventListener(event, () => { 
-                textCounter(CONTACT_MODAL.inputs.message); 
-            });
-        });
-    
-        CONTACT_MODAL.submit.button.addEventListener('click', () => { 
-            submitForm(CONTACT_MODAL.inputs.all, CONTACT_MODAL.form); 
-        });
-    }
-}
