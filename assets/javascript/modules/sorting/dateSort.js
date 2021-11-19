@@ -7,7 +7,7 @@ function dateSort(TILES, DATES, mainPortfolio) {
     
     for (let i = 0; i < TILES.length; i += 1) {
         const index = UNRANKED_DATES.findIndex(date => date === RANKED_DATES[i]);
-
+        UNRANKED_DATES[index] = -1;
         RANKED_TILES.push(TILES[index]);
     }
 

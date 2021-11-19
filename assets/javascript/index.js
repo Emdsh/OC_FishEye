@@ -9,15 +9,6 @@ import focusSkipLink from './modules/aria/focusSkipLink.js';
 import focusSkipLinkTarget from './modules/aria/focusSkipLinkTarget.js';
 
 import filterResults from './modules/filters/filterResults.js';
-// import sortResults from './modules/sorting/sortResults.js';
-
-// import closeModal from './modules/modals/closeModals.js';
-// import openModal from './modules/modals/openModal.js';
-
-// import focusOutInputCheck from './modules/modals/contact/focusOutInputCheck.js';
-// import textCounter from './modules/modals/contact/textCounter.js';
-// import submitForm from './modules/modals/contact/submitForm.js';
-// import confirmFormSubmit from './modules/modals/contact/confirmFormSubmit.js';
 
 // import constants
 let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER } = loadConstants('all');
