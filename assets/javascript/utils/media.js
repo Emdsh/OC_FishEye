@@ -7,12 +7,6 @@ export class Media {
         this._date = date;
     }
 
-    set addLikes(value) {
-        if(!isNaN(value)) {
-            this._likes += value;
-        }
-    }
-
     get path() {
         return `/assets/images/photographers/media/${this._path}`;
     }

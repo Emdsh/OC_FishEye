@@ -710,8 +710,15 @@ main .home-photographer__pricing {
   color: #901c1c;
   padding-top: 0.25rem;
 }
+.portfolio__element-likes {
+  padding: 0 0.25rem;
+}
 .portfolio__element-likes::after {
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
   content: " ";
+}
+.portfolio__element-likes.liked {
+  background: rgba(219, 136, 118, 0.5);
+  border-radius: 0.25rem;
 }

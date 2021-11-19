@@ -1,6 +1,6 @@
 import sortResults from '../sorting/sortResults.js';
 
-import addLike from '../likes/addLike.js';
+import toggleLike from '../likes/toggleLike.js';
 
 import closeModal from '../modals/closeModals.js';
 import openModal from '../modals/openModal.js';
@@ -24,7 +24,7 @@ function updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS) {
     LIKES_BUTTONS.forEach(btn =>{
         btn.addEventListener('click', () => {
             // console.log(btn.previousElementSibling.textContent);
-            addLike(btn);
+            toggleLike(btn);
         });
     });
 

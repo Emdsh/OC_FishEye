@@ -10,6 +10,9 @@ import focusSkipLinkTarget from './modules/aria/focusSkipLinkTarget.js';
 
 import filterResults from './modules/filters/filterResults.js';
 
+// for dev
+sessionStorage.clear();
+
 // import constants
 let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = loadConstants('all');
 

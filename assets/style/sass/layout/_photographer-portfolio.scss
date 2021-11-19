@@ -48,10 +48,19 @@
             padding-top: .25rem;
         }
 
-        &-likes::after {
-            font-family: "Font Awesome 5 Free";
-            font-weight: 700;
-            content: " \f004";
+        &-likes {
+            padding: 0 .25rem;
+
+            &::after {
+                font-family: "Font Awesome 5 Free";
+                font-weight: 700;
+                content: " \f004";
+            }
+
+            &.liked {
+                background: rgba(color(secondary, lighter), .5);
+                border-radius: .25rem;
+            }
         }
     }
 }
