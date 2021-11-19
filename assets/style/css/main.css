@@ -693,6 +693,17 @@ main .home-photographer__pricing {
     height: 28.5vw;
   }
 }
+.portfolio__element-media--video::after {
+  opacity: 0.75;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #901c1c;
+  content: "";
+}
 .portfolio__element-metadata {
   display: flex;
   justify-content: space-between;

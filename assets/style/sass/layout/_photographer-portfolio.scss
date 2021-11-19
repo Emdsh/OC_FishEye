@@ -27,6 +27,18 @@
                 width: 28.5vw;
                 height: 28.5vw;
             }
+
+            &--video::after {
+                opacity: .75;
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                font-family: "Font Awesome 5 Free";
+                font-weight: 700;
+                font-size: 2.5rem;
+                color: color(primary);
+                content: "\f04b";
+            }
         }
 
         &-metadata {

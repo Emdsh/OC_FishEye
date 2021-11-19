@@ -40,7 +40,8 @@ function generatePhotographerPage(photographers) {
         let mediaElement = `<img src="${photographers[photographerIndex].media[i].path}" alt="" class="portfolio__element-media" tabindex="0">`;
 
         if (photographers[photographerIndex].media[i] instanceof Video) {
-            mediaElement = `<video src="${photographers[photographerIndex].media[i].path}" alt="" class="portfolio__element-media" tabindex="0"></video>`;
+            mediaElement = `<video src="${photographers[photographerIndex].media[i].path}" alt="" class="portfolio__element-media" tabindex="0"></video>
+                            <div class="portfolio__element-media--video"></div>`;
         }
 
         let photographerMedia = `<figure class="portfolio__element">
