@@ -84,15 +84,12 @@
         <div class="contact-form__background" id="contact-form__background">
             <section class="contact-form__body">
 
-                <span class="contact-form__close close-button"></span>
+                <span class="contact-form__close close-button" tabindex="0" aria-role="button" aria-label="close"></span>
 
                 <div class="contact-form__content" id="contact-form-content">
                     <h1 id="js-contact-title">Contactez-moi</h1>
 
                     <form name="contact" action="index.html" id="contactForm">
-
-                        <input id="js-contact-photographer" class="screenreader-only" name="p" aria-hidden="true">
-
                         <div class="contact-form__input">
                             <label for="contact-form__first-name" class="contact-form__text-label">Prénom</label>
                             <input type="text" id="contact-form__first-name" name="firstName" minlength="2" required class="contact-form__text-input">
