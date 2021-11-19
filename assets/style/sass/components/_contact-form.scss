@@ -103,12 +103,17 @@
     }
 
     &__submit-button {
-        background-color: color(primary);
+        background: color(primary);
         color: color(light);
         padding: .5rem 1rem;
         border-radius: .25rem;
         margin-top: 1rem;
         cursor: pointer;
+
+        &:hover, &:focus {
+            background: color(secondary);
+            color: color(dark);
+        }
     }
 
     &__error {

@@ -33,7 +33,6 @@
         border-radius: .25rem;
         color: color(light);
         background-color: color(primary);
-        font-weight: 800;
         position: fixed;
         bottom: 1.5rem;
         left: 50%;
@@ -41,6 +40,7 @@
         transform: translate(-50%, 0);
         margin: 0 auto;
         z-index: 9999;
+        cursor: pointer;
 
         @media all and (min-width: 1024px) {
             position: unset;
@@ -54,7 +54,6 @@
         &:hover, &:focus {
             color: color(dark);
             background-color: color(secondary, lighter);
-            cursor: pointer;
         }
     }
 

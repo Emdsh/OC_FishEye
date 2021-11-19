@@ -23,6 +23,7 @@
             border-radius: .5rem;
             font-size: 1rem;
             width: 7.25rem;
+            cursor: pointer;
 
             &:focus {
                 background-color: color(secondary, lighter);

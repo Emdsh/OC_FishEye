@@ -59,6 +59,7 @@ fieldset {
   border: #c4c4c4 solid 1px;
   border-radius: 1rem;
   font-size: 0.75rem;
+  cursor: pointer;
 }
 .filter__option:hover, .filter__option:focus {
   outline: none;
@@ -283,7 +284,6 @@ main .home-photographer__pricing {
   border-radius: 0.25rem;
   color: #fff;
   background-color: #901c1c;
-  font-weight: 800;
   position: fixed;
   bottom: 1.5rem;
   left: 50%;
@@ -291,6 +291,7 @@ main .home-photographer__pricing {
   transform: translate(-50%, 0);
   margin: 0 auto;
   z-index: 9999;
+  cursor: pointer;
 }
 @media all and (min-width: 1024px) {
   .photographer-tile__contact-button {
@@ -305,7 +306,6 @@ main .home-photographer__pricing {
 .photographer-tile__contact-button:hover, .photographer-tile__contact-button:focus {
   color: #000;
   background-color: #db8876;
-  cursor: pointer;
 }
 .photographer-tile__picture {
   width: 25vw;
@@ -458,12 +458,16 @@ main .home-photographer__pricing {
   color: #525252;
 }
 .contact-form__submit-button {
-  background-color: #901c1c;
+  background: #901c1c;
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   margin-top: 1rem;
   cursor: pointer;
+}
+.contact-form__submit-button:hover, .contact-form__submit-button:focus {
+  background: #d3573c;
+  color: #000;
 }
 .contact-form__error-message {
   color: #901c1c;
@@ -654,6 +658,7 @@ main .home-photographer__pricing {
     border-radius: 0.5rem;
     font-size: 1rem;
     width: 7.25rem;
+    cursor: pointer;
   }
   .sort-menu__dropdown:focus {
     background-color: #db8876;
@@ -681,6 +686,7 @@ main .home-photographer__pricing {
   -o-object-position: center;
      object-position: center;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 @media all and (min-width: 682px) {
   .portfolio__element-media {
@@ -693,16 +699,25 @@ main .home-photographer__pricing {
     height: 28.5vw;
   }
 }
-.portfolio__element-media--video::after {
-  opacity: 0.75;
+.portfolio__element-media--video::after, .portfolio__element-media--video::before {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
-  font-size: 2.5rem;
-  color: #901c1c;
   content: "";
+}
+.portfolio__element-media--video::before {
+  top: 0.7rem;
+  left: 0.8rem;
+  opacity: 0.5;
+  color: #d3573c;
+  font-size: 3rem;
+}
+.portfolio__element-media--video::after {
+  top: 1rem;
+  left: 1rem;
+  opacity: 0.5;
+  color: #901c1c;
+  font-size: 2.5rem;
 }
 .portfolio__element-metadata {
   display: flex;
@@ -710,8 +725,26 @@ main .home-photographer__pricing {
   color: #901c1c;
   padding-top: 0.25rem;
 }
+@media all and (min-width: 682px) {
+  .portfolio__element-metadata {
+    width: calc(100vw - 3rem);
+  }
+}
+@media all and (min-width: 800px) {
+  .portfolio__element-metadata {
+    width: 28.5vw;
+  }
+}
+.portfolio__element-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 .portfolio__element-likes {
+  margin-left: 0.5rem;
   padding: 0 0.25rem;
+  cursor: pointer;
+  white-space: nowrap;
 }
 .portfolio__element-likes::after {
   font-family: "Font Awesome 5 Free";

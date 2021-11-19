@@ -18,6 +18,7 @@
             object-fit: cover;
             object-position: center;
             border-radius: .5rem;
+            cursor: pointer;
 
             @media all and (min-width: 682px) {
                 width: calc(100vw - 3rem);
@@ -28,16 +29,29 @@
                 height: 28.5vw;
             }
 
-            &--video::after {
-                opacity: .75;
-                position: absolute;
-                top: 1rem;
-                left: 1rem;
-                font-family: "Font Awesome 5 Free";
-                font-weight: 700;
-                font-size: 2.5rem;
-                color: color(primary);
-                content: "\f04b";
+            &--video {
+                &::after, &::before {
+                    position: absolute;
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 700;
+                    content: "\f04b";
+                }
+
+                &::before {
+                    top: .7rem;
+                    left: .8rem;
+                    opacity: .5;
+                    color: color(secondary);
+                    font-size: 3rem;
+                }
+
+                &::after {
+                    top: 1rem;
+                    left: 1rem;
+                    opacity: .5;
+                    color: color(primary);
+                    font-size: 2.5rem;
+                }
             }
         }
 
@@ -46,10 +60,27 @@
             justify-content: space-between;
             color: color(primary);
             padding-top: .25rem;
+
+            @media all and (min-width: 682px) {
+                width: calc(100vw - 3rem);
+            }
+
+            @media all and (min-width: 800px) {
+                width: 28.5vw;
+            }
+        }
+
+        &-title {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
 
         &-likes {
+            margin-left: .5rem;
             padding: 0 .25rem;
+            cursor: pointer;
+            white-space: nowrap;
 
             &::after {
                 font-family: "Font Awesome 5 Free";

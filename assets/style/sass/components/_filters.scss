@@ -1,15 +1,5 @@
 @use '../components/' as *;
 
-// nav {
-//     text-align: center;
-
-//     > ul {
-//         display: flex;
-//         flex-flow: row wrap;
-//         justify-content: center;
-//     }
-// }
-
 .filter {
     text-align: center;
 
@@ -27,6 +17,7 @@
         border: darken(color(light), 23) solid 1px;
         border-radius: 1rem;
         font-size: .75rem;
+        cursor: pointer;
     
         &:hover, &:focus {
             outline: none;
