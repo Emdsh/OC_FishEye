@@ -422,13 +422,19 @@ main .home-photographer__pricing {
   content: "";
   height: 2rem;
   width: 3px;
-  background-color: #fff;
+  background: #fff;
 }
 .contact-form__close::before {
   transform: rotate(45deg);
 }
 .contact-form__close::after {
   transform: rotate(-45deg);
+}
+.contact-form__close:focus {
+  outline: none;
+}
+.contact-form__close:focus::before, .contact-form__close:focus::after {
+  background: #901c1c;
 }
 .contact-form__content h1 {
   margin-bottom: 1rem;

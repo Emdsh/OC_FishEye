@@ -2,7 +2,7 @@ import sortResults from '../sorting/sortResults.js';
 
 import toggleLike from '../likes/toggleLike.js';
 
-import closeModal from '../modals/closeModals.js';
+import closeModal from '../modals/closeModal.js';
 import openModal from '../modals/openModal.js';
 
 import focusOutInputCheck from '../modals/contact/focusOutInputCheck.js';

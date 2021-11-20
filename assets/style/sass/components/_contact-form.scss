@@ -1,7 +1,6 @@
 @use '../components/' as *;
 
 .contact-form {
-
     &__background {
         display: none;
         position: fixed;
@@ -52,7 +51,7 @@
             content: "";
             height: 2rem;
             width: 3px;
-            background-color: color(light);
+            background: color(light);
         }
 
         &::before {
@@ -61,6 +60,13 @@
 
         &::after {
             transform: rotate(-45deg);
+        }
+
+        &:focus {
+            &::before, &::after {
+                background: color(primary);
+            }
+            outline: none;
         }
     }
 

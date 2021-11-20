@@ -1,12 +1,12 @@
 function textCounter(contactFormMessage) {
-    const characterAmout = contactFormMessage.value.length;
+    const characterAmount = contactFormMessage.value.length;
     const characterCounter = document.getElementById('character-counter');
 
-    if (characterCounter) {
-        characterCounter.remove();
-    }
+    const requiredCharacterAmount = 20 - characterAmount;
+    console.log(requiredCharacterAmount);
+    if (requiredCharacterAmount < 0) { return; }
 
-    contactFormMessage.insertAdjacentHTML('beforebegin', `<p id="character-counter" class="contact-form__character-counter">${characterAmout}/20+</p>`);
+    characterCounter.innerText = `Caractères requis: ${requiredCharacterAmount}`;
 }
 
 export default textCounter;
