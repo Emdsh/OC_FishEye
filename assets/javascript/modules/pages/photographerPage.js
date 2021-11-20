@@ -16,7 +16,12 @@ function updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS) {
     //lightbox modal open
     MODAL_BASICS.lightbox.openButtons.forEach((btn) => {
         btn.addEventListener('click', () => { 
-            openModal(MODAL_BASICS.lightbox.background); 
+            openModal(MODAL_BASICS.lightbox.background);
+        });
+        btn.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+                openModal(MODAL_BASICS.lightbox.background);
+            }
         });
     });
 
@@ -25,16 +30,26 @@ function updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS) {
         btn.addEventListener('click', () => {
             toggleLike(btn);
         });
+        btn.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+                toggleLike(btn);
+            }
+        });
     });
 
     return { MODAL_BASICS, SORTER, LIKES_BUTTONS };
 }
 
-function updateModalsClose(MODAL_BASICS) {
+export function updateModalsClose(MODAL_BASICS) {
     // modals close
     MODAL_BASICS.general.closeButtons.forEach((btn) => { 
         btn.addEventListener('click', () => { 
             closeModal(MODAL_BASICS.contact.background, MODAL_BASICS.lightbox.background); 
+        });
+        btn.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+                closeModal(MODAL_BASICS.contact.background, MODAL_BASICS.lightbox.background);
+            }
         });
     });
 }
@@ -70,7 +85,6 @@ function photographerPage(MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS) {
     
         CONTACT_MODAL.submit.button.addEventListener('click', () => { 
             MODAL_BASICS = submitForm(CONTACT_MODAL.inputs.all, CONTACT_MODAL.form, CONTACT_MODAL.submit.button);
-            updateModalsClose(MODAL_BASICS);
         });
     }
 }

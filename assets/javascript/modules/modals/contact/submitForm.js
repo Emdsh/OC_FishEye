@@ -1,6 +1,7 @@
 import submitInputCheck from './submitInputCheck.js';
 import errorMessage from './errorMessage.js';
 import confirmFormSubmit from './confirmFormSubmit.js';
+import { updateModalsClose } from '../../pages/photographerPage.js';
 
 function submitForm(contactFormInputs, form, formSubmit) {
     const isFormValid = submitInputCheck(contactFormInputs);
@@ -13,6 +14,7 @@ function submitForm(contactFormInputs, form, formSubmit) {
         }
 
         const MODAL_BASICS = confirmFormSubmit(form, formSubmit);
+        updateModalsClose(MODAL_BASICS);
         return MODAL_BASICS;
     }
 
