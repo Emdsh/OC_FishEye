@@ -549,6 +549,12 @@ main .home-photographer__pricing {
 .lightbox__close::after {
   transform: rotate(-45deg);
 }
+.lightbox__close:focus {
+  outline: none;
+}
+.lightbox__close:focus::before, .lightbox__close:focus::after {
+  background: #d3573c;
+}
 .lightbox__forward, .lightbox__backward {
   position: absolute;
   width: 1rem;
@@ -569,6 +575,12 @@ main .home-photographer__pricing {
 .lightbox__forward::after, .lightbox__backward::after {
   transform: rotate(-45deg);
   top: 0.58rem;
+}
+.lightbox__forward:focus, .lightbox__backward:focus {
+  outline: none;
+}
+.lightbox__forward:focus::before, .lightbox__forward:focus::after, .lightbox__backward:focus::before, .lightbox__backward:focus::after {
+  background: #d3573c;
 }
 .lightbox__forward {
   right: -7.5%;
@@ -608,22 +620,26 @@ main .home-photographer__pricing {
     transform: translate(-50%, 0);
   }
 }
-.lightbox__image {
-  width: 75vw;
-  height: 75vw;
-  border-radius: 0.25rem;
+.lightbox__media {
+  width: 65vw;
+  height: 65vw;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  border-radius: 0.25rem;
+}
+.lightbox__media-container {
+  width: 65vw;
+  height: 65vw;
 }
 @media all and (min-width: 1024px) {
-  .lightbox__image {
+  .lightbox__media-container {
     width: calc(100vh - 5rem);
     height: calc(100vh - 5rem);
   }
 }
-.lightbox__image-title {
+.lightbox__media-title {
   color: #901c1c;
   font-size: 1.25rem;
   font-weight: 100;

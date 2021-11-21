@@ -1,5 +1,5 @@
 function trapFocus(modal) {
-    const focusableElements = modal.querySelectorAll('.close-button, input, textarea, button');
+    const focusableElements = modal.querySelectorAll('.close-button, input, textarea, button, .lightbox__forward, .lightbox__backward');
     const firstFocusableElement = focusableElements[0];
     const lastFocusableElement = focusableElements[focusableElements.length - 1];
 

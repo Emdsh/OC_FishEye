@@ -9,6 +9,8 @@ import focusOutInputCheck from '../modals/contact/focusOutInputCheck.js';
 import textCounter from '../modals/contact/textCounter.js';
 import submitForm from '../modals/contact/submitForm.js';
 
+import fillLightbox from '../modals/lightbox/fillLightbox.js';
+
 function updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS) {
     // sort by menu
     ({ MODAL_BASICS, SORTER, LIKES_BUTTONS } = sortResults(SORTER.value));
@@ -17,10 +19,12 @@ function updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS) {
     MODAL_BASICS.lightbox.openButtons.forEach((btn) => {
         btn.addEventListener('click', () => { 
             openModal(MODAL_BASICS.lightbox.background);
+            fillLightbox(btn, MODAL_BASICS);
         });
         btn.addEventListener('keydown', event => {
             if (event.key === 'Enter') {
                 openModal(MODAL_BASICS.lightbox.background);
+                fillLightbox(btn, MODAL_BASICS);
             }
         });
     });

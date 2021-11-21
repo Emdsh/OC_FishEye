@@ -60,6 +60,14 @@
         &::after {
             transform: rotate(-45deg);
         }
+
+        &:focus {
+            outline: none;
+
+            &::before, &::after {
+                background: color(secondary);
+            }
+        }
     }
 
     &__forward, &__backward {
@@ -84,6 +92,14 @@
         &::after {
             transform: rotate(-45deg);
             top: .58rem;
+        }
+
+        &:focus {
+            outline: none;
+
+            &::before, &::after {
+                background: color(secondary);
+            }
         }
     }
 
@@ -127,16 +143,21 @@
         }
     }
 
-    &__image {
-        width: 75vw;
-        height: 75vw;
-        border-radius: .25rem;
+    &__media {
+        width: 65vw;
+        height: 65vw;
         object-fit: cover;
         object-position: center;
+        border-radius: .25rem;
 
-        @media all and (min-width: 1024px) {
-            width: calc(100vh - 5rem);
-            height: calc(100vh - 5rem);    
+        &-container {
+            width: 65vw;
+            height: 65vw;
+
+            @media all and (min-width: 1024px) {
+                width: calc(100vh - 5rem);
+                height: calc(100vh - 5rem);    
+            }
         }
 
         &-title {
