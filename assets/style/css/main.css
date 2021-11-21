@@ -436,7 +436,7 @@ main .home-photographer__pricing {
 .contact-form__close:focus::before, .contact-form__close:focus::after {
   background: #901c1c;
 }
-.contact-form__content h1 {
+.contact-form__content h2 {
   margin-bottom: 1rem;
   font-size: 2rem;
 }
