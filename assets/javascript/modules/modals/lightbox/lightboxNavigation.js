@@ -49,9 +49,9 @@ function lightboxNavigation(LIGHTBOX_DATA, START_ID, LIGHTBOX_MEDIA, LIGHTBOX_TI
     
     LIGHTBOX_FORWARD.addEventListener('click', moveLightboxForward);
     LIGHTBOX_BACKWARD.addEventListener('click', moveLightboxBackward);
-    window.addEventListener('keydown', checkKey);
+    document.body.addEventListener('keydown', checkKey);
 
-    lightboxMediaPlay();
+    lightboxMediaPlay(true);
 }
 
 export default lightboxNavigation;

@@ -10,13 +10,13 @@ function keyDownPreventDefault(event) {
 }
 
 export function disableScroll() {
-    window.addEventListener('wheel', preventDefault, {passive: false});
-    window.addEventListener('touchmove', preventDefault, {passive: false});
-    window.addEventListener('keydown', keyDownPreventDefault);
+    document.body.addEventListener('wheel', preventDefault, {passive: false});
+    document.body.addEventListener('touchmove', preventDefault, {passive: false});
+    document.body.addEventListener('keydown', keyDownPreventDefault);
 }
 
 export function enableScroll() {
-    window.removeEventListener('wheel', preventDefault, {passive: false});
-    window.removeEventListener('touchmove', preventDefault, {passive: false});
-    window.removeEventListener('keydown', keyDownPreventDefault);
+    document.body.removeEventListener('wheel', preventDefault, {passive: false});
+    document.body.removeEventListener('touchmove', preventDefault, {passive: false});
+    document.body.removeEventListener('keydown', keyDownPreventDefault);
 }
