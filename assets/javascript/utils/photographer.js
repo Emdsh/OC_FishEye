@@ -27,7 +27,7 @@ export class Photographer {
     }
 
     get portrait() {
-        return `/assets/images/photographers/portrait/${this._portrait}`;
+        return `./assets/images/photographers/portrait/${this._portrait}`;
     }
 
     get name() {
