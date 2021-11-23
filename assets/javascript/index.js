@@ -1,7 +1,7 @@
 import loadConstants from './utils/loadConstants.js';
 import buildPhotographer from './modules/api/buildPhotographer.js';
 
-import generateHomepage from './modules/pages/generateHomePage.js';
+import generateHomepage from './modules/pages/generateHomepage.js';
 import generatePhotographerPage from './modules/pages/generatePhotographerPage.js';
 import photographerPage from './modules/pages/photographerPage.js';
 
