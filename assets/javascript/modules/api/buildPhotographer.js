@@ -1,8 +1,8 @@
 import getPhotographers from './getPhotographers.js';
 import { Photographer } from '../../utils/photographer.js';
 
-async function buildPhotographer() {
-    const api = await getPhotographers();
+async function buildPhotographer(PATH) {
+    const api = await getPhotographers(PATH);
 
     const photographers = [];
 

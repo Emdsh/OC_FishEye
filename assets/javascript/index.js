@@ -20,7 +20,7 @@ let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = load
 const PATH = location.pathname.replace('index.html','');
 
 // fetch data from the API
-const PHOTOGRAPHERS = await buildPhotographer();
+const PHOTOGRAPHERS = await buildPhotographer(PATH);
 
 // generate pages
 if (PATH === '/BaptisteLizot_5_07902021_pre10112021/') {
