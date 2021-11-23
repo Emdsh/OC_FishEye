@@ -1,5 +1,5 @@
 async function getPhotographers(PATH) {
-    if (PATH === '/BaptisteLizot_5_07902021_pre10112021/') {
+    if (PATH === '/OC_FishEye/') {
         try {
             const response = await fetch('./assets/api/api.json', {
                 headers: {
@@ -14,7 +14,7 @@ async function getPhotographers(PATH) {
         }
     }
 
-    if (PATH === '/BaptisteLizot_5_07902021_pre10112021/photographer/') {
+    if (PATH === '/OC_FishEye/photographer/') {
         try {
             const response = await fetch('../assets/api/api.json', {
                 headers: {

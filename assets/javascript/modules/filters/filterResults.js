@@ -5,11 +5,11 @@ import filterResultsPhotographerPage from './filterResultsPhotographerPage.js';
 function filterResults(filter, PATH, FILTERS) {
     const reset = toggleChecked(filter, FILTERS);
 
-    if (PATH === '/BaptisteLizot_5_07902021_pre10112021/') {
+    if (PATH === '/OC_FishEye/') {
         filterResultsHomepage(filter, reset);
     }
 
-    if (PATH === '/BaptisteLizot_5_07902021_pre10112021/photographer/') {
+    if (PATH === '/OC_FishEye/photographer/') {
         filterResultsPhotographerPage(filter, reset);
     }
 }
