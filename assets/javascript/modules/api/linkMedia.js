@@ -7,11 +7,11 @@ function linkMedia(media, photographerId) {
     media.forEach(m => {
         if(m.photographerId === photographerId) {
             if(m.image) {
-                photographerMedia.push(new Image(m.image, m.title, m.tags, m.likes, m.date))
+                photographerMedia.push(new Image(m.image, m.title, m.alt, m.tags, m.likes, m.date))
             }
 
             if(m.video) {
-                photographerMedia.push(new Video(m.video, m.title, m.tags, m.likes, m.date))
+                photographerMedia.push(new Video(m.video, m.title, m.alt, m.tags, m.likes, m.date))
             }
         }
     })

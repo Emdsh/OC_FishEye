@@ -1,7 +1,8 @@
 export class Media {
-    constructor(media, title, tags, likes, date) {
+    constructor(media, title, alt, tags, likes, date) {
         this._path = media;
         this._title = title;
+        this._alt = alt;
         this._likes = likes;
         this._tag = tags;
         this._date = date;
@@ -13,6 +14,10 @@ export class Media {
 
     get title() {
         return this._title;
+    }
+
+    get alt() {
+        return this._alt;
     }
 
     get likes() {
