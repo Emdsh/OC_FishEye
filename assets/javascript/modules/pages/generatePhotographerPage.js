@@ -36,10 +36,10 @@ function generatePhotographerPage(photographers) {
     let photographerPortfolio = '';
     for (let i = 0; i < photographers[photographerIndex].media.length; i += 1) {
         
-        let mediaElement = `<img src="${photographers[photographerIndex].media[i].path}" alt="${photographers[photographerIndex].media[i].alt}" class="portfolio__element-media" tabindex="0">`;
+        let mediaElement = `<img src=".${photographers[photographerIndex].media[i].path}" alt="${photographers[photographerIndex].media[i].alt}" class="portfolio__element-media" tabindex="0">`;
 
         if (photographers[photographerIndex].media[i] instanceof Video) {
-            mediaElement = `<video src="${photographers[photographerIndex].media[i].path}" alt="${photographers[photographerIndex].media[i].alt}" class="portfolio__element-media" tabindex="0"></video>
+            mediaElement = `<video src=".${photographers[photographerIndex].media[i].path}" alt="${photographers[photographerIndex].media[i].alt}" class="portfolio__element-media" tabindex="0"></video>
                             <div class="portfolio__element-media--video"></div>`;
         }
 
@@ -69,7 +69,7 @@ function generatePhotographerPage(photographers) {
     photographerLocation.innerText = photographers[photographerIndex].location;
     photographerTagline.innerText = photographers[photographerIndex].tagline;
     photographerTags.innerHTML = photographerFilters;
-    photographerPortrait.innerHTML = `<img src="${photographers[photographerIndex].portrait}" alt="" class="photographer-tile__picture" tabindex="0">`
+    photographerPortrait.innerHTML = `<img src=".${photographers[photographerIndex].portrait}" alt="" class="photographer-tile__picture" tabindex="0">`
     photographerLikes.innerText = photographers[photographerIndex].likes;
     photographerPricing.innerText = photographers[photographerIndex].price;
     contactTitle.innerText = `Contactez-moi\n${photographers[photographerIndex].name}`;
