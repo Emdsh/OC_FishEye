@@ -3,7 +3,6 @@ function textCounter(contactFormMessage) {
     const characterCounter = document.getElementById('character-counter');
 
     const requiredCharacterAmount = 20 - characterAmount;
-    console.log(requiredCharacterAmount);
     if (requiredCharacterAmount < 0) { return; }
 
     characterCounter.innerText = `Caractères requis: ${requiredCharacterAmount}`;
