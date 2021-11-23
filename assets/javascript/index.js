@@ -23,11 +23,11 @@ const PATH = location.pathname.replace('index.html','');
 const PHOTOGRAPHERS = await buildPhotographer();
 
 // generate pages
-if (PATH === '/') {
+if (PATH === '/BaptisteLizot_5_07902021_pre10112021/') {
     ({ ARIA, FILTERS } = generateHomepage(PHOTOGRAPHERS));
 }
 
-if (PATH === '/photographer/') {
+if (PATH === '/BaptisteLizot_5_07902021_pre10112021/photographer/') {
     ({ ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = generatePhotographerPage(PHOTOGRAPHERS));
     photographerPage(MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS);
 }
