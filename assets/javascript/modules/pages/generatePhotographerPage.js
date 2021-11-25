@@ -36,10 +36,10 @@ function generatePhotographerPage(photographers) {
 
     let photographerPortfolio = '';
     for (let i = 0; i < photographer.media.length; i += 1) {
-        let mediaElement = `<img src="${photographer.media[i].path}" alt="${photographer.media[i].alt}" class="portfolio__element-media" tabindex="0">`;
+        let mediaElement = `<img src=".${photographer.media[i].path}" alt="${photographer.media[i].alt}" class="portfolio__element-media" tabindex="0">`;
 
         if (photographer.media[i] instanceof Video) {
-            mediaElement = `<video src="${photographer.media[i].path}" alt="${photographer.media[i].alt}" class="portfolio__element-media" tabindex="0"></video>
+            mediaElement = `<video src=".${photographer.media[i].path}" alt="${photographer.media[i].alt}" class="portfolio__element-media" tabindex="0"></video>
                             <div class="portfolio__element-media--video"></div>`;
         }
 
@@ -62,7 +62,7 @@ function generatePhotographerPage(photographers) {
     photographerLocation.innerText = photographer.location;
     photographerTagline.innerText = photographer.tagline;
     photographerTags.innerHTML = photographerFilters;
-    photographerPortrait.innerHTML = `<img src="${photographer.portrait}" alt="${photographer.name}" class="photographer-tile__picture" tabindex="0">`
+    photographerPortrait.innerHTML = `<img src=".${photographer.portrait}" alt="${photographer.name}" class="photographer-tile__picture" tabindex="0">`
     photographerLikes.innerText = photographer.likes;
     photographerPricing.innerText = photographer.price;
     contactTitle.innerText = `Contactez-moi\n${photographer.name}`;
