@@ -1,7 +1,7 @@
 async function getPhotographers(PATH) {
     if (PATH === '/BaptisteLizot_5_07902021_pre10112021/') {
         try {
-            const response = await fetch('./assets/api/api.json', {
+            const response = await fetch('../assets/api/api.json', {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
@@ -16,7 +16,7 @@ async function getPhotographers(PATH) {
 
     if (PATH === '/BaptisteLizot_5_07902021_pre10112021/photographer/') {
         try {
-            const response = await fetch('./assets/api/api.json', {
+            const response = await fetch('../assets/api/api.json', {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
