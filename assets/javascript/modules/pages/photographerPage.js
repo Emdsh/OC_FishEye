@@ -11,9 +11,9 @@ import submitForm from '../modals/contact/submitForm.js';
 
 import fillLightbox from '../modals/lightbox/fillLightbox.js';
 
-function updatePortfolio(modalBasics, sorter, likesButtons) {
+function updatePortfolio(modalBasics, contactModal, sorter, likesButtons) {
     // sort by menu
-    ({ modalBasics, sorter, likesButtons } = sortResults(sorter.value));
+    ({ modalBasics, contactModal, sorter, likesButtons } = sortResults(sorter.value));
 
     //lightbox modal open
     modalBasics.lightbox.openButtons.forEach((btn) => {
@@ -41,7 +41,7 @@ function updatePortfolio(modalBasics, sorter, likesButtons) {
         });
     });
 
-    return { modalBasics, sorter, likesButtons };
+    return { modalBasics, contactModal, sorter, likesButtons };
 }
 
 export function updateModalsClose(modalBasics) {
@@ -59,11 +59,11 @@ export function updateModalsClose(modalBasics) {
 }
 
 function photographerPage(modalBasics, contactModal, sorter, likesButtons) {
-    ({ modalBasics, sorter, likesButtons } = updatePortfolio(modalBasics, sorter, likesButtons));
+    ({ modalBasics, contactModal, sorter, likesButtons } = updatePortfolio(modalBasics, contactModal, sorter, likesButtons));
 
     // sort by menu
     sorter.addEventListener('input', () => {
-        ({ modalBasics, sorter, likesButtons } = updatePortfolio(modalBasics, sorter, likesButtons));
+        ({ modalBasics, contactModal, sorter, likesButtons } = updatePortfolio(modalBasics, contactModal, sorter, likesButtons));
     });
     
     updateModalsClose(modalBasics);
@@ -88,7 +88,7 @@ function photographerPage(modalBasics, contactModal, sorter, likesButtons) {
         });
     
         contactModal.submit.button.addEventListener('click', () => { 
-            modalBasics = submitForm(contactModal.inputs.all, contactModal.form, contactModal.submit.button);
+            ({ modalBasics, contactModal, sorter, likesButtons } = submitForm(contactModal.inputs.all, contactModal.form, contactModal.submit.button));
         });
     }
 }

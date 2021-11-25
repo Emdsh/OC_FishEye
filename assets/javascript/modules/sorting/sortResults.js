@@ -35,8 +35,8 @@ function sortResults(sortBy) {
         mainPortfolio.insertAdjacentHTML('beforeend', tile.outerHTML);
     });
 
-    const { modalBasics, ignored, sorter, likesButtons } = loadConstants('photographer');
-    return { modalBasics, sorter, likesButtons };
+    const { modalBasics, contactModal, sorter, likesButtons } = loadConstants('photographer');
+    return { modalBasics, contactModal, sorter, likesButtons };
 }
 
 export default sortResults;
