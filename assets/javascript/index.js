@@ -12,7 +12,7 @@ import filterResults from './modules/filters/filterResults.js';
 
 import anchor from './modules/anchor/anchor.js';
 
-// for dev
+// for dev - to delete when going to prod
 sessionStorage.clear();
 
 // import constants
@@ -38,6 +38,7 @@ if (path === '/photographer/') {
 anchor();
 
 // filter tags
+// when user click on a filter
 filters.forEach(filter => {
     filter.addEventListener('click', () => {
         filterResults(filter.getAttribute('name'), path, filters);
@@ -45,6 +46,7 @@ filters.forEach(filter => {
 });
 
 // general ARIA
+// when the user lands on filter going back up the document
 ARIA.filters.forEach(filter => {
     filter.addEventListener('keyup', event => {
         if (event.shiftKey && event.key === 'Tab') {
@@ -53,6 +55,7 @@ ARIA.filters.forEach(filter => {
     });
 });
 
+// when the user uses a skip link
 ARIA.skipLinks.forEach(link => {
     link.addEventListener('keydown', event => {
         if (event.key === 'Enter') {

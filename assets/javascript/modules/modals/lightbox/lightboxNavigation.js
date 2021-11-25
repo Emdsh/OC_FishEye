@@ -1,9 +1,10 @@
 import lightboxMediaPlay from './lightboxMediaPlay.js';
 
-function lightboxNavigation(LIGHTBOX_DATA, START_ID, LIGHTBOX_MEDIA, LIGHTBOX_TITLE) {
-    const LIGHTBOX_FORWARD = document.querySelector('.lightbox__forward');
-    const LIGHTBOX_BACKWARD = document.querySelector('.lightbox__backward');
-    let currentIndex = START_ID;
+// add the lightbox navigation
+function lightboxNavigation(lightboxData, startId, lightboxMedia, lightboxTitle) {
+    const lightboxForward = document.querySelector('.lightbox__forward');
+    const lightboxBackward = document.querySelector('.lightbox__backward');
+    let currentIndex = startId;
 
     function checkKey(event) {
         if (event.key === 'ArrowRight') {
@@ -22,33 +23,38 @@ function lightboxNavigation(LIGHTBOX_DATA, START_ID, LIGHTBOX_MEDIA, LIGHTBOX_TI
         }
     }
 
+    // if click on forward, increase the index by one
     function moveLightboxForward() {
         currentIndex += 1;
     
-        if (LIGHTBOX_DATA[currentIndex] === undefined) {
+        // if we reach the end of the array, go back to the start
+        if (lightboxData[currentIndex] === undefined) {
             currentIndex = 0;
         }
         
         updateLightbox();
     }
 
+    // if click on backward, lower the index by one
     function moveLightboxBackward() {
         currentIndex -= 1;
 
-        if (LIGHTBOX_DATA[currentIndex] === undefined) {
-            currentIndex = LIGHTBOX_DATA.length - 1;
+        // if we reach the start of the array, go back to the end
+        if (lightboxData[currentIndex] === undefined) {
+            currentIndex = lightboxData.length - 1;
         }
 
         updateLightbox();
     }
 
+    // update the content of the lightbox
     function updateLightbox() {
-        LIGHTBOX_MEDIA.innerHTML = LIGHTBOX_DATA[currentIndex].media.outerHTML;
-        LIGHTBOX_TITLE.innerText = LIGHTBOX_DATA[currentIndex].title;
+        lightboxMedia.innerHTML = lightboxData[currentIndex].media.outerHTML;
+        lightboxTitle.innerText = lightboxData[currentIndex].title;
     }
     
-    LIGHTBOX_FORWARD.addEventListener('click', moveLightboxForward);
-    LIGHTBOX_BACKWARD.addEventListener('click', moveLightboxBackward);
+    lightboxForward.addEventListener('click', moveLightboxForward);
+    lightboxBackward.addEventListener('click', moveLightboxBackward);
     document.body.addEventListener('keydown', checkKey);
 
     lightboxMediaPlay(true);

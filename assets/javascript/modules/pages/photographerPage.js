@@ -11,6 +11,7 @@ import submitForm from '../modals/contact/submitForm.js';
 
 import fillLightbox from '../modals/lightbox/fillLightbox.js';
 
+// update the various event listeners that are deleted/modified when the page is updated
 function updatePortfolio(modalBasics, contactModal, sorter, likesButtons) {
     // sort by menu
     ({ modalBasics, contactModal, sorter, likesButtons } = sortResults(sorter.value));
@@ -59,9 +60,10 @@ export function updateModalsClose(modalBasics) {
 }
 
 function photographerPage(modalBasics, contactModal, sorter, likesButtons) {
+    // sort portfolio by page default
     ({ modalBasics, contactModal, sorter, likesButtons } = updatePortfolio(modalBasics, contactModal, sorter, likesButtons));
 
-    // sort by menu
+    // when the user changes the value of the sorting menu
     sorter.addEventListener('input', () => {
         ({ modalBasics, contactModal, sorter, likesButtons } = updatePortfolio(modalBasics, contactModal, sorter, likesButtons));
     });
@@ -75,18 +77,21 @@ function photographerPage(modalBasics, contactModal, sorter, likesButtons) {
     
     // contact modal validation
     if (contactModal.form) {
+        // checks inputs on focus out
         contactModal.inputs.all.forEach((input) => {
             input.addEventListener('focusout', () => { 
                 focusOutInputCheck(input); 
             });
         });
     
+        // count amount of characters in the message field
         ['keyup', 'keydown'].forEach(event => {
             contactModal.inputs.message.addEventListener(event, () => { 
                 textCounter(contactModal.inputs.message); 
             });
         });
     
+        // when submitting contact modal
         contactModal.submit.button.addEventListener('click', () => { 
             ({ modalBasics, contactModal, sorter, likesButtons } = submitForm(contactModal.inputs.all, contactModal.form, contactModal.submit.button));
         });

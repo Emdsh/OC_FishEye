@@ -1,3 +1,4 @@
+// get the data out of the API
 async function getPhotographers() {
     try {
         const response = await fetch('../assets/api/api.json', {

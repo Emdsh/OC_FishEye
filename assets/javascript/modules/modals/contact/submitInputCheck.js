@@ -1,5 +1,6 @@
 import { regexConst } from '../../../utils/regexConst.js';
 
+// checks the validity of the form
 function submitInputCheck(contactFormInputs) {
     const isFormValid = {
         firstName: {
@@ -20,6 +21,7 @@ function submitInputCheck(contactFormInputs) {
         },
     };
 
+    // add a checksum to sum up the state of the form
     const checksum = [];
     Object.keys(isFormValid).forEach(key => checksum.push(isFormValid[key].valid));
     isFormValid.checksum = checksum.reduce((a, b) => a && b);

@@ -12,6 +12,7 @@ function sortResults(sortBy) {
     const titles = [];
     let rankedTiles = [];
 
+    // get all the likes/dates/titles in the page
     portfolioTiles.forEach(tile => {
         likes.push(tile.querySelector('.portfolio__element-likes').textContent);
         dates.push(tile.querySelector('.portfolio__element-date').textContent);
