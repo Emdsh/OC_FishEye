@@ -1,14 +1,14 @@
 import loadConstants from "../../utils/loadConstants.js";
 
 function generateHomepage(photographers) {
-    let injectHTML = '<h1 tabindex="0" class="home-title">Nos photographes</h1>';
+    let injectHTML = '';
 
     for (let i = 0; i < photographers.length; i += 1) {
         let photographerFilters = '';
 
         let photographerMain = `<a href="photographer/?p=${encodeURIComponent(photographers[i].name.replace(/\s|\-/g, ''))}" aria-label="${photographers[i].name}">
                                     <figure>
-                                        <img src="${photographers[i].portrait}" alt="" class="home-photographer__picture">
+                                        <img src="${photographers[i].portrait}" alt="${photographers[i].name}" class="home-photographer__picture">
             
                                         <figcaption>
                                             <h2 class="home-photographer__name">${photographers[i].name}</h2>
@@ -51,10 +51,10 @@ function generateHomepage(photographers) {
     }
 
     const main = document.getElementById('main');
-    main.innerHTML = injectHTML;
+    main.insertAdjacentHTML('beforeend', injectHTML);
 
-    const { ARIA, FILTERS } = loadConstants('shared');
-    return { ARIA, FILTERS };
+    const { ARIA, filters } = loadConstants('shared');
+    return { ARIA, filters };
 }
 
 export default generateHomepage;

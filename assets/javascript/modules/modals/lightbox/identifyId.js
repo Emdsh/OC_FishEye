@@ -1,8 +1,8 @@
-function identifyId(btn, MODAL_BASICS) {
+function identifyId(btn, modalBasics) {
     let i = 0;
     let startId = undefined;
 
-    MODAL_BASICS.lightbox.openButtons.forEach(element => {
+    modalBasics.lightbox.openButtons.forEach(element => {
         if(element === btn) {
             startId = i;
         }

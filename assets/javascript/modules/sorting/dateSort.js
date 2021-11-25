@@ -1,17 +1,17 @@
-function dateSort(TILES, DATES, mainPortfolio) {
-    DATES = DATES.map(date => new Date(date));
-    const UNRANKED_DATES = DATES.slice();
-    const RANKED_DATES = DATES.sort((a, b) => b - a);
+function dateSort(tiles, dates) {
+    dates = dates.map(date => new Date(date));
+    const unrankedDates = dates.slice();
+    const rankedDates = dates.sort((a, b) => b - a);
 
-    const RANKED_TILES = [];
+    const rankedTiles = [];
     
-    for (let i = 0; i < TILES.length; i += 1) {
-        const index = UNRANKED_DATES.findIndex(date => date === RANKED_DATES[i]);
-        UNRANKED_DATES[index] = -1;
-        RANKED_TILES.push(TILES[index]);
+    for (let i = 0; i < tiles.length; i += 1) {
+        const index = unrankedDates.findIndex(date => date === rankedDates[i]);
+        unrankedDates[index] = -1;
+        rankedTiles.push(tiles[index]);
     }
 
-    return RANKED_TILES;
+    return rankedTiles;
 }
 
 export default dateSort;
