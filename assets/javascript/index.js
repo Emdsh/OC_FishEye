@@ -10,6 +10,8 @@ import focusSkipLinkTarget from './modules/aria/focusSkipLinkTarget.js';
 
 import filterResults from './modules/filters/filterResults.js';
 
+import anchor from './modules/anchor/anchor.js';
+
 // for dev
 sessionStorage.clear();
 
@@ -31,6 +33,9 @@ if (path === '/photographer/') {
     ({ ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = generatePhotographerPage(photographers));
     photographerPage(modalBasics, contactModal, sorter, likesButtons);
 }
+
+// anchor
+anchor();
 
 // filter tags
 filters.forEach(filter => {
