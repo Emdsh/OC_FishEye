@@ -2,15 +2,16 @@ import loadConstants from "../../utils/loadConstants.js";
 import { Video } from '../../utils/video.js';
 
 function generatePhotographerPage(photographers) {
-    let photographer = new URLSearchParams(window.location.search).get('p');
+    let photographerQuery = new URLSearchParams(window.location.search).get('p');
 
     let photographerIndex = undefined;
     for (let i = 0; i < photographers.length; i += 1) {
-        if (encodeURIComponent(photographers[i].name.replace(/\s|\-/g, '')) === photographer) {
+        if (encodeURIComponent(photographers[i].name.replace(/\s|\-/g, '')) === photographerQuery) {
             photographerIndex = i;
         }
     }
     if (photographerIndex === undefined) { return; }
+    const photographer = photographers[photographerIndex];
 
     const pageTitle = document.getElementById('js-page-title');
     const photographerName = document.getElementById('js-photographer-name');
@@ -24,22 +25,22 @@ function generatePhotographerPage(photographers) {
     const mainPortfolio = document.querySelector('main.portfolio');
 
     let photographerFilters = '';
-    for (let i = 0; i < photographers[photographerIndex].tags.length; i += 1){
+    for (let i = 0; i < photographer.tags.length; i += 1){
         let photographerTag =   `<li>
-                                    <span class="screenreader-only">${photographers[photographerIndex].tags[i]}</span>
-                                    <button name="${photographers[photographerIndex].tags[i]}" class="filter__option" aria-hidden="true">#${photographers[photographerIndex].tags[i]}</button>
+                                    <span class="screenreader-only">${photographer.tags[i]}</span>
+                                    <button name="${photographer.tags[i]}" class="filter__option" aria-hidden="true">#${photographer.tags[i]}</button>
                                 </li>`;
             
         photographerFilters += photographerTag;  
     }
 
     let photographerPortfolio = '';
-    for (let i = 0; i < photographers[photographerIndex].media.length; i += 1) {
+    for (let i = 0; i < photographer.media.length; i += 1) {
         
-        let mediaElement = `<img src="${photographers[photographerIndex].media[i].path}" alt="${photographers[photographerIndex].media[i].alt}" class="portfolio__element-media" tabindex="0">`;
+        let mediaElement = `<img src="${photographer.media[i].path}" alt="${photographer.media[i].alt}" class="portfolio__element-media" tabindex="0">`;
 
-        if (photographers[photographerIndex].media[i] instanceof Video) {
-            mediaElement = `<video src="${photographers[photographerIndex].media[i].path}" alt="${photographers[photographerIndex].media[i].alt}" class="portfolio__element-media" tabindex="0"></video>
+        if (photographer.media[i] instanceof Video) {
+            mediaElement = `<video src="${photographer.media[i].path}" alt="${photographer.media[i].alt}" class="portfolio__element-media" tabindex="0"></video>
                             <div class="portfolio__element-media--video"></div>`;
         }
 
@@ -47,32 +48,25 @@ function generatePhotographerPage(photographers) {
                                     ${mediaElement}
 
                                     <figcaption class="portfolio__element-metadata">
-                                        <p class="portfolio__element-title" tabindex="0">${photographers[photographerIndex].media[i].title}</p>
-                                        <p class="portfolio__element-likes" aria-label="likes" tabindex="0">${photographers[photographerIndex].media[i].likes}</p>
-                                        <p class="portfolio__element-tag screenreader-only" aria-hidden="true">${photographers[photographerIndex].media[i].tag}</p>
-                                        <p class="portfolio__element-date screenreader-only" aria-hidden="true">${photographers[photographerIndex].media[i].date}</p>
+                                        <p class="portfolio__element-title" tabindex="0">${photographer.media[i].title}</p>
+                                        <p class="portfolio__element-likes" aria-label="likes" tabindex="0">${photographer.media[i].likes}</p>
+                                        <p class="portfolio__element-tag screenreader-only" aria-hidden="true">${photographer.media[i].tag}</p>
+                                        <p class="portfolio__element-date screenreader-only" aria-hidden="true">${photographer.media[i].date}</p>
                                     </figcaption>
                                 </figure>`;
 
         photographerPortfolio += photographerMedia;
     }
 
-    const portfolioElements = document.querySelectorAll('.portfolio__element');
-    if (portfolioElements) {
-        portfolioElements.forEach(element => {
-            element.remove();
-        });
-    }
-
-    pageTitle.innerText = `FishEye — ${photographers[photographerIndex].name}`;
-    photographerName.innerText = photographers[photographerIndex].name;
-    photographerLocation.innerText = photographers[photographerIndex].location;
-    photographerTagline.innerText = photographers[photographerIndex].tagline;
+    pageTitle.innerText = `FishEye — ${photographer.name}`;
+    photographerName.innerText = photographer.name;
+    photographerLocation.innerText = photographer.location;
+    photographerTagline.innerText = photographer.tagline;
     photographerTags.innerHTML = photographerFilters;
-    photographerPortrait.innerHTML = `<img src="${photographers[photographerIndex].portrait}" alt="" class="photographer-tile__picture" tabindex="0">`
-    photographerLikes.innerText = photographers[photographerIndex].likes;
-    photographerPricing.innerText = photographers[photographerIndex].price;
-    contactTitle.innerText = `Contactez-moi\n${photographers[photographerIndex].name}`;
+    photographerPortrait.innerHTML = `<img src="${photographer.portrait}" alt="${photographer.name}" class="photographer-tile__picture" tabindex="0">`
+    photographerLikes.innerText = photographer.likes;
+    photographerPricing.innerText = photographer.price;
+    contactTitle.innerText = `Contactez-moi\n${photographer.name}`;
     mainPortfolio.insertAdjacentHTML('beforeend', photographerPortfolio);
 
     const { ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = loadConstants('all');
