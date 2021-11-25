@@ -10,7 +10,7 @@
     overflow: hidden;
     position: absolute;
 
-    &:focus {
+    &:focus, &.visible {
         // top: -1.5rem;
         top: .35rem;
         left: 0;
@@ -27,10 +27,13 @@
         outline: none;
     }
 
-    &--main:focus {
-        position: fixed;
-        top: .5rem;
-        left: 0;
-        right: 0;
+    &--main {
+        &:focus, &.visible {
+            position: fixed;
+            top: .5rem;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
     }
 }

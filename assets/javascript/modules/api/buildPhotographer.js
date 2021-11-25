@@ -1,12 +1,16 @@
 import getPhotographers from './getPhotographers.js';
 import { Photographer } from '../../utils/photographer.js';
 
-async function buildPhotographer(PATH) {
-    const api = await getPhotographers(PATH);
+// builds an array of photographers
+async function buildPhotographer(path) {
+    // get the data out of the API
+    const api = await getPhotographers(path);
 
     const photographers = [];
 
+    // create photographer objects from the API
     api.photographers.forEach(photographer => photographers.push(new Photographer(photographer, api.media)));
+    
     return photographers;
 }
 

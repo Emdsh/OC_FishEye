@@ -1,3 +1,4 @@
+// get the next closest focusable element
 function getFocusableTarget(target) {
     const children = Array.from(target.children);
     let childTarget = [];

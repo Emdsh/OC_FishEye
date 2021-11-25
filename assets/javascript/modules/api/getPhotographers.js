@@ -1,3 +1,4 @@
+// get the data out of the API
 async function getPhotographers(PATH) {
     if (PATH === '/OC_FishEye/') {
         try {
