@@ -2,7 +2,7 @@ function filterResultsHomepage(filter, reset) {
     const photographerTiles = document.querySelectorAll('.home-photographer');
 
     photographerTiles.forEach(tile => {
-        tile.style.display = 'unset';
+        tile.style.display = 'block';
 
         if (reset === true) { return; }
 

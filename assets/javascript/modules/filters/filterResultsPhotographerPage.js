@@ -2,7 +2,7 @@ function filterResultsPhotographerPage(filter, reset) {
     const portfolioTiles = document.querySelectorAll('.portfolio__element');
 
     portfolioTiles.forEach(tile => {
-        tile.style.display = 'unset';
+        tile.style.display = 'block';
 
         if (reset === true) { return; }
 
