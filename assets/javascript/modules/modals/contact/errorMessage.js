@@ -1,6 +1,8 @@
 import insertErrorMessage from './insertErrorMessage.js';
 import removeErrorMessage from './removeErrorMessage.js';
 
+// if the field is properly filled, remove the potential error message
+// if the field is wrongly filled, add an error message
 function errorMessage(input, isFieldValid) {
     if (input.name === 'firstName' && isFieldValid === false) {
         insertErrorMessage(input, 'Veuillez renseigner votre prénom');

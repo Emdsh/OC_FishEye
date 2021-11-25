@@ -1,6 +1,7 @@
 import { regexConst } from '../../../utils/regexConst.js';
 import errorMessage from './errorMessage.js';
 
+// when the user goes to the next input, check the validity of the previous one
 function focusOutInputCheck(input) {
     if (input.name === 'firstName') {
         errorMessage(input, regexConst.nameRegex.test(input.value));

@@ -10,7 +10,9 @@ import focusSkipLinkTarget from './modules/aria/focusSkipLinkTarget.js';
 
 import filterResults from './modules/filters/filterResults.js';
 
-// for dev
+import anchor from './modules/anchor/anchor.js';
+
+// for dev - to delete when going to prod
 sessionStorage.clear();
 
 // import constants
@@ -33,7 +35,11 @@ if (path === '/BaptisteLizot_5_07902021_pre10112021/photographer/') {
     photographerPage(modalBasics, contactModal, sorter, likesButtons);
 }
 
+// anchor
+anchor();
+
 // filter tags
+// when user click on a filter
 filters.forEach(filter => {
     filter.addEventListener('click', () => {
         filterResults(filter.getAttribute('name'), path, filters);
@@ -41,6 +47,7 @@ filters.forEach(filter => {
 });
 
 // general ARIA
+// when the user lands on filter going back up the document
 ARIA.filters.forEach(filter => {
     filter.addEventListener('keyup', event => {
         if (event.shiftKey && event.key === 'Tab') {
@@ -49,6 +56,7 @@ ARIA.filters.forEach(filter => {
     });
 });
 
+// when the user uses a skip link
 ARIA.skipLinks.forEach(link => {
     link.addEventListener('keydown', event => {
         if (event.key === 'Enter') {
