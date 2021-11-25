@@ -1,5 +1,6 @@
 import closeModal from './closeModal.js';
 
+// add event listener so if an user press escape it closes the currently opened modal
 function escapeModal(modalBackground) {
     function checkKey(event) {
         if (event.key === 'Escape') {

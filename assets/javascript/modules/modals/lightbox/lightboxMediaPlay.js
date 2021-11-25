@@ -1,3 +1,4 @@
+// add the ability to play/pause videos with the space bar
 function playMedia(event) {
     if (event.key === ' ') {
         const mediaElement = document.querySelector('.lightbox__media');

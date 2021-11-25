@@ -95,7 +95,7 @@ fieldset {
   overflow: hidden;
   position: absolute;
 }
-.skip-link:focus {
+.skip-link:focus, .skip-link.visible {
   top: 0.35rem;
   left: 0;
   right: 0;
@@ -113,11 +113,12 @@ fieldset {
   color: #000;
   outline: none;
 }
-.skip-link--main:focus {
+.skip-link--main:focus, .skip-link--main.visible {
   position: fixed;
   top: 0.5rem;
   left: 0;
   right: 0;
+  z-index: 1;
 }
 
 header {

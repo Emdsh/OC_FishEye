@@ -1,3 +1,4 @@
+// trap the keyboard navigation in the modal currently opened
 function trapFocus(modal) {
     const focusableElements = modal.querySelectorAll('.close-button, input, textarea, button, .lightbox__forward, .lightbox__backward');
     const firstFocusableElement = focusableElements[0];

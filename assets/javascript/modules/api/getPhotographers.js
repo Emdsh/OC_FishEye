@@ -1,5 +1,6 @@
-async function getPhotographers(PATH) {
-    if (PATH === '/BaptisteLizot_5_07902021_pre10112021/') {
+// get the data out of the API
+async function getPhotographers(path) {
+    if (path === '/BaptisteLizot_5_07902021_pre10112021/') {
         try {
             const response = await fetch('./assets/api/api.json', {
                 headers: {
@@ -14,7 +15,7 @@ async function getPhotographers(PATH) {
         }
     }
 
-    if (PATH === '/BaptisteLizot_5_07902021_pre10112021/photographer/') {
+    if (path === '/BaptisteLizot_5_07902021_pre10112021/photographer/') {
         try {
             const response = await fetch('../assets/api/api.json', {
                 headers: {

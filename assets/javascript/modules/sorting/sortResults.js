@@ -12,6 +12,7 @@ function sortResults(sortBy) {
     const titles = [];
     let rankedTiles = [];
 
+    // get all the likes/dates/titles in the page
     portfolioTiles.forEach(tile => {
         likes.push(tile.querySelector('.portfolio__element-likes').textContent);
         dates.push(tile.querySelector('.portfolio__element-date').textContent);
@@ -35,8 +36,8 @@ function sortResults(sortBy) {
         mainPortfolio.insertAdjacentHTML('beforeend', tile.outerHTML);
     });
 
-    const { modalBasics, ignored, sorter, likesButtons } = loadConstants('photographer');
-    return { modalBasics, sorter, likesButtons };
+    const { modalBasics, contactModal, sorter, likesButtons } = loadConstants('photographer');
+    return { modalBasics, contactModal, sorter, likesButtons };
 }
 
 export default sortResults;
