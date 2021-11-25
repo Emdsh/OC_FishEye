@@ -9,7 +9,7 @@ export class Media {
     }
 
     get path() {
-        return `./assets/images/photographers/media/${this._path}`;
+        return `../assets/images/photographers/media/${this._path}`;
     }
 
     get title() {

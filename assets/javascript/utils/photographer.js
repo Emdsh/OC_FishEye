@@ -14,12 +14,6 @@ export class Photographer {
         this._likes = sumLikes(media, photographer.id);
     }
 
-    set addLikes(value) {
-        if(!isNaN(value)) {
-            this._likes += value;
-        }
-    }
-
     set media(array) {
         if(Array.isArray(array)) {
             this._media = array;
@@ -27,7 +21,7 @@ export class Photographer {
     }
 
     get portrait() {
-        return `./assets/images/photographers/portrait/${this._portrait}`;
+        return `../assets/images/photographers/portrait/${this._portrait}`;
     }
 
     get name() {

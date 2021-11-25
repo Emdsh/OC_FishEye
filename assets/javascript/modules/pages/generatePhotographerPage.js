@@ -75,8 +75,8 @@ function generatePhotographerPage(photographers) {
     contactTitle.innerText = `Contactez-moi\n${photographers[photographerIndex].name}`;
     mainPortfolio.insertAdjacentHTML('beforeend', photographerPortfolio);
 
-    const { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = loadConstants('all');
-    return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS };
+    const { ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = loadConstants('all');
+    return { ARIA, filters, modalBasics, contactModal, sorter, likesButtons };
 }
 
 export default generatePhotographerPage;

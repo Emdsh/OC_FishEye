@@ -1,17 +1,17 @@
-function popularitySort(TILES, LIKES, mainPortfolio) {
-    LIKES = LIKES.map(like => Number.parseInt(like));
-    const UNRANKED_LIKES = LIKES.slice();
-    const RANKED_LIKES = LIKES.sort((a, b) => b - a);
+function popularitySort(tiles, likes) {
+    likes = likes.map(like => Number.parseInt(like));
+    const unrankedLikes = likes.slice();
+    const rankedLikes = likes.sort((a, b) => b - a);
 
-    const RANKED_TILES = [];
+    const rankedTiles = [];
     
-    for(let i = 0; i < TILES.length; i += 1) {
-        const index = UNRANKED_LIKES.findIndex(like => like === RANKED_LIKES[i]);
-        UNRANKED_LIKES[index] = -1;
-        RANKED_TILES.push(TILES[index]);
+    for(let i = 0; i < tiles.length; i += 1) {
+        const index = unrankedLikes.findIndex(like => like === rankedLikes[i]);
+        unrankedLikes[index] = -1;
+        rankedTiles.push(tiles[index]);
     }
 
-    return RANKED_TILES;
+    return rankedTiles;
 }
 
 export default popularitySort;

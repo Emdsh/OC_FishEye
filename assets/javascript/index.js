@@ -14,28 +14,28 @@ import filterResults from './modules/filters/filterResults.js';
 sessionStorage.clear();
 
 // import constants
-let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = loadConstants('all');
+let { ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = loadConstants('all');
 
 // indentify the page
-const PATH = location.pathname.replace('index.html','');
+const path = location.pathname.replace('index.html','');
 
 // fetch data from the API
-const PHOTOGRAPHERS = await buildPhotographer();
+const photographers = await buildPhotographer();
 
 // generate pages
-if (PATH === '/') {
-    ({ ARIA, FILTERS } = generateHomepage(PHOTOGRAPHERS));
+if (path === '/') {
+    ({ ARIA, filters } = generateHomepage(photographers));
 }
 
-if (PATH === '/photographer/') {
-    ({ ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = generatePhotographerPage(PHOTOGRAPHERS));
-    photographerPage(MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS);
+if (path === '/photographer/') {
+    ({ ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = generatePhotographerPage(photographers));
+    photographerPage(modalBasics, contactModal, sorter, likesButtons);
 }
 
 // filter tags
-FILTERS.forEach(filter => {
+filters.forEach(filter => {
     filter.addEventListener('click', () => {
-        filterResults(filter.getAttribute('name'), PATH, FILTERS);
+        filterResults(filter.getAttribute('name'), path, filters);
     });
 });
 

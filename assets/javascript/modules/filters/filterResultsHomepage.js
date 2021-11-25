@@ -1,25 +1,25 @@
 function filterResultsHomepage(filter, reset) {
-    const PHOTOGRAPHERS_TILES = document.querySelectorAll('.home-photographer');
+    const photographerTiles = document.querySelectorAll('.home-photographer');
 
-    PHOTOGRAPHERS_TILES.forEach(tile => {
+    photographerTiles.forEach(tile => {
         tile.style.display = 'unset';
 
         if (reset === true) { return; }
 
-        const TAGS = tile.querySelectorAll('.filter__option');
-        const MATCH = [];
+        const tags = tile.querySelectorAll('.filter__option');
+        const match = [];
 
-        TAGS.forEach(tag => {
+        tags.forEach(tag => {
             if (tag.name === filter) {
-                MATCH.push(true);
+                match.push(true);
             }
             if (tag.name !== filter) {
-                MATCH.push(false);
+                match.push(false);
             }
         });
 
-        const CHECKSUM = MATCH.reduce((a, b) => a || b);
-        if (CHECKSUM === false) {
+        const checksum = match.reduce((a, b) => a || b);
+        if (checksum === false) {
             tile.style.display = 'none';
         }
     });

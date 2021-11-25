@@ -1,7 +1,7 @@
-function toggleChecked (filter, FILTERS) {
+function toggleChecked (filter, filters) {
     let reset = undefined;
 
-    FILTERS.forEach(f => {
+    filters.forEach(f => {
         if (f.name === filter) {
             if(f.classList.contains('checked')) {
                 f.classList.remove('checked');

@@ -4,13 +4,13 @@ function sharedConstants() {
         skipLinks: document.querySelectorAll('.skip-link'),
     };
 
-    const FILTERS = document.querySelectorAll('.filter__option');
+    const filters = document.querySelectorAll('.filter__option');
 
-    return { ARIA, FILTERS };
+    return { ARIA, filters };
 }
 
 function photographerConstants() {
-    const MODAL_BASICS = {
+    const modalBasics = {
         general: {
             closeButtons: document.querySelectorAll('.close-button'),
         },
@@ -24,7 +24,7 @@ function photographerConstants() {
         },
     };
     
-    const CONTACT_MODAL = {
+    const contactModal = {
         form: document.forms.contact,
         inputs: {
             all: document.querySelectorAll('input.contact-form__text-input, textarea.contact-form__text-input'),
@@ -36,28 +36,28 @@ function photographerConstants() {
         },
     };
     
-    const SORTER = document.getElementById('sorting-menu');
+    const sorter = document.getElementById('sorting-menu');
 
-    const LIKES_BUTTONS = document.querySelectorAll('.portfolio__element-likes');
+    const likesButtons = document.querySelectorAll('.portfolio__element-likes');
 
-    return { MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS };
+    return { modalBasics, contactModal, sorter, likesButtons };
 }
 
 function loadConstants(request) {
-    let { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = {};
+    let { ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = {};
 
     if (request === 'all') {
-        ({ ARIA, FILTERS } = sharedConstants());
-        ({ MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = photographerConstants());
-        return { ARIA, FILTERS, MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS };
+        ({ ARIA, filters } = sharedConstants());
+        ({ modalBasics, contactModal, sorter, likesButtons } = photographerConstants());
+        return { ARIA, filters, modalBasics, contactModal, sorter, likesButtons };
     }
     if (request === 'shared') {
-        ({ ARIA, FILTERS } = sharedConstants());
-        return { ARIA, FILTERS };
+        ({ ARIA, filters } = sharedConstants());
+        return { ARIA, filters };
     }
     if (request === 'photographer') {
-        ({ MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS } = photographerConstants());
-        return { MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS };
+        ({ modalBasics, contactModal, sorter, likesButtons } = photographerConstants());
+        return { modalBasics, contactModal, sorter, likesButtons };
     }
 }
 
