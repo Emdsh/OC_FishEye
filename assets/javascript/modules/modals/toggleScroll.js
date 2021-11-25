@@ -3,8 +3,8 @@ function preventDefault(event) {
 }
 
 function keyDownPreventDefault(event) {
-    const KEY = event.key;
-    if (KEY === ' ' || KEY === 'ArrowDown' || KEY === 'ArrowUp') {
+    const key = event.key;
+    if (key === ' ' || key === 'ArrowDown' || key === 'ArrowUp') {
         preventDefault(event);
     }
 }

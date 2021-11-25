@@ -3,7 +3,7 @@ import { disableScroll } from './toggleScroll.js';
 import escapeModal from './escapeModal.js';
 
 function openModal(modalBackground) {
-    modalBackground.style.display = 'unset';
+    modalBackground.style.display = 'block';
     trapFocus(modalBackground);
     disableScroll();
     escapeModal(modalBackground);

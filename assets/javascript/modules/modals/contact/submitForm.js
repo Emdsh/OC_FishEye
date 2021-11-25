@@ -13,9 +13,9 @@ function submitForm(contactFormInputs, form, formSubmit) {
             });
         }
 
-        const MODAL_BASICS = confirmFormSubmit(form, formSubmit);
-        updateModalsClose(MODAL_BASICS);
-        return MODAL_BASICS;
+        const modalBasics = confirmFormSubmit(form, formSubmit);
+        updateModalsClose(modalBasics);
+        return modalBasics;
     }
 
     Object.keys(isFormValid).forEach(key => {

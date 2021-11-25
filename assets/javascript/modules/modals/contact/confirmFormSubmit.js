@@ -11,8 +11,8 @@ function confirmFormSubmit(form, formSubmit) {
     formSubmit.innerText = 'Fermer';
     formSubmit.classList.add('close-button');
 
-    const { MODAL_BASICS, ignored, _ignored } = loadConstants('photographer');
-    return MODAL_BASICS;
+    const { modalBasics, ignored, _ignored } = loadConstants('photographer');
+    return modalBasics;
 }
 
 export default confirmFormSubmit;

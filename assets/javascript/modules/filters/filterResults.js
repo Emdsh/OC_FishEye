@@ -2,14 +2,14 @@ import toggleChecked from './toggleChecked.js';
 import filterResultsHomepage from './filterResultsHomepage.js';
 import filterResultsPhotographerPage from './filterResultsPhotographerPage.js';
 
-function filterResults(filter, PATH, FILTERS) {
-    const reset = toggleChecked(filter, FILTERS);
+function filterResults(filter, path, filters) {
+    const reset = toggleChecked(filter, filters);
 
-    if (PATH === '/OC_FishEye/') {
+    if (path === '/OC_FishEye/') {
         filterResultsHomepage(filter, reset);
     }
 
-    if (PATH === '/OC_FishEye/photographer/') {
+    if (path === '/OC_FishEye/photographer/') {
         filterResultsPhotographerPage(filter, reset);
     }
 }

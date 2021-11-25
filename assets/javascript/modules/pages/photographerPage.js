@@ -11,26 +11,26 @@ import submitForm from '../modals/contact/submitForm.js';
 
 import fillLightbox from '../modals/lightbox/fillLightbox.js';
 
-function updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS) {
+function updatePortfolio(modalBasics, sorter, likesButtons) {
     // sort by menu
-    ({ MODAL_BASICS, SORTER, LIKES_BUTTONS } = sortResults(SORTER.value));
+    ({ modalBasics, sorter, likesButtons } = sortResults(sorter.value));
 
     //lightbox modal open
-    MODAL_BASICS.lightbox.openButtons.forEach((btn) => {
+    modalBasics.lightbox.openButtons.forEach((btn) => {
         btn.addEventListener('click', () => { 
-            openModal(MODAL_BASICS.lightbox.background);
-            fillLightbox(btn, MODAL_BASICS);
+            openModal(modalBasics.lightbox.background);
+            fillLightbox(btn, modalBasics);
         });
         btn.addEventListener('keydown', event => {
             if (event.key === 'Enter') {
-                openModal(MODAL_BASICS.lightbox.background);
-                fillLightbox(btn, MODAL_BASICS);
+                openModal(modalBasics.lightbox.background);
+                fillLightbox(btn, modalBasics);
             }
         });
     });
 
     // likes 
-    LIKES_BUTTONS.forEach(btn =>{
+    likesButtons.forEach(btn =>{
         btn.addEventListener('click', () => {
             toggleLike(btn);
         });
@@ -41,54 +41,54 @@ function updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS) {
         });
     });
 
-    return { MODAL_BASICS, SORTER, LIKES_BUTTONS };
+    return { modalBasics, sorter, likesButtons };
 }
 
-export function updateModalsClose(MODAL_BASICS) {
+export function updateModalsClose(modalBasics) {
     // modals close
-    MODAL_BASICS.general.closeButtons.forEach((btn) => { 
+    modalBasics.general.closeButtons.forEach((btn) => { 
         btn.addEventListener('click', () => { 
-            closeModal(MODAL_BASICS.contact.background, MODAL_BASICS.lightbox.background); 
+            closeModal(modalBasics.contact.background, modalBasics.lightbox.background); 
         });
         btn.addEventListener('keydown', event => {
             if (event.key === 'Enter') {
-                closeModal(MODAL_BASICS.contact.background, MODAL_BASICS.lightbox.background);
+                closeModal(modalBasics.contact.background, modalBasics.lightbox.background);
             }
         });
     });
 }
 
-function photographerPage(MODAL_BASICS, CONTACT_MODAL, SORTER, LIKES_BUTTONS) {
-    ({ MODAL_BASICS, SORTER, LIKES_BUTTONS } = updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS));
+function photographerPage(modalBasics, contactModal, sorter, likesButtons) {
+    ({ modalBasics, sorter, likesButtons } = updatePortfolio(modalBasics, sorter, likesButtons));
 
     // sort by menu
-    SORTER.addEventListener('input', () => {
-        ({ MODAL_BASICS, SORTER, LIKES_BUTTONS } = updatePortfolio(MODAL_BASICS, SORTER, LIKES_BUTTONS));
+    sorter.addEventListener('input', () => {
+        ({ modalBasics, sorter, likesButtons } = updatePortfolio(modalBasics, sorter, likesButtons));
     });
     
-    updateModalsClose(MODAL_BASICS);
+    updateModalsClose(modalBasics);
 
     // contact modal open
-    MODAL_BASICS.contact.openButton.addEventListener('click', () => { 
-        openModal(MODAL_BASICS.contact.background); 
+    modalBasics.contact.openButton.addEventListener('click', () => { 
+        openModal(modalBasics.contact.background); 
     });
     
     // contact modal validation
-    if (CONTACT_MODAL.form) {
-        CONTACT_MODAL.inputs.all.forEach((input) => {
+    if (contactModal.form) {
+        contactModal.inputs.all.forEach((input) => {
             input.addEventListener('focusout', () => { 
                 focusOutInputCheck(input); 
             });
         });
     
         ['keyup', 'keydown'].forEach(event => {
-            CONTACT_MODAL.inputs.message.addEventListener(event, () => { 
-                textCounter(CONTACT_MODAL.inputs.message); 
+            contactModal.inputs.message.addEventListener(event, () => { 
+                textCounter(contactModal.inputs.message); 
             });
         });
     
-        CONTACT_MODAL.submit.button.addEventListener('click', () => { 
-            MODAL_BASICS = submitForm(CONTACT_MODAL.inputs.all, CONTACT_MODAL.form, CONTACT_MODAL.submit.button);
+        contactModal.submit.button.addEventListener('click', () => { 
+            modalBasics = submitForm(contactModal.inputs.all, contactModal.form, contactModal.submit.button);
         });
     }
 }

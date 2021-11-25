@@ -1,7 +1,7 @@
-function getLightboxData(MODAL_BASICS) {
+function getLightboxData(modalBasics) {
     const LIGHTBOX_DATA = []
 
-    MODAL_BASICS.lightbox.openButtons.forEach(element => {
+    modalBasics.lightbox.openButtons.forEach(element => {
         const MEDIA = element.cloneNode(false);
         MEDIA.className = 'lightbox__media';
 
