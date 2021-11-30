@@ -22,44 +22,47 @@ let { ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = loadCon
 const path = location.pathname.replace('index.html','');
 
 // fetch data from the API
-const photographers = await buildPhotographer();
+const photographers = buildPhotographer();
 
-// generate pages
-if (path === '/') {
-    ({ ARIA, filters } = generateHomepage(photographers));
-}
+photographers.then(photographers => {
 
-if (path === '/photographer/') {
-    ({ ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = generatePhotographerPage(photographers));
-    photographerPage(modalBasics, contactModal, sorter, likesButtons);
-}
-
-// anchor
-anchor();
-
-// filter tags
-// when user click on a filter
-filters.forEach(filter => {
-    filter.addEventListener('click', () => {
-        filterResults(filter.getAttribute('name'), path, filters);
+    // generate pages
+    if (path === '/') {
+        ({ ARIA, filters } = generateHomepage(photographers));
+    }
+    
+    if (path === '/photographer/') {
+        ({ ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = generatePhotographerPage(photographers));
+        photographerPage(modalBasics, contactModal, sorter, likesButtons);
+    }
+    
+    // anchor
+    anchor();
+    
+    // filter tags
+    // when user click on a filter
+    filters.forEach(filter => {
+        filter.addEventListener('click', () => {
+            filterResults(filter.getAttribute('name'), path, filters);
+        });
     });
-});
-
-// general ARIA
-// when the user lands on filter going back up the document
-ARIA.filters.forEach(filter => {
-    filter.addEventListener('keyup', event => {
-        if (event.shiftKey && event.key === 'Tab') {
-            focusSkipLink(filter, event);
-        }
+    
+    // general ARIA
+    // when the user lands on filter going back up the document
+    ARIA.filters.forEach(filter => {
+        filter.addEventListener('keyup', event => {
+            if (event.shiftKey && event.key === 'Tab') {
+                focusSkipLink(filter, event);
+            }
+        });
     });
-});
-
-// when the user uses a skip link
-ARIA.skipLinks.forEach(link => {
-    link.addEventListener('keydown', event => {
-        if (event.key === 'Enter') {
-            focusSkipLinkTarget(link, event);
-        }
+    
+    // when the user uses a skip link
+    ARIA.skipLinks.forEach(link => {
+        link.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+                focusSkipLinkTarget(link, event);
+            }
+        });
     });
 });
