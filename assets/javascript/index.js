@@ -22,45 +22,47 @@ let { ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = loadCon
 const path = location.pathname.replace('index.html','');
 
 // fetch data from the API
+const photographers = buildPhotographer();
 
-const PHOTOGRAPHERS = await buildPhotographer(path);
+photographers.then(photographers => {
 
-// generate pages
-if (path === '/BaptisteLizot_5_07902021_pre10112021/') {
-    ({ ARIA, filters } = generateHomepage(PHOTOGRAPHERS));
-}
+    // generate pages
+    if (path === '/BaptisteLizot_5_07902021_pre10112021/') {
+        ({ ARIA, filters } = generateHomepage(photographers));
+    }
 
-if (path === '/BaptisteLizot_5_07902021_pre10112021/photographer/') {
-    ({ ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = generatePhotographerPage(PHOTOGRAPHERS));
-    photographerPage(modalBasics, contactModal, sorter, likesButtons);
-}
+    if (path === '/BaptisteLizot_5_07902021_pre10112021/photographer/') {
+        ({ ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = generatePhotographerPage(photographers));
+        photographerPage(modalBasics, contactModal, sorter, likesButtons);
+    }
 
-// anchor
-anchor();
+    // anchor
+    anchor();
 
-// filter tags
-// when user click on a filter
-filters.forEach(filter => {
-    filter.addEventListener('click', () => {
+    // filter tags
+    // when user click on a filter
+    filters.forEach(filter => {
+        filter.addEventListener('click', () => {
         filterResults(filter.getAttribute('name'), path, filters);
+        });
     });
-});
-
-// general ARIA
-// when the user lands on filter going back up the document
-ARIA.filters.forEach(filter => {
-    filter.addEventListener('keyup', event => {
-        if (event.shiftKey && event.key === 'Tab') {
-            focusSkipLink(filter, event);
-        }
+    
+    // general ARIA
+    // when the user lands on filter going back up the document
+    ARIA.filters.forEach(filter => {
+        filter.addEventListener('keyup', event => {
+            if (event.shiftKey && event.key === 'Tab') {
+                focusSkipLink(filter, event);
+            }
+        });
     });
-});
-
-// when the user uses a skip link
-ARIA.skipLinks.forEach(link => {
-    link.addEventListener('keydown', event => {
-        if (event.key === 'Enter') {
-            focusSkipLinkTarget(link, event);
-        }
+    
+    // when the user uses a skip link
+    ARIA.skipLinks.forEach(link => {
+        link.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+                focusSkipLinkTarget(link, event);
+            }
+        });
     });
 });

@@ -1,5 +1,3 @@
-import loadConstants from '../../../utils/loadConstants.js';
-
 // if the form is submitted
 function confirmFormSubmit(form, formSubmit) {
     const formTitle = document.getElementById('js-contact-title');
@@ -13,9 +11,6 @@ function confirmFormSubmit(form, formSubmit) {
     formTitle.innerText = 'Merci de votre email!';
     formSubmit.innerText = 'Fermer';
     formSubmit.classList.add('close-button');
-
-    const { modalBasics, contactModal, sorter, likesButtons } = loadConstants('photographer');
-    return { modalBasics, contactModal, sorter, likesButtons };
 }
 
 export default confirmFormSubmit;

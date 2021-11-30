@@ -4,8 +4,20 @@ function preventDefault(event) {
 
 function keyDownPreventDefault(event) {
     const key = event.key;
-    if (key === ' ' || key === 'ArrowDown' || key === 'ArrowUp') {
+    if (key === 'ArrowDown' || key === 'ArrowUp') {
         preventDefault(event);
+    }
+
+    if (key === ' ') {
+        const conctactFormInputs = document.querySelectorAll('.contact-form__text-input');
+        let i = 0;
+        conctactFormInputs.forEach(input => {
+            if (input === document.activeElement) { return; }
+            i += 1;
+            if (i === conctactFormInputs.length) {
+                preventDefault(event);
+            }
+        })
     }
 }
 
