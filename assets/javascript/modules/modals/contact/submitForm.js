@@ -1,7 +1,6 @@
 import submitInputCheck from './submitInputCheck.js';
 import errorMessage from './errorMessage.js';
 import confirmFormSubmit from './confirmFormSubmit.js';
-import { updateModalsClose } from '../../pages/photographerPage.js';
 
 // when the submit button is pressed
 function submitForm(contactFormInputs, form, formSubmit) {
@@ -17,9 +16,7 @@ function submitForm(contactFormInputs, form, formSubmit) {
             });
         }
 
-        const { modalBasics, contactModal, sorter, likesButtons } = confirmFormSubmit(form, formSubmit);
-        updateModalsClose(modalBasics);
-        return { modalBasics, contactModal, sorter, likesButtons };
+        confirmFormSubmit(form, formSubmit);
     }
 
     // if form invalid, add error messages where needed

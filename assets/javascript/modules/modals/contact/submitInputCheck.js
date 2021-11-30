@@ -2,6 +2,8 @@ import { regexConst } from '../../../utils/regexConst.js';
 
 // checks the validity of the form
 function submitInputCheck(contactFormInputs) {
+    if (contactFormInputs.length === 0) { return false; }
+
     const isFormValid = {
         firstName: {
             valid: regexConst.nameRegex.test(contactFormInputs[0].value),

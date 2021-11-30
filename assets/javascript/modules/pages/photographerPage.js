@@ -10,6 +10,7 @@ import textCounter from '../modals/contact/textCounter.js';
 import submitForm from '../modals/contact/submitForm.js';
 
 import fillLightbox from '../modals/lightbox/fillLightbox.js';
+import loadConstants from '../../utils/loadConstants.js';
 
 // update the various event listeners that are deleted/modified when the page is updated
 function updatePortfolio(modalBasics, contactModal, sorter, likesButtons) {
@@ -93,7 +94,9 @@ function photographerPage(modalBasics, contactModal, sorter, likesButtons) {
     
         // when submitting contact modal
         contactModal.submit.button.addEventListener('click', () => { 
-            ({ modalBasics, contactModal, sorter, likesButtons } = submitForm(contactModal.inputs.all, contactModal.form, contactModal.submit.button));
+            submitForm(contactModal.inputs.all, contactModal.form, contactModal.submit.button);
+            ({ modalBasics, contactModal, sorter, likesButtons } = loadConstants('photographer'));
+            updateModalsClose(modalBasics);
         });
     }
 }
