@@ -9,7 +9,7 @@ async function buildPhotographer(path) {
     const photographers = [];
 
     // create photographer objects from the API
-    api.photographers.forEach(photographer => photographers.push(new Photographer(photographer, api.media)));
+    await api.photographers.forEach(photographer => photographers.push(new Photographer(photographer, api.media)));
     
     return photographers;
 }
