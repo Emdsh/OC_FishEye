@@ -22,7 +22,7 @@ let { ARIA, filters, modalBasics, contactModal, sorter, likesButtons } = loadCon
 const path = location.pathname.replace('index.html','');
 
 // fetch data from the API
-const photographers = buildPhotographer();
+const photographers = buildPhotographer(path);
 
 photographers.then(photographers => {
 
