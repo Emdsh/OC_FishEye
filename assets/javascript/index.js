@@ -25,7 +25,6 @@ const path = location.pathname.replace('index.html','');
 const photographers = buildPhotographer();
 
 photographers.then(photographers => {
-
     // generate pages
     if (path === '/') {
         ({ ARIA, filters } = generateHomepage(photographers));
