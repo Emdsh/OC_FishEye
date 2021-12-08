@@ -1,11 +1,6 @@
 // get the data out of the API
-<<<<<<< HEAD
 async function getPhotographers(PATH) {
     if (PATH === '/OC_FishEye/') {
-=======
-async function getPhotographers(path) {
-    if (path === '/BaptisteLizot_5_07902021_pre10112021/') {
->>>>>>> main
         try {
             const response = await fetch('./assets/api/api.json', {
                 headers: {
@@ -20,11 +15,7 @@ async function getPhotographers(path) {
         }
     }
 
-<<<<<<< HEAD
     if (PATH === '/OC_FishEye/photographer/') {
-=======
-    if (path === '/BaptisteLizot_5_07902021_pre10112021/photographer/') {
->>>>>>> main
         try {
             const response = await fetch('../assets/api/api.json', {
                 headers: {
